@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useQuery } from '@tanstack/react-query';
 import cx from 'classnames';
 import { Badge } from 'types/BadgesProps';
 
@@ -11,7 +12,7 @@ import { TopCard } from 'components/TopCard';
 
 import { useToast } from 'contexts/Toast';
 
-import { getBadges } from 'services/get/badges';
+import { getBadges, getBadgesSearch } from 'services/get/badges';
 
 export function Homepage() {
   const navigate = useNavigate();
@@ -21,70 +22,87 @@ export function Homepage() {
   const [badgesFiltered, setBadgesFiltered] = useState<Badge[]>([]);
   const [badges, setBadges] = useState<Badge[]>([]);
   const [selectButton, setSelectButton] = useState('mais-raros');
-  const [loading, setLoading] = useState(true);
+  const [limit, setLimit] = useState(50);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function badges() {
-      try {
-        setLoading(true);
-        const { data } = await getBadges();
+    async function loadBadges() {
+      if (selectButton === 'mais-raros') {
+        setIsLoading(true);
+        try {
+          const { data } = await getBadges(limit, 1, 'asc');
 
-        setBadges(data.badges);
-
-        setLoading(false);
-      } catch (error) {
-        toast.error('Erro ao carregar badges', {
-          id: 'error',
-        });
-      } finally {
-        setLoading(false);
+          setBadges(data.results);
+        } catch (error) {
+          toast.error('Error loading badges');
+        } finally {
+          setIsLoading(false);
+        }
       }
     }
+    loadBadges();
 
-    badges();
-  }, [toast]);
+    async function loadBadgesMaisResgates() {
+      if (selectButton === 'mais-resgatados') {
+        setIsLoading(true);
+        try {
+          const { data } = await getBadges(limit, 1, 'desc');
 
-  function searchBadgesByCode(code: string) {
-    const badgesFiltered = badges.filter(
-      (badge) =>
-        badge.code.toLowerCase().includes(code.toLowerCase()) ||
-        badge.name.toLowerCase().includes(code.toLowerCase()) ||
-        badge.description.toLowerCase().includes(code.toLowerCase()),
-    );
-
-    setBadgesFiltered(badgesFiltered);
-
-    if (code === '') {
-      setBadgesFiltered(badges);
+          setBadges(data.results);
+        } catch (error) {
+          toast.error('Error loading badges');
+        } finally {
+          setIsLoading(false);
+        }
+      }
     }
+    loadBadgesMaisResgates();
+
+    async function loadBadgesMaisRecentes() {
+      if (selectButton === 'mais-recentes') {
+        setIsLoading(true);
+
+        try {
+          const { data } = await getBadges(limit, 1, 'recent');
+
+          setBadges(data.results);
+        } catch (error) {
+          toast.error('Error loading badges');
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    }
+    loadBadgesMaisRecentes();
+  }, [selectButton, limit, toast]);
+
+  useQuery(['search', searchBadge], () => getBadgesSearch(searchBadge), {
+    onSuccess: (data) => {
+      setBadgesFiltered(data.data);
+    },
+    onError: () => {
+      toast.error('Badges not found');
+    },
+    staleTime: 100000,
+  });
+
+  function loadMoreBadges() {
+    setLimit(limit + 50);
   }
 
   function handleSelectedMaisRaros() {
     setSelectButton('mais-raros');
-
-    const badgesFiltered = badges.sort((a, b) => a.count - b.count);
-
-    setBadges(badgesFiltered);
+    navigate('/mais-raros');
   }
 
   function handleSelectedMaisResgatados() {
     setSelectButton('mais-resgatados');
-    const badgesFiltered = badges.sort((a, b) => b.count - a.count);
-
-    setBadges(badgesFiltered);
+    navigate('/mais-resgatados');
   }
 
   function handleSelectedMaisRecentes() {
     setSelectButton('mais-recentes');
-
-    const badgesFiltered = badges.sort((a, b) => {
-      const dateA = new Date(a.created_at);
-      const dateB = new Date(b.created_at);
-
-      return dateB.getTime() - dateA.getTime();
-    });
-
-    setBadges(badgesFiltered);
+    navigate('/mais-recentes');
   }
 
   return (
@@ -136,13 +154,12 @@ export function Homepage() {
             value={searchBadge}
             onChange={(e) => {
               setSearchBadge(e.target.value);
-              searchBadgesByCode(e.target.value);
             }}
             className="bg-primary text-white h-16 w-80 rounded-md px-4 outline-none  focus:border hover:border border-nv sm:w-80"
           />
         </div>
 
-        {loading ? (
+        {isLoading ? (
           <>
             {Array.from({ length: 10 }).map((_, index) => (
               <>
@@ -255,13 +272,13 @@ export function Homepage() {
               </>
             )}
 
-            {badgesFiltered.length === 0 && searchBadge !== '' && (
+            {badgesFiltered?.length === 0 && searchBadge !== '' && (
               <h1 className="text-white text-2xl font-bold mt-4 mb-4">
                 Nenhum resultado encontrado para "{searchBadge}"
               </h1>
             )}
 
-            {badgesFiltered.length > 0 && searchBadge !== '' && (
+            {badgesFiltered?.length > 0 && searchBadge !== '' && (
               <>
                 <h1 className="text-white text-2xl font-bold mt-4 mb-4">
                   Resultados para "{searchBadge}"
@@ -284,6 +301,15 @@ export function Homepage() {
                 </div>
               </>
             )}
+
+            <button
+              className="bg-primary text-white w-80 h-16 flex items-center justify-center rounded-md md:w-40 hover:bg-nv"
+              onClick={() => {
+                loadMoreBadges();
+              }}
+            >
+              Carregar mais
+            </button>
           </>
         )}
       </div>
