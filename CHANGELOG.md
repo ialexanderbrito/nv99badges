@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.0.0...v1.0.1) (2022-10-25)
+
+
+### Bug Fixes
+
+* responsive website ([3003159](https://github.com/ialexanderbrito/nv99badges/commit/30031594e887e2de60a56e7269cae616eb44c62a))
+
 # 1.0.0 (2022-10-25)
 
 
