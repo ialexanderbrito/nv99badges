@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.2.1...v1.3.0) (2022-10-25)
+
+
+### Features
+
+* add react-helmet ([0f4f30a](https://github.com/ialexanderbrito/nv99badges/commit/0f4f30a9efd24199ba1d858a1bec7abe73bcaee9))
+* add title page badge and home ([e1866bb](https://github.com/ialexanderbrito/nv99badges/commit/e1866bbf2553b84c10f863a24e7ebbc226c26ba8))
+
 ## [1.2.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.2.0...v1.2.1) (2022-10-25)
 
 
