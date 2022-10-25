@@ -1,3 +1,19 @@
+# [1.2.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.1.0...v1.2.0) (2022-10-25)
+
+
+### Bug Fixes
+
+* env example ([6a46fd7](https://github.com/ialexanderbrito/nv99badges/commit/6a46fd71a4a918faba3a241b79eb034fac3b9511))
+* homepage react-query and refactor ([8d0f44f](https://github.com/ialexanderbrito/nv99badges/commit/8d0f44face3bfdefa66bca13e382fe0fa8e4baeb))
+* open image new tab ([83c8f9e](https://github.com/ialexanderbrito/nv99badges/commit/83c8f9e294930266a14ddee89c6f026104a63b5f))
+
+
+### Features
+
+* add badge page ([f634490](https://github.com/ialexanderbrito/nv99badges/commit/f6344906b3322bd35eaa32b95d693d2f554a40a3))
+* add new api ([5e6919b](https://github.com/ialexanderbrito/nv99badges/commit/5e6919b96f0077a3c3b3241456f5954ab9d1e65d))
+* add new routes ([e93ab50](https://github.com/ialexanderbrito/nv99badges/commit/e93ab504b968a11ecaa3086db4d9f45045f90fb0))
+
 # [1.1.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.0.1...v1.1.0) (2022-10-25)
 
 
