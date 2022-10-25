@@ -109,7 +109,7 @@ export function Homepage() {
   return (
     <>
       <Helmet>
-        <title>NV99 Badge </title>
+        <title>NV99 Badge</title>
       </Helmet>
 
       <div className="bg-dark w-full items-center flex flex-col">
@@ -168,7 +168,7 @@ export function Homepage() {
           <>
             {Array.from({ length: 10 }).map((_, index) => (
               <>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                   <CardSkeleton key={index} />
                   <CardSkeleton key={index} />
                   <CardSkeleton key={index} />
