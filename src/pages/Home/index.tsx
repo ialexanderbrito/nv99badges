@@ -76,9 +76,13 @@ export function Homepage() {
 
   function handleSelectedMaisRecentes() {
     setSelectButton('mais-recentes');
-    const badgesFiltered = badges.sort(
-      (a, b) => new Date(b.expires_at) - new Date(a.expires_at),
-    );
+
+    const badgesFiltered = badges.sort((a, b) => {
+      const dateA = new Date(a.created_at);
+      const dateB = new Date(b.created_at);
+
+      return dateB.getTime() - dateA.getTime();
+    });
 
     setBadges(badgesFiltered);
   }
