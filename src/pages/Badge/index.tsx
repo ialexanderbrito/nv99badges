@@ -48,7 +48,7 @@ export function Badge() {
             <CardSkeleton />
           </div>
         ) : (
-          <div className="mt-16 flex flex-col">
+          <div className="mt-16 flex flex-col items-center">
             <Tilt
               glareEnable={true}
               glareMaxOpacity={0.1}
