@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.2.0...v1.2.1) (2022-10-25)
+
+
+### Bug Fixes
+
+* gitignore ([5e42a03](https://github.com/ialexanderbrito/nv99badges/commit/5e42a03ec3b205e6d3efed1933e200d9b1795865))
+
 # [1.2.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.1.0...v1.2.0) (2022-10-25)
 
 
