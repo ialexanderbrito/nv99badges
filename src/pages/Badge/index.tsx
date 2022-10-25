@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { BiLinkExternal } from 'react-icons/bi';
 import Tilt from 'react-parallax-tilt';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -40,6 +41,9 @@ export function Badge() {
 
   return (
     <>
+      <Helmet>
+        <title>NV99 Badge | {badge?.code || ''}</title>
+      </Helmet>
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
 

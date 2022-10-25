@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
@@ -107,6 +108,10 @@ export function Homepage() {
 
   return (
     <>
+      <Helmet>
+        <title>NV99 Badge </title>
+      </Helmet>
+
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
 
@@ -188,10 +193,6 @@ export function Homepage() {
                         badge={badge}
                         index={index}
                         onClick={() => {
-                          localStorage.setItem(
-                            '@nv99:badge',
-                            JSON.stringify(badge),
-                          );
                           navigate(`/badge/${badge.code}`);
                         }}
                       />
@@ -210,10 +211,6 @@ export function Homepage() {
                         badge={badge}
                         key={badge.badge_id}
                         onClick={() => {
-                          localStorage.setItem(
-                            '@nv99:badge',
-                            JSON.stringify(badge),
-                          );
                           navigate(`/badge/${badge.code}`);
                         }}
                       />
@@ -237,10 +234,6 @@ export function Homepage() {
                           badge={badge}
                           key={badge.badge_id}
                           onClick={() => {
-                            localStorage.setItem(
-                              '@nv99:badge',
-                              JSON.stringify(badge),
-                            );
                             navigate(`/badge/${badge.code}`);
                           }}
                         />
@@ -260,10 +253,6 @@ export function Homepage() {
                       badge={badge}
                       key={badge.badge_id}
                       onClick={() => {
-                        localStorage.setItem(
-                          '@nv99:badge',
-                          JSON.stringify(badge),
-                        );
                         navigate(`/badge/${badge.code}`);
                       }}
                     />
@@ -290,10 +279,6 @@ export function Homepage() {
                       badge={badge}
                       key={badge.badge_id}
                       onClick={() => {
-                        localStorage.setItem(
-                          '@nv99:badge',
-                          JSON.stringify(badge),
-                        );
                         navigate(`/badge/${badge.code}`);
                       }}
                     />
