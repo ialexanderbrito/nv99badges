@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.0.1...v1.1.0) (2022-10-25)
+
+
+### Features
+
+* add config react-query ([0cf8d52](https://github.com/ialexanderbrito/nv99badges/commit/0cf8d5237d707288e6abdc23416aa36958f55854))
+* add page not found ([7297492](https://github.com/ialexanderbrito/nv99badges/commit/7297492b2487c40b0dd2d60579c27bd03fe1b490))
+* add react-query ([14c0832](https://github.com/ialexanderbrito/nv99badges/commit/14c0832f001f84da1e592630a3a900a4fd5970fa))
+
 ## [1.0.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.0.0...v1.0.1) (2022-10-25)
 
 
