@@ -92,11 +92,11 @@ export function Homepage() {
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
 
-        <div className="w-[900px] h-20 flex items-center justify-evenly mt-16">
+        <div className="w-full justify-around items-center flex flex-col h-72 md:flex-row md:w-[900px] ">
           <button
             type="button"
             className={cx(
-              'bg-primary text-white w-40 h-16 flex items-center justify-center rounded-md',
+              'bg-primary text-white w-80 h-16 flex items-center justify-center rounded-md md:w-40',
               {
                 'text-nv border border-nv': selectButton === 'mais-raros',
               },
@@ -108,7 +108,7 @@ export function Homepage() {
           <button
             type="button"
             className={cx(
-              'bg-primary text-white w-40 h-16 flex items-center justify-center rounded-md',
+              'bg-primary text-white w-80 h-16 flex items-center justify-center rounded-md md:w-40',
               {
                 'text-nv  border border-nv': selectButton === 'mais-resgatados',
               },
@@ -120,7 +120,7 @@ export function Homepage() {
           <button
             type="button"
             className={cx(
-              'bg-primary text-white w-40 h-16 flex items-center justify-center rounded-md',
+              'bg-primary text-white w-80 h-16 flex items-center justify-center rounded-md md:w-40',
               {
                 'text-nv  border border-nv': selectButton === 'mais-recentes',
               },
@@ -138,7 +138,7 @@ export function Homepage() {
               setSearchBadge(e.target.value);
               searchBadgesByCode(e.target.value);
             }}
-            className="bg-primary text-white h-16 w-80 rounded-md px-4 outline-none  focus:border hover:border border-nv"
+            className="bg-primary text-white h-16 w-80 rounded-md px-4 outline-none  focus:border hover:border border-nv sm:w-80"
           />
         </div>
 
@@ -161,7 +161,7 @@ export function Homepage() {
                 <h1 className="text-white text-2xl font-bold mt-4 mb-4">
                   🏆 Top 3 🏆
                 </h1>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                   {badges
                     .sort((a, b) => a.count - b.count)
                     .slice(0, 3)
@@ -170,7 +170,13 @@ export function Homepage() {
                         key={index}
                         badge={badge}
                         index={index}
-                        onClick={() => navigate(`/badge/${badge.code}`)}
+                        onClick={() => {
+                          localStorage.setItem(
+                            '@nv99:badge',
+                            JSON.stringify(badge),
+                          );
+                          navigate(`/badge/${badge.code}`);
+                        }}
                       />
                     ))}
                 </div>
@@ -178,7 +184,7 @@ export function Homepage() {
                 <h1 className="text-white text-2xl font-bold mt-4 mb-4">
                   Todos os emblemas
                 </h1>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                   {badges
                     .sort((a, b) => a.count - b.count)
                     .slice(3)
@@ -186,7 +192,13 @@ export function Homepage() {
                       <Card
                         badge={badge}
                         key={badge.badge_id}
-                        onClick={() => navigate(`/badge/${badge.code}`)}
+                        onClick={() => {
+                          localStorage.setItem(
+                            '@nv99:badge',
+                            JSON.stringify(badge),
+                          );
+                          navigate(`/badge/${badge.code}`);
+                        }}
                       />
                     ))}
                 </div>
@@ -200,14 +212,20 @@ export function Homepage() {
                   <h1 className="text-white text-2xl font-bold mt-4 mb-4">
                     Emblemas mais resgatados
                   </h1>
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                     {badges
                       .sort((a, b) => b.count - a.count)
                       .map((badge) => (
                         <Card
                           badge={badge}
                           key={badge.badge_id}
-                          onClick={() => navigate(`/badge/${badge.code}`)}
+                          onClick={() => {
+                            localStorage.setItem(
+                              '@nv99:badge',
+                              JSON.stringify(badge),
+                            );
+                            navigate(`/badge/${badge.code}`);
+                          }}
                         />
                       ))}
                   </div>
@@ -219,12 +237,18 @@ export function Homepage() {
                 <h1 className="text-white text-2xl font-bold mt-4 mb-4">
                   Emblemas mais recentes
                 </h1>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                   {badges.map((badge) => (
                     <Card
                       badge={badge}
                       key={badge.badge_id}
-                      onClick={() => navigate(`/badge/${badge.code}`)}
+                      onClick={() => {
+                        localStorage.setItem(
+                          '@nv99:badge',
+                          JSON.stringify(badge),
+                        );
+                        navigate(`/badge/${badge.code}`);
+                      }}
                     />
                   ))}
                 </div>
@@ -243,12 +267,18 @@ export function Homepage() {
                   Resultados para "{searchBadge}"
                 </h1>
 
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                   {badgesFiltered.map((badge) => (
                     <Card
                       badge={badge}
                       key={badge.badge_id}
-                      onClick={() => navigate(`/badge/${badge.code}`)}
+                      onClick={() => {
+                        localStorage.setItem(
+                          '@nv99:badge',
+                          JSON.stringify(badge),
+                        );
+                        navigate(`/badge/${badge.code}`);
+                      }}
                     />
                   ))}
                 </div>
