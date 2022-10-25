@@ -39,14 +39,12 @@ export function Card(props: BadgeCard) {
         )}
         onClick={props.onClick}
       >
-        <a href={props.badge.high} target="_blank" rel="noreferrer">
-          <img
-            src={props.badge.high}
-            alt={props.badge.name}
-            className="h-64 w-64 rounded-md bg-nv"
-            loading="lazy"
-          />
-        </a>
+        <img
+          src={props.badge.high}
+          alt={props.badge.name}
+          className="h-64 w-64 rounded-md bg-nv"
+          loading="lazy"
+        />
         <div className="bg-primary w-full rounded-md mt-3">
           <div className="flex w-full mt-3 ml-3">
             <p className="text-white text-sm">Nome: {props.badge.name}</p>
