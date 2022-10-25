@@ -92,7 +92,7 @@ export function Homepage() {
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
 
-        <div className="w-full justify-around items-center flex flex-col h-72 md:flex-row md:w-[900px] ">
+        <div className="w-full justify-around mt-16 items-center flex flex-col h-72 md:flex-row md:w-[900px] md:mt-0 ">
           <button
             type="button"
             className={cx(
