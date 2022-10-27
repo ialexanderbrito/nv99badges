@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.3.0...v1.4.0) (2022-10-27)
+
+
+### Bug Fixes
+
+* header reloading ([b2f8e32](https://github.com/ialexanderbrito/nv99badges/commit/b2f8e32d93eda06d402a55b5a6b0c4191cbf6fa0))
+* loading search and spacing menu ([d1d0b75](https://github.com/ialexanderbrito/nv99badges/commit/d1d0b7583ddb1cb5a672ea1c616c620a6449d956))
+
+
+### Features
+
+* show and hide button carregar mais ([2c780ff](https://github.com/ialexanderbrito/nv99badges/commit/2c780ff5e75836ab8dcba00a364863d2e7756ff6))
+
 # [1.3.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.2.1...v1.3.0) (2022-10-25)
 
 
