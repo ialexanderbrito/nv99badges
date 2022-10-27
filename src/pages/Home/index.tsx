@@ -77,15 +77,19 @@ export function Homepage() {
     loadBadgesMaisRecentes();
   }, [selectButton, limit, toast]);
 
-  useQuery(['search', searchBadge], () => getBadgesSearch(searchBadge), {
-    onSuccess: (data) => {
-      setBadgesFiltered(data.data);
+  const { isLoading: isLoadingSearch } = useQuery(
+    ['search', searchBadge],
+    () => getBadgesSearch(searchBadge),
+    {
+      onSuccess: (data) => {
+        setBadgesFiltered(data.data);
+      },
+      onError: () => {
+        toast.error('Badges not found');
+      },
+      staleTime: 100000,
     },
-    onError: () => {
-      toast.error('Badges not found');
-    },
-    staleTime: 100000,
-  });
+  );
 
   function loadMoreBadges() {
     setLimit(limit + 50);
@@ -115,7 +119,7 @@ export function Homepage() {
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
 
-        <div className="w-full justify-around mt-16 items-center flex flex-col h-72 md:flex-row md:w-[900px] md:mt-0 ">
+        <div className="w-full justify-around mt-16 items-center flex flex-col  h-72 md:flex-row md:w-[900px] md:mt-0 md:h-48">
           <button
             type="button"
             className={cx(
@@ -164,8 +168,11 @@ export function Homepage() {
           />
         </div>
 
-        {isLoading ? (
+        {isLoading || isLoadingSearch ? (
           <>
+            <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+              Resultados para "{searchBadge}"
+            </h1>
             {Array.from({ length: 10 }).map((_, index) => (
               <>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -287,7 +294,7 @@ export function Homepage() {
               </>
             )}
 
-            {badgesFiltered?.length > 20 && (
+            {badgesFiltered?.length > 50 && (
               <button
                 className="bg-primary text-white w-96 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-96 hover:bg-nv"
                 onClick={() => {
