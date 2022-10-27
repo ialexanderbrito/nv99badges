@@ -287,14 +287,16 @@ export function Homepage() {
               </>
             )}
 
-            <button
-              className="bg-primary text-white w-80 h-16 flex items-center justify-center rounded-md md:w-40 hover:bg-nv"
-              onClick={() => {
-                loadMoreBadges();
-              }}
-            >
-              Carregar mais
-            </button>
+            {badgesFiltered?.length > 20 && (
+              <button
+                className="bg-primary text-white w-96 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-96 hover:bg-nv"
+                onClick={() => {
+                  loadMoreBadges();
+                }}
+              >
+                Carregar mais
+              </button>
+            )}
           </>
         )}
       </div>
