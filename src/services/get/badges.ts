@@ -23,10 +23,11 @@ export async function getBadgesSearch(search: string) {
 export async function getBadgesCreator(
   id: string,
   limit: number,
+  page: number,
   sort: string,
 ) {
   const { data, status } = await api.get(
-    `badges/creator/${id}?limit=${limit}&order=${sort}`,
+    `badges/creator/${id}?limit=${limit}&page=${page}&order=${sort}`,
   );
 
   return { data, status };
