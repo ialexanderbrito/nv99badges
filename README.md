@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="src/assets/logo.svg" width="250px" />
+  <img src="src/assets/logo.svg" width="90px" />
 </h1>
 <h4 align="center">
  <b>🎫 NV99 Badges</b>
