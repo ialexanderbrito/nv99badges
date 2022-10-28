@@ -1,25 +1,36 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { BiFilterAlt, BiSortAZ, BiSortZA } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
 import cx from 'classnames';
 import { Badge } from 'types/BadgesProps';
 
+import { ButtonTopPage } from 'components/ButtonTop';
 import { Card } from 'components/Card';
 import { CardSkeleton } from 'components/CardSkeleton';
 import { Header } from 'components/Header';
 import { TopCard } from 'components/TopCard';
 
+import { podcastNames } from 'utils/verifyPodcast';
+
 import { useToast } from 'contexts/Toast';
 
-import { getBadges, getBadgesSearch } from 'services/get/badges';
+import {
+  getBadges,
+  getBadgesCreator,
+  getBadgesSearch,
+} from 'services/get/badges';
 
 export function Homepage() {
   const navigate = useNavigate();
   const { toast } = useToast();
 
   const [searchBadge, setSearchBadge] = useState('');
+  const [podcast, setPodcast] = useState('');
+  const [filter, setFilter] = useState(false);
+  const [order, setOrder] = useState('desc');
   const [badgesFiltered, setBadgesFiltered] = useState<Badge[]>([]);
   const [badges, setBadges] = useState<Badge[]>([]);
   const [selectButton, setSelectButton] = useState('mais-raros');
@@ -75,7 +86,26 @@ export function Homepage() {
       }
     }
     loadBadgesMaisRecentes();
-  }, [selectButton, limit, toast]);
+
+    async function loadBadgesCreator() {
+      if (podcast !== '') {
+        setSelectButton('criador');
+
+        setIsLoading(true);
+        try {
+          const { data } = await getBadgesCreator(podcast, limit, order);
+
+          setBadges(data.results);
+        } catch (error) {
+          toast.error('Error loading badges');
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    }
+
+    loadBadgesCreator();
+  }, [selectButton, limit, toast, podcast, order]);
 
   const { isLoading: isLoadingSearch } = useQuery(
     ['search', searchBadge],
@@ -108,6 +138,14 @@ export function Homepage() {
   function handleSelectedMaisRecentes() {
     setSelectButton('mais-recentes');
     navigate('/mais-recentes');
+  }
+
+  function handleSelectedOrder() {
+    if (order === 'desc') {
+      setOrder('recent');
+    } else {
+      setOrder('desc');
+    }
   }
 
   return (
@@ -168,11 +206,57 @@ export function Homepage() {
           />
         </div>
 
+        <div className="flex gap-6 w-96 sm:w-3/4 md:w-[900px] ml-4">
+          <button
+            className="bg-primary gap-4 text-white w-96 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-96 hover:bg-nv"
+            onClick={() => {
+              setFilter(!filter);
+            }}
+          >
+            <BiFilterAlt />
+            Filtrar por podcast
+          </button>
+          <button
+            className="bg-primary gap-4 text-white w-20 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-20 hover:bg-nv disabled:cursor-not-allowed disabled:hover:bg-primary"
+            onClick={() => {
+              handleSelectedOrder();
+            }}
+            disabled={filter === false || podcast === ''}
+          >
+            {order === 'desc' ? (
+              <BiSortAZ className="text-2xl" />
+            ) : (
+              <BiSortZA className="text-2xl" />
+            )}
+          </button>
+        </div>
+
+        {filter && (
+          <div className="text-white grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
+            {podcastNames.map((pdc) => (
+              <label className="flex font-bold p-3">
+                <input
+                  type="radio"
+                  name="podcast"
+                  value={podcast}
+                  className="accent-nv mr-2"
+                  onClick={() => {
+                    setPodcast(pdc.id);
+                  }}
+                />
+                {pdc.name}
+              </label>
+            ))}
+          </div>
+        )}
+
         {isLoading || isLoadingSearch ? (
           <>
-            <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-              Resultados para "{searchBadge}"
-            </h1>
+            {searchBadge !== '' && (
+              <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+                Resultados para "{searchBadge}"
+              </h1>
+            )}
             {Array.from({ length: 10 }).map((_, index) => (
               <>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -268,6 +352,38 @@ export function Homepage() {
               </>
             )}
 
+            {badges && selectButton === 'criador' && searchBadge === '' && (
+              <>
+                <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+                  {order === 'desc'
+                    ? 'Emblemas mais antigos'
+                    : 'Emblemas mais recentes'}
+                </h1>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+                  {badges
+                    .sort((a, b) => {
+                      const dateA: any = new Date(a.created_at);
+                      const dateB: any = new Date(b.created_at);
+
+                      if (order === 'desc') {
+                        return dateA - dateB;
+                      } else {
+                        return dateB - dateA;
+                      }
+                    })
+                    .map((badge) => (
+                      <Card
+                        badge={badge}
+                        key={badge.badge_id}
+                        onClick={() => {
+                          navigate(`/badge/${badge.code}`);
+                        }}
+                      />
+                    ))}
+                </div>
+              </>
+            )}
+
             {badgesFiltered?.length === 0 && searchBadge !== '' && (
               <h1 className="text-white text-2xl font-bold mt-4 mb-4">
                 Nenhum resultado encontrado para "{searchBadge}"
@@ -294,7 +410,7 @@ export function Homepage() {
               </>
             )}
 
-            {badgesFiltered?.length > 50 && (
+            {(badgesFiltered?.length > 50 || badges.length > 50) && (
               <button
                 className="bg-primary text-white w-96 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-96 hover:bg-nv"
                 onClick={() => {
@@ -306,6 +422,8 @@ export function Homepage() {
             )}
           </>
         )}
+
+        <ButtonTopPage />
       </div>
     </>
   );
