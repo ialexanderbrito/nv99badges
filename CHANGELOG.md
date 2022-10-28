@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.4.0...v1.5.0) (2022-10-28)
+
+
+### Bug Fixes
+
+* header reloading ([40121b2](https://github.com/ialexanderbrito/nv99badges/commit/40121b2ab2bebb2d088802e90cb37bd33afb4271))
+
+
+### Features
+
+* add button scroll to top ([d4510c4](https://github.com/ialexanderbrito/nv99badges/commit/d4510c4f3c8a067592667dd9c92b5b142a9c59fa))
+* add filter by podcast ([1e15aa8](https://github.com/ialexanderbrito/nv99badges/commit/1e15aa8a1b2414ff7e93dd2b6e2f518162d758ac))
+* add new services api get by creator ([62040ac](https://github.com/ialexanderbrito/nv99badges/commit/62040ace57b979826e553d1d8a46c1335072401f))
+
 # [1.4.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.3.0...v1.4.0) (2022-10-27)
 
 
