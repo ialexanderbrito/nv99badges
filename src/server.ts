@@ -34,6 +34,16 @@ app.get('/badges', async (request, response) => {
       return b.count - a.count;
     });
 
+    const total = orderBy.length;
+
+    if (startIndex > badges.length) {
+      return response.status(404).json({ message: 'Badges not found' });
+    }
+
+    if(orderBy.length === 0) {
+      return response.status(404).json({ message: 'Badges not found' });
+    }
+
     const results: any = {};
 
     if (endIndex < badges.length) {
@@ -53,6 +63,8 @@ app.get('/badges', async (request, response) => {
     results.results = orderBy.slice(startIndex, endIndex);
 
     results.results = badges.slice(startIndex, endIndex);
+
+    results.total = total;
 
     return response.json(results);
 
@@ -106,9 +118,17 @@ app.get('/badges/creator/:id', async (request, response) => {
       }
 
       return b.count - a.count;
+    });
+
+    const total = creatorBadges.length;
+
+    if (startIndex > creatorBadges.length) {
+      return response.status(404).json({ message: 'Badges not found' });
     }
 
-    );
+    if (creatorBadges.length === 0) {
+      return response.status(404).json({ message: 'Badges not found' });
+    }
 
     const results: any = {};
 
@@ -128,6 +148,10 @@ app.get('/badges/creator/:id', async (request, response) => {
 
     results.results = orderBy.slice(startIndex, endIndex);
 
+    results.results = creatorBadges.slice(startIndex, endIndex);
+
+    results.total = total;
+
     return response.json(results);
 
   } catch (error) {
@@ -144,6 +168,7 @@ app.get('/badges/search', async (request, response) => {
     const badges = data.badges;
 
     const results = badges.filter((badge: any) => (badge.name.toLowerCase().includes(code?.toString().toLowerCase())) || (badge.code.toLowerCase().includes(code?.toString().toLowerCase())) || (badge.description.toLowerCase().includes(code?.toString().toLowerCase())));
+
 
     return response.json(results);
 
