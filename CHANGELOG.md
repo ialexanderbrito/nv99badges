@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.5.0...v1.6.0) (2022-10-28)
+
+
+### Features
+
+* add github link in header ([6602b09](https://github.com/ialexanderbrito/nv99badges/commit/6602b098ede5b1e88e4b92868b586883df0ef798))
+
 # [1.5.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.4.0...v1.5.0) (2022-10-28)
 
 
