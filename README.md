@@ -72,7 +72,7 @@ $ npm run dev ou yarn dev
 # O servidor inciará na porta:3000 - acesse http://localhost:3000
 ```
 
-### 🚚 Rotas API
+### 🚚 Rotas API | [Minha API](https://github.com/ialexanderbrito/nv99badges/tree/backend)
 `GET` `/badges/?limit={limit}&page={page}&order={order}` - Listar emblemas
 
 - Limit: Quantidade de badges por página, padrão 12;
