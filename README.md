@@ -1,3 +1,4 @@
+
 <h1 align="center">
   <img src="src/assets/logo.svg" width="90px" />
 </h1>
@@ -70,6 +71,27 @@ $ npm run dev ou yarn dev
 
 # O servidor inciará na porta:3000 - acesse http://localhost:3000
 ```
+
+### 🚚 Rotas API
+`GET` `/badges/?limit={limit}&page={page}&order={order}` - Listar emblemas
+
+- Limit: Quantidade de badges por página, padrão 12;
+- Page: Número de páginas;
+- Order: Ordenação da listagem, ex: asc, desc, recent.
+
+`GET` `/search/code={code}` - Buscar emblema por nome
+
+- Code: Nome do emblema ou descrição do emblema
+
+`GET` `/badge/:id` - Buscar informação do Emblema
+
+- Id: Id do emblema
+
+`GET` `/badges/creator/:id` - Lista emblemas do Podcast específico
+
+- Id: Id do podcast
+
+**API usada para buscar os dados -> [API FLOW](https://stickers-flow3r-2eqj3fl3la-ue.a.run.app/v1/badges)**
 
 ### :recycle: Como contribuir
 
