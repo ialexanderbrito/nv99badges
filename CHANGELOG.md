@@ -1,3 +1,19 @@
+# [1.7.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.6.0...v1.7.0) (2022-10-28)
+
+
+### Bug Fixes
+
+* add page service get badges creator ([e05f8fb](https://github.com/ialexanderbrito/nv99badges/commit/e05f8fb5492899ebd62dedeba4418c4dd741d0a8))
+* new routes ([f45a78e](https://github.com/ialexanderbrito/nv99badges/commit/f45a78e1f15e8a36cfa0c07386eaec25d8bdd727))
+
+
+### Features
+
+* add context badges ([c4a5ba2](https://github.com/ialexanderbrito/nv99badges/commit/c4a5ba28768240434feb0988b0dc31337f51ed75))
+* add new rules eslint ([ccfd4f6](https://github.com/ialexanderbrito/nv99badges/commit/ccfd4f623e2854681845aeba4564b40608739ac3))
+* add pages mais recentes and mais resgatados ([b70204a](https://github.com/ialexanderbrito/nv99badges/commit/b70204acc8600eafae5f53ce09a3267781dfbed3))
+* import provider badge ([0827640](https://github.com/ialexanderbrito/nv99badges/commit/0827640078a3235c9cb19fe842190a88f9141897))
+
 # [1.6.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.5.0...v1.6.0) (2022-10-28)
 
 
