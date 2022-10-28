@@ -9,7 +9,8 @@ export function Header() {
       top: 0,
       behavior: 'smooth',
     });
-    navigate(0);
+    navigate('/', { replace: true });
+    window.location.reload();
   }
 
   return (
