@@ -1,3 +1,16 @@
+# [1.8.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.7.0...v1.8.0) (2022-10-30)
+
+
+### Bug Fixes
+
+* remove env ([f933e52](https://github.com/ialexanderbrito/nv99badges/commit/f933e52f2269cbf7df08c571d1fff3d1a50fc051))
+
+
+### Features
+
+* add component filter ([3d77e83](https://github.com/ialexanderbrito/nv99badges/commit/3d77e8373620b641653a43cc7a9af4508f66b855))
+* add component menu ([6e767ac](https://github.com/ialexanderbrito/nv99badges/commit/6e767acb29d940cc7b495373e013b357fdb6f75c))
+
 # [1.7.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.6.0...v1.7.0) (2022-10-28)
 
 
