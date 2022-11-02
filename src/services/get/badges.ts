@@ -32,3 +32,21 @@ export async function getBadgesCreator(
 
   return { data, status };
 }
+export async function getUser(
+  username: string,
+  limit: number,
+  page: number,
+  sort: string,
+) {
+  const { data, status } = await api.get(
+    `user/${username}?limit=${limit}&page=${page}&order=${sort}`,
+  );
+
+  return { data, status };
+}
+
+export async function getTotalBadgesUser(username: string) {
+  const { data, status } = await api.get(`badge/count/${username}`);
+
+  return { data, status };
+}
