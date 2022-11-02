@@ -1,4 +1,3 @@
-import { SiGithub } from 'react-icons/si';
 import { Link, useNavigate } from 'react-router-dom';
 
 import logo from 'assets/logo.svg';
@@ -16,25 +15,16 @@ export function Header() {
 
   return (
     <header className="bg-primary/90 w-full h-12 flex items-center justify-center fixed top-0 backdrop-blur-2xl ">
-      <Link
-        to="/"
-        onClick={() => {
-          scrollToTop();
-        }}
-        className="w-full flex items-center justify-center"
-      >
-        <img src={logo} alt="Logo NV99" className="w-9 h-9" />
+      <Link to="/" className="flex items-center justify-center">
+        <img
+          src={logo}
+          alt="Logo NV99"
+          className="w-7 h-7"
+          onClick={() => {
+            scrollToTop();
+          }}
+        />
       </Link>
-
-      <div className="mr-12">
-        <a
-          href="https://www.github.com/ialexanderbrito/nv99badges"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <SiGithub size={30} color="#FFF" />
-        </a>
-      </div>
     </header>
   );
 }
