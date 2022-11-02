@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { Badge } from 'types/BadgesProps';
 
+import { getTotalBadgesUser, getUser } from 'services/get/badges';
+
+import { useToast } from './Toast';
+
 interface BadgeProps {
   badges: Badge[];
   setBadges: (badges: any) => void;
@@ -28,6 +32,13 @@ interface BadgeProps {
   handleSelectedMaisRecentes: () => void;
   handleSelectedOrder: () => void;
   loadMoreBadges: () => void;
+  username: string;
+  setUsername: (username: string) => void;
+  searchUsername: () => void;
+  user: Badge[];
+  setUser: (user: any) => void;
+  totalBadges: number;
+  setTotalBadges: (totalBadges: number) => void;
 }
 
 const BadgeContext = createContext<BadgeProps>({} as any);
@@ -35,6 +46,8 @@ const BadgeContext = createContext<BadgeProps>({} as any);
 export const BadgeProvider = ({ children }: any) => {
   const navigate = useNavigate();
   const pathname = window.location.pathname;
+
+  const { toast } = useToast();
 
   const [searchBadge, setSearchBadge] = useState('');
   const [podcast, setPodcast] = useState('');
@@ -45,6 +58,10 @@ export const BadgeProvider = ({ children }: any) => {
   const [badges, setBadges] = useState<Badge[]>([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [username, setUsername] = useState('');
+  const [user, setUser] = useState<Badge[]>([]);
+  const [totalBadges, setTotalBadges] = useState(0);
 
   function handleSelectedMaisRaros() {
     window.location.replace('/mais-raros');
@@ -79,6 +96,25 @@ export const BadgeProvider = ({ children }: any) => {
     setPage(page + 1);
   }
 
+  async function searchUsername() {
+    try {
+      setIsLoading(true);
+      const { data: total } = await getTotalBadgesUser(username);
+      const { data } = await getUser(username, 12, page, 'serial');
+
+      setTotalBadges(total.count);
+      setUser(data.results);
+
+      navigate(`/user/${username}`, { replace: true });
+      setIsLoading(false);
+    } catch (error) {
+      toast.error('Usuário não encontrado ou pefil privado');
+      setIsLoading(false);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <BadgeContext.Provider
       value={{
@@ -106,6 +142,13 @@ export const BadgeProvider = ({ children }: any) => {
         handleSelectedMaisRecentes,
         handleSelectedOrder,
         loadMoreBadges,
+        username,
+        setUsername,
+        searchUsername,
+        user,
+        setUser,
+        totalBadges,
+        setTotalBadges,
       }}
     >
       {children}
