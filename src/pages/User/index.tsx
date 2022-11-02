@@ -88,7 +88,7 @@ export function User() {
                     Nº de resgate{' '}
                     <span
                       className={cx('text-white', {
-                        'text-nv': user?.serial_number <= 100,
+                        'text-nv': user?.serial_number || 0 <= 100,
                       })}
                     >
                       #{user.serial_number}
