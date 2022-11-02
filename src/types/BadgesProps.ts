@@ -29,6 +29,7 @@ export interface Badge {
   badge_id: string;
   percentage_badge: number;
   artist_id?: any;
+  serial_number?: number;
 }
 
 export interface Badges {
