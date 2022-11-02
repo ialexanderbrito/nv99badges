@@ -1,3 +1,23 @@
+# [1.9.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.8.0...v1.9.0) (2022-11-02)
+
+
+### Bug Fixes
+
+* remove github header ([04fbe1d](https://github.com/ialexanderbrito/nv99badges/commit/04fbe1d6607cc95bbfe8cb8b820b7c3a8ca3405e))
+* serial number null ([e698bc7](https://github.com/ialexanderbrito/nv99badges/commit/e698bc723b74176f6a9e338ca7ff4dfd93303278))
+* size button top page ([8557082](https://github.com/ialexanderbrito/nv99badges/commit/855708210a1a41e88200d2b356d4bef04f1a7bea))
+
+
+### Features
+
+* add input user ([b4a63b1](https://github.com/ialexanderbrito/nv99badges/commit/b4a63b1f7fcf2cfd0bb719293fd7bb86231f259f))
+* add loaders uiball ([bac4066](https://github.com/ialexanderbrito/nv99badges/commit/bac40661b1e2260d5649d8fceec18dd455f42fb8))
+* add new fuctions user and search user ([9431588](https://github.com/ialexanderbrito/nv99badges/commit/9431588209fcad0bc941787eecc7026b37968bd6))
+* add new services users ([ba0aa55](https://github.com/ialexanderbrito/nv99badges/commit/ba0aa556ff53b3a6a643c7b95add1a007c507119))
+* add page user ([faba0c5](https://github.com/ialexanderbrito/nv99badges/commit/faba0c55bcdbedc5e4cde96b2029f5bb66ce31cf))
+* add router user ([5ce3756](https://github.com/ialexanderbrito/nv99badges/commit/5ce3756c6f482cd48a1461f315cd6f44cc979768))
+* update interface ([ccfe747](https://github.com/ialexanderbrito/nv99badges/commit/ccfe747ee6b0f23ab0c6705487965e4011f686dd))
+
 # [1.8.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.7.0...v1.8.0) (2022-10-30)
 
 
