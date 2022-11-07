@@ -1,3 +1,20 @@
+# [1.10.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.9.0...v1.10.0) (2022-11-07)
+
+
+### Bug Fixes
+
+* id and add alert ([b9d8ec5](https://github.com/ialexanderbrito/nv99badges/commit/b9d8ec543d55ff3f4b987d30502de53b9f358d70))
+* info card ([a2632ff](https://github.com/ialexanderbrito/nv99badges/commit/a2632ffe09c1ee579ced4aa45c5a3ef0f2dac77a))
+* interface ([8ccbdae](https://github.com/ialexanderbrito/nv99badges/commit/8ccbdaea678de78d2ce60e79cea5f0cf1a8690a0))
+* loading page user ([78f2556](https://github.com/ialexanderbrito/nv99badges/commit/78f255646c609fe020158cce98779b8b8dab923c))
+* update interfaces ([67ba9b4](https://github.com/ialexanderbrito/nv99badges/commit/67ba9b4569a04a73a4beed7d4b2d696b9c292fa3))
+
+
+### Features
+
+* add component alert ([9cbf187](https://github.com/ialexanderbrito/nv99badges/commit/9cbf18783b294bfd189dcf317c63968d85938d49))
+* add dependecy cookie ([ec3b457](https://github.com/ialexanderbrito/nv99badges/commit/ec3b457c25d2f4e7937b7635226ef6abf1ec9cc3))
+
 # [1.9.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.8.0...v1.9.0) (2022-11-02)
 
 
