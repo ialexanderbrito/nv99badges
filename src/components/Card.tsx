@@ -5,7 +5,7 @@ import cx from 'classnames';
 import { useToast } from 'contexts/Toast';
 
 interface TopCardProps {
-  badge_id: string;
+  id: string;
   high: string;
   secret: boolean;
   name: string;
@@ -29,7 +29,7 @@ export function Card(props: BadgeCard) {
   }
 
   return (
-    <div key={props.badge.badge_id} className="flex flex-col">
+    <div key={props.badge.id} className="flex flex-col">
       <div
         className={cx(
           'bg-primary w-72 h-[480px] flex flex-col items-center justify-center rounded-md mb-3 overflow-hidden p-3 cursor-pointer',

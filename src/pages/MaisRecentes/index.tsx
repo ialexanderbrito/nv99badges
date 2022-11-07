@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { Badge } from 'types/BadgesProps';
 
+import { Alert } from 'components/Alert';
 import { ButtonTopPage } from 'components/ButtonTop';
 import { Card } from 'components/Card';
 import { CardSkeleton } from 'components/CardSkeleton';
@@ -124,6 +125,10 @@ export function MaisRecentes() {
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
         <Menu />
+        <Alert
+          title="Os emblemas podem demorar para carregar por conta do servidor, pois
+            ele fica em modo hibernação para economizar recursos."
+        />
         <Filter />
 
         {verificaBusca ? (
@@ -153,7 +158,7 @@ export function MaisRecentes() {
                   {badgesFiltered.map((badge) => (
                     <Card
                       badge={badge}
-                      key={badge.badge_id}
+                      key={badge.id}
                       onClick={() => {
                         navigate(`/badge/${badge.code}`);
                       }}
@@ -174,7 +179,7 @@ export function MaisRecentes() {
               {badges.map((badge) => (
                 <Card
                   badge={badge}
-                  key={badge.badge_id}
+                  key={badge.id}
                   onClick={() => {
                     navigate(`/badge/${badge.code}`);
                   }}
@@ -194,7 +199,7 @@ export function MaisRecentes() {
               {badgesPodcast.map((badge) => (
                 <Card
                   badge={badge}
-                  key={badge.badge_id}
+                  key={badge.id}
                   onClick={() => {
                     navigate(`/badge/${badge.code}`);
                   }}
