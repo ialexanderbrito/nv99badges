@@ -39,6 +39,8 @@ interface BadgeProps {
   setUser: (user: any) => void;
   totalBadges: number;
   setTotalBadges: (totalBadges: number) => void;
+  isLoadingPage: boolean;
+  setIsLoadingPage: (isLoadingPage: boolean) => void;
 }
 
 const BadgeContext = createContext<BadgeProps>({} as any);
@@ -58,6 +60,7 @@ export const BadgeProvider = ({ children }: any) => {
   const [badges, setBadges] = useState<Badge[]>([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingPage, setIsLoadingPage] = useState(false);
 
   const [username, setUsername] = useState('');
   const [user, setUser] = useState<Badge[]>([]);
@@ -98,20 +101,20 @@ export const BadgeProvider = ({ children }: any) => {
 
   async function searchUsername() {
     try {
-      setIsLoading(true);
+      setIsLoadingPage(true);
       const { data: total } = await getTotalBadgesUser(username);
       const { data } = await getUser(username, 12, page, 'serial');
 
-      setTotalBadges(total.count);
       setUser(data.results);
+      setTotalBadges(total.count);
 
       navigate(`/user/${username}`, { replace: true });
-      setIsLoading(false);
+      setIsLoadingPage(false);
     } catch (error) {
       toast.error('Usuário não encontrado ou pefil privado');
-      setIsLoading(false);
+      setIsLoadingPage(false);
     } finally {
-      setIsLoading(false);
+      setIsLoadingPage(false);
     }
   }
 
@@ -149,6 +152,8 @@ export const BadgeProvider = ({ children }: any) => {
         setUser,
         totalBadges,
         setTotalBadges,
+        isLoadingPage,
+        setIsLoadingPage,
       }}
     >
       {children}

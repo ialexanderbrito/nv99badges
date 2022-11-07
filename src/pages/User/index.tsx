@@ -31,8 +31,8 @@ export function User() {
     async function loadUser() {
       setIsLoading(true);
       try {
+        const { data } = await getUser(String(username), 12, page, 'serial');
         const { data: total } = await getTotalBadgesUser(String(username));
-        const { data } = await getUser(String(username), 12, page, 'recent');
 
         setTotalBadges(total.count);
         setUser((old: Badge[]) => [...old, ...data.results]);
@@ -54,6 +54,13 @@ export function User() {
         <title>NV99 Badges | {username}</title>
       </Helmet>
 
+      {isLoading && (
+        <div className="flex justify-center items-center h-screen">
+          <Header />
+          <Pulsar size={32} color="#f8c227" />
+        </div>
+      )}
+
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
         <h1 className="text-white text-2xl font-bold mt-20 mb-4">
@@ -66,8 +73,11 @@ export function User() {
           {user &&
             user.map((user) => (
               <div
-                key={user.badge_id}
-                className="flex flex-row items-center justify-evenly bg-primary w-80 h-28 rounded sm:w-80 md:w-96 "
+                key={user.id}
+                className="flex flex-row items-center justify-evenly bg-primary w-80 h-28 rounded sm:w-80 md:w-96"
+                onClick={() => {
+                  window.open(user.code, '_blank');
+                }}
               >
                 <img
                   src={user.high}

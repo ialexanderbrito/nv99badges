@@ -1,5 +1,7 @@
 import { BiFilterAlt, BiSearch } from 'react-icons/bi';
 
+import { Pulsar } from '@uiball/loaders';
+
 import { podcastNames } from 'utils/verifyPodcast';
 
 import { useBadges } from 'contexts/Badges';
@@ -13,6 +15,7 @@ export function Filter() {
     username,
     setUsername,
     searchUsername,
+    isLoadingPage,
   } = useBadges();
 
   return (
@@ -44,7 +47,11 @@ export function Filter() {
             searchUsername();
           }}
         >
-          <BiSearch size={24} />
+          {isLoadingPage ? (
+            <Pulsar color="#FFF" size={24} />
+          ) : (
+            <BiSearch size={24} />
+          )}
         </button>
       </div>
 
