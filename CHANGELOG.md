@@ -1,3 +1,10 @@
+## [1.10.2](https://github.com/ialexanderbrito/nv99badges/compare/v1.10.1...v1.10.2) (2022-11-07)
+
+
+### Bug Fixes
+
+* routes api ([7b98cd8](https://github.com/ialexanderbrito/nv99badges/commit/7b98cd8c230da36f396701ce123ac499c012eaa2))
+
 ## [1.10.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.10.0...v1.10.1) (2022-11-07)
 
 
