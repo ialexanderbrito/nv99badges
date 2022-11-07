@@ -4,32 +4,40 @@ export interface Status {
   reason?: any;
 }
 
-export interface Badge {
-  update_view: Date;
-  status: boolean;
-  creator_profile_id: string;
-  serialized: boolean;
-  count: number;
+export interface CreatorProfile {
   description: string;
-  starts_on: Date;
-  created_at: Date;
-  to_update: boolean;
+  icon: string;
+  label: string;
   name: string;
-  creators: string[];
-  high: string;
-  artists: string[];
-  secret: boolean;
-  expires_at: Date;
+}
+
+export interface Badge {
+  code_market: string;
+  market_value: number;
   code: string;
-  updated_at: Date;
-  voucher: boolean;
-  src: string;
+  id: string;
+  artists?: any;
+  count: number;
+  created_at: Date;
+  creator_profile_id: string;
+  creators?: any;
+  description: string;
+  expires_at: Date;
+  high: string;
   hq: boolean;
-  variants: string[];
-  badge_id: string;
-  percentage_badge: number;
+  name: string;
+  secret: boolean;
+  src: string;
+  starts_on: Date;
+  to_update?: any;
+  status: boolean;
+  updated_at: Date;
+  variants?: any;
+  voucher?: any;
   artist_id?: any;
-  serial_number?: number;
+  creator_profile: CreatorProfile;
+  serialized: boolean;
+  redeemed: boolean;
 }
 
 export interface Badges {
