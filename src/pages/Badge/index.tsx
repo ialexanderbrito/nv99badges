@@ -87,16 +87,18 @@ export function Badge() {
                   </p>
                   <p className="flex flex-row items-center">
                     Por: {verifyPodcast(String(badge?.creator_profile_id))}
-                    <img
-                      src={badge?.creator_profile.icon}
-                      alt={badge?.creator_profile.name}
-                      className="h-8 w-8 rounded-full ml-2"
-                    />
+                    {badge?.creator_profile?.icon && (
+                      <img
+                        src={badge?.creator_profile?.icon}
+                        alt={badge?.creator_profile?.name}
+                        className="h-8 w-8 rounded-full ml-2"
+                      />
+                    )}
                   </p>
                 </div>
 
                 <div className="w-80 p-2 text-white rounded-md">
-                  "{badge?.description}"
+                  {badge?.description && <>"{badge?.description}"</>}
                 </div>
               </div>
             </Tilt>
