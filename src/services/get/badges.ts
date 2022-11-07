@@ -39,14 +39,14 @@ export async function getUser(
   sort: string,
 ) {
   const { data, status } = await api.get(
-    `user/${username}?limit=${limit}&page=${page}&order=${sort}`,
+    `users/${username}?limit=${limit}&page=${page}&order=${sort}`,
   );
 
   return { data, status };
 }
 
 export async function getTotalBadgesUser(username: string) {
-  const { data, status } = await api.get(`badge/count/${username}`);
+  const { data, status } = await api.get(`users/count/${username}`);
 
   return { data, status };
 }
