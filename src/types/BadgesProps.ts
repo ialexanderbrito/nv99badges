@@ -38,6 +38,7 @@ export interface Badge {
   creator_profile: CreatorProfile;
   serialized: boolean;
   redeemed: boolean;
+  serial_number?: number;
 }
 
 export interface Badges {
