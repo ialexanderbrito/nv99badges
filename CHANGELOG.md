@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.10.0...v1.10.1) (2022-11-07)
+
+
+### Bug Fixes
+
+* image podcast ([81235d2](https://github.com/ialexanderbrito/nv99badges/commit/81235d223650aa053f5ebe9665a49caf277aa9a8))
+
 # [1.10.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.9.0...v1.10.0) (2022-11-07)
 
 
