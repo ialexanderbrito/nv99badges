@@ -1,3 +1,22 @@
+# [1.11.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.10.2...v1.11.0) (2022-11-08)
+
+
+### Bug Fixes
+
+* count badges ([da8ce46](https://github.com/ialexanderbrito/nv99badges/commit/da8ce46dc75b450ef8c612c7b9fcc7b3089f0df0))
+* remove menu ([47d1f2a](https://github.com/ialexanderbrito/nv99badges/commit/47d1f2ad84618af8a237c7b4aed6a869ae65b120))
+* responsive component filter ([0658143](https://github.com/ialexanderbrito/nv99badges/commit/0658143a288dc132eff302e9c81a0e0819b7d2fb))
+* resposive alert component ([a7c2f82](https://github.com/ialexanderbrito/nv99badges/commit/a7c2f82084bf5b969822b7dd1b3e2e3f2065ed59))
+* total badges ([45c6f0f](https://github.com/ialexanderbrito/nv99badges/commit/45c6f0f19858a4e39165bae8debfc5ea903a3096))
+
+
+### Features
+
+* add icon podcast card ([d5fc021](https://github.com/ialexanderbrito/nv99badges/commit/d5fc02137344f99d5e5362609972baf1241720b9))
+* add new header ([6f85648](https://github.com/ialexanderbrito/nv99badges/commit/6f85648c63346d8d1a3760dff457e47d73d1c3c7))
+* add new route ([36f6b4b](https://github.com/ialexanderbrito/nv99badges/commit/36f6b4b9cdc99950ce185153c9a9545cee10cd2c))
+* deleted menu ([a242f2c](https://github.com/ialexanderbrito/nv99badges/commit/a242f2c9703a94e2efad26b5a81fc3977833a1a9))
+
 ## [1.10.2](https://github.com/ialexanderbrito/nv99badges/compare/v1.10.1...v1.10.2) (2022-11-07)
 
 
