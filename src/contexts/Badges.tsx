@@ -106,7 +106,7 @@ export const BadgeProvider = ({ children }: any) => {
       const { data } = await getUser(username, 12, page, 'serial');
 
       setUser(data.results);
-      setTotalBadges(total.count);
+      setTotalBadges(total.total);
 
       navigate(`/user/${username}`, { replace: true });
       setIsLoadingPage(false);
