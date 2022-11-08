@@ -11,6 +11,7 @@ export function MainRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
+      <Route path="/ranking" element={<Homepage />} />
       <Route path="/mais-raros" element={<Homepage />} />
       <Route path="/mais-resgatados" element={<MaisResgatados />} />
       <Route path="/mais-recentes" element={<MaisRecentes />} />
