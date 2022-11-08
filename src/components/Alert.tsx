@@ -27,10 +27,10 @@ export function Alert(props: AlertProps) {
   return (
     <>
       {show && (
-        <div className="flex bg-nv rounded-sm text-white text-center p-2 w-[900px] mt-[-50px] mb-4">
+        <div className="flex bg-nv rounded-sm text-white text-center p-2 w-80 mt-20 mb-4 sm:w-80 md:w-[900px]">
           <p className="text-sm font-bold">{props.title}</p>
           <AiOutlineClose
-            className="text-white text-sm cursor-pointer"
+            className="text-white text-sm cursor-pointer w-8 sm:w-4"
             onClick={() => {
               closeAlert();
             }}
