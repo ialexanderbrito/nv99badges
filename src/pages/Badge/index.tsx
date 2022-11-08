@@ -59,10 +59,10 @@ export function Badge() {
               glareColor="#ffffff"
               glarePosition="all"
               glareBorderRadius="20px"
-              className=" items-center justify-center flex mt-12"
+              className=" items-center justify-center flex mt-12 "
               perspective={2000}
             >
-              <div className="flex h-[600px] w-96 bg-primary border border-nv  flex-col items-center justify-around rounded-md">
+              <div className="flex h-[600px] w-96 bg-primary border border-nv  flex-col items-center justify-around rounded-md z-0">
                 <div className="flex flex-col items-center justify-center">
                   <h1 className="text-white text-2xl font-bold">
                     {badge?.code}
@@ -71,6 +71,13 @@ export function Badge() {
                     {badge?.name}
                   </span>
                 </div>
+                {badge?.creator_profile?.icon && (
+                  <img
+                    src={badge?.creator_profile?.icon}
+                    alt={badge?.creator_profile?.name}
+                    className="h-16 w-16 rounded-full ml-2 z-10 absolute top-14 right-2 border border-nv"
+                  />
+                )}
                 <img
                   src={badge?.high}
                   alt={badge?.code}
@@ -87,13 +94,6 @@ export function Badge() {
                   </p>
                   <p className="flex flex-row items-center">
                     Por: {verifyPodcast(String(badge?.creator_profile_id))}
-                    {badge?.creator_profile?.icon && (
-                      <img
-                        src={badge?.creator_profile?.icon}
-                        alt={badge?.creator_profile?.name}
-                        className="h-8 w-8 rounded-full ml-2"
-                      />
-                    )}
                   </p>
                 </div>
 
