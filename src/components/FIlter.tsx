@@ -20,9 +20,9 @@ export function Filter() {
 
   return (
     <>
-      <div className="w-full justify-evenly gap-2 items-center flex flex-col h-72 md:flex-row md:w-[900px] md:mt-0 md:h-20">
+      <div className="w-full mt-12 justify-evenly gap-2 items-center flex flex-col h-72 md:flex-row md:w-[900px] md:mt-20 md:h-20">
         <button
-          className="bg-primary gap-4 text-white w-80 h-16 flex items-center justify-center rounded-md md:w-60 hover:bg-nv "
+          className="bg-primary gap-1 text-white w-80 h-16 flex items-center justify-center rounded-md md:w-60 hover:bg-nv "
           onClick={() => {
             setFilter(!filter);
           }}
@@ -30,6 +30,7 @@ export function Filter() {
           <BiFilterAlt />
           Filtrar por podcast
         </button>
+
         <input
           type="text"
           placeholder="Pesquisar por usuário"
@@ -37,7 +38,7 @@ export function Filter() {
           onChange={(e) => {
             setUsername(e.target.value);
           }}
-          className="bg-primary text-white h-16 w-80 rounded-md px-4 outline-none focus:border hover:border border-nv sm:w-full"
+          className="bg-primary text-white h-16 w-80 rounded-md px-4 outline-none focus:border hover:border border-nv sm:w-80 md:w-full"
         />
 
         <button
