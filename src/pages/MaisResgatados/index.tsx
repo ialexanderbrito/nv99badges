@@ -11,7 +11,6 @@ import { Card } from 'components/Card';
 import { CardSkeleton } from 'components/CardSkeleton';
 import { Filter } from 'components/FIlter';
 import { Header } from 'components/Header';
-import { Menu } from 'components/Menu';
 
 import { podcastNames } from 'utils/verifyPodcast';
 
@@ -124,7 +123,6 @@ export function MaisResgatados() {
 
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
-        <Menu />
         <Alert
           title="Os emblemas podem demorar para carregar por conta do servidor, pois
             ele fica em modo hibernação para economizar recursos."
