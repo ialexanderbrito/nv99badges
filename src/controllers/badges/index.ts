@@ -36,6 +36,8 @@ routes.get('/badges', async (request, response) => {
       return b.count - a.count;
     });
 
+    const total = orderBy.length;
+
     if (startIndex > arrayPrincipal.length) {
       return response.status(404).json({ message: 'Page not found' });
     }
@@ -63,6 +65,8 @@ routes.get('/badges', async (request, response) => {
     results.results = orderBy.slice(startIndex, endIndex);
 
     results.results = arrayPrincipal.slice(startIndex, endIndex);
+
+    results.total = total;
 
     return response.status(200).json(results);
 
