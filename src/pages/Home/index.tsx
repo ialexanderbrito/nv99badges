@@ -11,7 +11,6 @@ import { Card } from 'components/Card';
 import { CardSkeleton } from 'components/CardSkeleton';
 import { Filter } from 'components/FIlter';
 import { Header } from 'components/Header';
-import { Menu } from 'components/Menu';
 import { TopCard } from 'components/TopCard';
 
 import { podcastNames } from 'utils/verifyPodcast';
@@ -43,6 +42,8 @@ export function Homepage() {
     setIsLoading,
     setPage,
     loadMoreBadges,
+    setTotalBadges,
+    totalBadges,
   } = useBadges();
 
   useEffect(() => {
@@ -50,6 +51,8 @@ export function Homepage() {
       setIsLoading(true);
       try {
         const { data } = await getBadges(12, page, 'asc');
+
+        setTotalBadges(data.total);
 
         setBadges((old: Badge[]) => [...old, ...data.results]);
 
@@ -122,7 +125,6 @@ export function Homepage() {
 
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
-        <Menu />
         <Alert
           title="Os emblemas podem demorar para carregar por conta do servidor, pois
             ele fica em modo hibernação para economizar recursos."
@@ -190,7 +192,7 @@ export function Homepage() {
             </div>
 
             <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-              Todos os emblemas
+              Todos os {totalBadges || '...'} emblemas
             </h1>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {badges
