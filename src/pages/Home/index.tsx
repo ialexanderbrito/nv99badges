@@ -32,69 +32,53 @@ export function Homepage() {
     badges,
     badgesFiltered,
     badgesPodcast,
-    isLoading,
     page,
     podcast,
     searchBadge,
     setBadges,
     setBadgesFiltered,
     setBadgesPodcast,
-    setIsLoading,
     setPage,
     loadMoreBadges,
     setTotalBadges,
     totalBadges,
   } = useBadges();
 
-  useEffect(() => {
-    async function loadBadges() {
-      setIsLoading(true);
-      try {
-        const { data } = await getBadges(12, page, 'asc');
+  const { isLoading } = useQuery(
+    ['badges', page],
+    () => getBadges(12, page, 'asc'),
+    {
+      onSuccess: (data) => {
+        setTotalBadges(data.data.total);
 
-        setTotalBadges(data.total);
-
-        setBadges((old: Badge[]) => [...old, ...data.results]);
-
-        setIsLoading(false);
-      } catch (error) {
+        setBadges((old: Badge[]) => [...old, ...data.data.results]);
+      },
+      onError: () => {
         toast.error('Não foram encontrados mais badges', { id: 'toast' });
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    if (podcast === '') {
-      loadBadges();
-    }
-  }, [page]);
+      },
+      staleTime: 100000,
+    },
+  );
 
   useEffect(() => {
     setBadgesPodcast([]);
     setPage(1);
   }, [podcast]);
 
-  useEffect(() => {
-    async function loadBadgesCreator() {
-      if (podcast) {
-        setIsLoading(true);
-
-        try {
-          const { data } = await getBadgesCreator(podcast, 12, page, 'asc');
-
-          setBadgesPodcast((old: Badge[]) => [...old, ...data.results]);
-
-          setIsLoading(false);
-        } catch (error) {
-          toast.error('Não foram encontrados mais badges', { id: 'toast' });
-        } finally {
-          setIsLoading(false);
-        }
-      }
-    }
-
-    loadBadgesCreator();
-  }, [page, podcast]);
+  useQuery(
+    ['badgesCreator', podcast, page],
+    () => getBadgesCreator(podcast, 12, page, 'asc'),
+    {
+      onSuccess: (data) => {
+        setBadgesPodcast((old: Badge[]) => [...old, ...data.data.results]);
+      },
+      onError: () => {
+        toast.error('Não foram encontrados mais badges 2', { id: 'toast' });
+      },
+      staleTime: 100000,
+      enabled: podcast !== '',
+    },
+  );
 
   const { isLoading: isLoadingSearch } = useQuery(
     ['search', searchBadge],
@@ -107,6 +91,7 @@ export function Homepage() {
         toast.error('Badges not found');
       },
       staleTime: 100000,
+      enabled: searchBadge !== '',
     },
   );
 

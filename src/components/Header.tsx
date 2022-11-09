@@ -18,7 +18,7 @@ export function Header() {
       top: 0,
       behavior: 'smooth',
     });
-    navigate('/', { replace: true });
+    navigate('/');
     window.location.reload();
   }
 
