@@ -1,3 +1,17 @@
+# [1.12.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.11.0...v1.12.0) (2022-11-09)
+
+
+### Features
+
+* add assets spark icon ([e683032](https://github.com/ialexanderbrito/nv99badges/commit/e68303229847267e971818105247f511681e5519))
+* add button clean filter ([e6ecacf](https://github.com/ialexanderbrito/nv99badges/commit/e6ecacf1d2081c6928de7fa1b63247377431cafa))
+* add button voltar and loading badge ([0bb01dd](https://github.com/ialexanderbrito/nv99badges/commit/0bb01dd43c860afcecd6e3c8a64c1fd2684a93e2))
+
+
+### Performance Improvements
+
+* use query in badges list ([8b54052](https://github.com/ialexanderbrito/nv99badges/commit/8b54052fac348036af532b2c822e3a47ad6f994d))
+
 # [1.11.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.10.2...v1.11.0) (2022-11-08)
 
 
