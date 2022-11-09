@@ -72,6 +72,17 @@ export function Filter() {
               {pdc.name}
             </label>
           ))}
+
+          <button
+            type="button"
+            className="flex bg-primary items-center justify-center rounded-sm hover:border-nv hover:border"
+            onClick={() => {
+              setFilter(!filter);
+              window.location.reload();
+            }}
+          >
+            Limpar filtro
+          </button>
         </div>
       )}
     </>
