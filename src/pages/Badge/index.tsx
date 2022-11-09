@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { BiLinkExternal } from 'react-icons/bi';
+import { BiArrowBack, BiLinkExternal } from 'react-icons/bi';
 import Tilt from 'react-parallax-tilt';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
+import { Spark } from 'assets/Spark';
 import { format } from 'date-fns';
 import { Badge as BadgeProps } from 'types/BadgesProps';
 
@@ -35,9 +36,17 @@ export function Badge() {
         toast.error('Badge not found');
         navigate(`/badges/${code}`);
       },
-      staleTime: 100000,
+      staleTime: 0,
     },
   );
+
+  function twoDecimals(number: number) {
+    if (number % 1 === 0) {
+      return number;
+    }
+
+    return number.toFixed(2);
+  }
 
   return (
     <>
@@ -47,7 +56,7 @@ export function Badge() {
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
 
-        {isLoading ? (
+        {isLoading || !badge ? (
           <div className="mt-16 flex flex-col">
             <CardSkeleton />
           </div>
@@ -84,7 +93,13 @@ export function Badge() {
                   className="h-80 w-80 rounded-md bg-nv"
                 />
                 <div className="w-80 p-2 text-white rounded-md">
-                  <p>Valor de mercado: {badge?.market_value} sparks</p>
+                  <p className="flex gap-2 items-center">
+                    Valor de mercado:
+                    <Spark />
+                    <span className="font-bold text-nv">
+                      {twoDecimals(badge?.market_value || 0)}
+                    </span>
+                  </p>
                   <p>Resgatados: {badge?.count}</p>
                   <p>
                     Criado em:
@@ -109,8 +124,16 @@ export function Badge() {
               target="_blank"
               rel="noreferrer"
             >
-              Ir para o mercado
               <BiLinkExternal />
+              Ir para o mercado
+            </a>
+
+            <a
+              className="bg-primary cursor-pointer mt-6 text-white w-80 h-16 flex items-center justify-center gap-4 rounded-md md:w-96 hover:bg-nv transition-all"
+              onClick={() => navigate(-1)}
+            >
+              <BiArrowBack />
+              Voltar
             </a>
           </div>
         )}
