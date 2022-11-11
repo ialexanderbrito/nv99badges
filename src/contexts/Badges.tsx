@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Badge } from 'types/BadgesProps';
 
-import { getTotalBadgesUser, getUser } from 'services/get/badges';
+import { getTotalBadgesUser } from 'services/get/badges';
 
 import { useToast } from './Toast';
 
@@ -103,9 +103,7 @@ export const BadgeProvider = ({ children }: any) => {
     try {
       setIsLoadingPage(true);
       const { data: total } = await getTotalBadgesUser(username);
-      const { data } = await getUser(username, 12, page, 'serial');
 
-      setUser(data.results);
       setTotalBadges(total.total);
 
       navigate(`/user/${username}`, { replace: true });

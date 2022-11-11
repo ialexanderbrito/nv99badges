@@ -25,6 +25,7 @@ export function User() {
     isLoading,
     totalBadges,
     setTotalBadges,
+    isLoadingPage,
   } = useBadges();
 
   useEffect(() => {
@@ -47,14 +48,15 @@ export function User() {
     }
 
     loadUser();
-  }, [username, page]);
+  }, [page]);
+
   return (
     <>
       <Helmet>
         <title>NV99 Badges | {username}</title>
       </Helmet>
 
-      {isLoading && (
+      {(isLoadingPage || isLoading) && (
         <div className="flex justify-center items-center h-screen">
           <Header />
           <Pulsar size={32} color="#f8c227" />
@@ -64,9 +66,9 @@ export function User() {
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
         <h1 className="text-white text-2xl font-bold mt-20 mb-4">
-          {totalBadges === 0
-            ? 'Este usuário tem o perfil privado na NV99'
-            : `Todos os emblemas os ${totalBadges} de ${username}`}
+          {user.length !== 0
+            ? `Emblemas de ${username} | ${totalBadges} emblemas resgatados`
+            : 'Usuário não encontrado ou perfil privado'}
         </h1>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -74,41 +76,39 @@ export function User() {
             user.map((user) => (
               <div
                 key={user.id}
-                className="flex flex-row items-center justify-evenly bg-primary w-80 h-28 rounded sm:w-80 md:w-96"
-                onClick={() => {
-                  window.open(user.code, '_blank');
-                }}
+                className={cx(
+                  'flex relative gap-2 h-25 md:h-30 w-full bg-primary rounded-none md:rounded cursor-pointer',
+                  {
+                    'border border-nv': user?.secret,
+                  },
+                )}
               >
+                <div className="flex absolute top-1 left-1 z-10 flex-col gap-1"></div>
                 <img
                   src={user.high}
                   alt="Avatar"
-                  className={cx('w-20 h-20 rounded', {
-                    'border border-nv': user.secret,
-                  })}
+                  className="w-32 h-32 rounded"
                 />
+                <div className="absolute bg-primary/90 top-0 right-1 p-1 rounded pointer-events-none">
+                  <p className="font-bold text-sm italic text-nv">
+                    #{user?.serial_number}
+                  </p>
+                </div>
 
                 <div className="flex flex-col items-center justify-center gap-1">
-                  <div className="flex w-48 h-12 border-nv border mt-3 rounded-md text-sm flex-row items-center justify-evenly text-white md:w-72">
-                    <p className="text-ellipsis overflow-hidden ...">
-                      {user?.code}
-                    </p>
-                  </div>
-
-                  <strong className="text-white">
-                    Nº de resgate{' '}
-                    <span
-                      className={cx('text-white', {
-                        'text-nv': user?.serial_number || 0 <= 100,
-                      })}
-                    >
-                      #{user.serial_number}
+                  <div className="flex flex-col flex-1 flex-shrink gap-2 p-3 text-white">
+                    <span className="text-md font-semibold text-ui-white line-clamp-1 skeletable">
+                      {user?.name}
                     </span>
-                  </strong>
+                    <span className="text-sm line-clamp-3">
+                      {user?.description}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
         </div>
-        {totalBadges !== 0 && (
+        {user.length !== 0 && (
           <button
             className="bg-primary text-white w-96 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-96 hover:bg-nv"
             onClick={() => {
