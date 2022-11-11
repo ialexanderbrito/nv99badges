@@ -14,6 +14,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@tanstack/react-query": "^4.13.0",
     "@tanstack/react-query-devtools": "^4.13.0",
     "@uiball/loaders": "^1.2.6",
