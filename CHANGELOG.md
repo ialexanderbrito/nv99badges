@@ -1,3 +1,15 @@
+# [1.13.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.12.0...v1.13.0) (2022-11-11)
+
+
+### Bug Fixes
+
+* page user ([2b40602](https://github.com/ialexanderbrito/nv99badges/commit/2b40602feae8c8207652ec2d6933d317e1d36431))
+
+
+### Features
+
+* add plugin line clamp tailwind ([928b901](https://github.com/ialexanderbrito/nv99badges/commit/928b9011f7ca27568823ae9227594dfa9e36b805))
+
 # [1.12.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.11.0...v1.12.0) (2022-11-09)
 
 
