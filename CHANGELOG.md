@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.14.0...v1.15.0) (2022-11-12)
+
+
+### Features
+
+* add average value market badge ([dae403f](https://github.com/ialexanderbrito/nv99badges/commit/dae403fd98db3d149059c0386cff43069a083ab0))
+
 # [1.14.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.13.0...v1.14.0) (2022-11-12)
 
 
