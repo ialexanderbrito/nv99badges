@@ -27,8 +27,8 @@ routes.get('/badges', async (request, response) => {
       }
 
       if (order === 'recent') {
-        const dateA = new Date(a.created_at);
-        const dateB = new Date(b.created_at);
+        const dateA = new Date(a.expires_at);
+        const dateB = new Date(b.expires_at);
 
         return dateB.getTime() - dateA.getTime();
       }
@@ -106,7 +106,6 @@ routes.get('/badge/:id', async (request, response) => {
 
     const mediaBadgeNumber = Number(mediaBadge);
 
-
     const badge = arrayPrincipal.find((badge: any) => badge.code === id);
 
     if (!badge) {
@@ -127,8 +126,6 @@ routes.get('/badge/:id', async (request, response) => {
 
     return response.status(200).json(badgeValueMedia);
     
-
-
   } catch (error) {
     return response.status(500).json({ message: 'Error badge not found' });
   }
@@ -161,8 +158,8 @@ routes.get('/badges/creator/:id', async (request, response) => {
       }
 
       if (order === 'recent') {
-        const dateA = new Date(a.created_at);
-        const dateB = new Date(b.created_at);
+        const dateA = new Date(a.expires_at);
+        const dateB = new Date(b.expires_at);
 
         return dateB.getTime() - dateA.getTime();
       }
