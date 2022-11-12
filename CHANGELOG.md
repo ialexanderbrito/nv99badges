@@ -1,3 +1,10 @@
+## [1.15.2](https://github.com/ialexanderbrito/nv99badges/compare/v1.15.1...v1.15.2) (2022-11-12)
+
+
+### Bug Fixes
+
+* badge image mobile ([026e389](https://github.com/ialexanderbrito/nv99badges/commit/026e38977432acefce45f9496082d1a78ccaa5fe))
+
 ## [1.15.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.15.0...v1.15.1) (2022-11-12)
 
 
