@@ -1,3 +1,10 @@
+## [1.15.3](https://github.com/ialexanderbrito/nv99badges/compare/v1.15.2...v1.15.3) (2022-11-12)
+
+
+### Bug Fixes
+
+* react query dev tools ([0788566](https://github.com/ialexanderbrito/nv99badges/commit/0788566caea1f4ae3e2c0045dcd2e6767d16aa7e))
+
 ## [1.15.2](https://github.com/ialexanderbrito/nv99badges/compare/v1.15.1...v1.15.2) (2022-11-12)
 
 
