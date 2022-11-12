@@ -1,3 +1,4 @@
+import { apiBadges } from './../../api';
 import { Router } from "express";
 import { apiUser } from "../../api";
 
@@ -9,6 +10,10 @@ routes.get('/users/:id', async (request, response) => {
 
   try {
     const { data } = await apiUser.get(`return/${id}/list?limit=50000`);
+
+    const {data: profile} = await apiBadges.get(`badges/profile_card?username=${id}`);
+
+    const profileStats = profile.statistics;
 
     const badges = data.badges;
 
@@ -63,6 +68,8 @@ routes.get('/users/:id', async (request, response) => {
     results.results = orderBy.slice(startIndex, endIndex);
 
     results.results = badges.slice(startIndex, endIndex);
+
+    results.profile = profileStats;
 
     return response.json(results);
 
