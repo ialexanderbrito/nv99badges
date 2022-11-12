@@ -26,6 +26,7 @@ export function Header() {
     { name: 'Mais Raros', link: '/' },
     { name: 'Mais Resgatados', link: '/mais-resgatados' },
     { name: 'Mais Recentes', link: '/mais-recentes' },
+    { name: 'Favoritos', link: '/favoritos' },
   ];
 
   return (
