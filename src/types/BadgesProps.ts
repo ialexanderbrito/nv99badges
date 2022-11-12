@@ -39,6 +39,7 @@ export interface Badge {
   serialized: boolean;
   redeemed: boolean;
   serial_number?: number;
+  media_price_badge?: number;
 }
 
 export interface Profile {

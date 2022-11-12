@@ -75,7 +75,7 @@ export function Badge() {
               className=" items-center justify-center flex mt-12 "
               perspective={2000}
             >
-              <div className="flex h-[600px] w-96 bg-primary border border-nv  flex-col items-center justify-around rounded-md z-0">
+              <div className="flex h-[720px] w-80 bg-primary border border-nv  flex-col items-center justify-evenly rounded-md z-0 md:w-96">
                 <div className="flex flex-col items-center justify-center">
                   <h1 className="text-white text-2xl font-bold">
                     {badge?.code}
@@ -98,10 +98,10 @@ export function Badge() {
                 />
                 <div className="w-80 p-2 text-white rounded-md">
                   <p className="flex gap-2 items-center">
-                    Valor de mercado:
+                    Valor médio :
                     <Spark />
                     <span className="font-bold text-nv">
-                      {twoDecimals(badge?.market_value || 0)}
+                      {twoDecimals(badge?.media_price_badge || 0)}
                     </span>
                   </p>
                   <p>Resgatados: {badge?.count}</p>
