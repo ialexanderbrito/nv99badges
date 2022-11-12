@@ -56,12 +56,16 @@ export function Badge() {
       <div className="bg-dark w-full items-center flex flex-col">
         <Header />
 
+        <div className="flex px-6 w-full items-center text-white mt-16 cursor-pointer md:px-10">
+          <BiArrowBack size={32} onClick={() => navigate(-1)} />
+        </div>
+
         {isLoading || !badge ? (
           <div className="mt-16 flex flex-col">
             <CardSkeleton />
           </div>
         ) : (
-          <div className="mt-16 flex flex-col items-center">
+          <div className="flex flex-col items-center">
             <Tilt
               glareEnable={true}
               glareMaxOpacity={0.1}
@@ -126,14 +130,6 @@ export function Badge() {
             >
               <BiLinkExternal />
               Ir para o mercado
-            </a>
-
-            <a
-              className="bg-primary cursor-pointer mt-6 text-white w-80 h-16 flex items-center justify-center gap-4 rounded-md md:w-96 hover:bg-nv transition-all"
-              onClick={() => navigate(-1)}
-            >
-              <BiArrowBack />
-              Voltar
             </a>
           </div>
         )}
