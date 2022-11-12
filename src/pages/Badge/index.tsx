@@ -1,20 +1,22 @@
-import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { BiArrowBack, BiLinkExternal } from 'react-icons/bi';
+import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
 import Tilt from 'react-parallax-tilt';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
 import { Spark } from 'assets/Spark';
 import { format } from 'date-fns';
-import { Badge as BadgeProps } from 'types/BadgesProps';
 
 import { CardSkeleton } from 'components/CardSkeleton';
 import { Header } from 'components/Header';
 
+import { twoDecimals } from 'utils/twoDecimal';
 import { verifyPodcast } from 'utils/verifyPodcast';
 
 import { useToast } from 'contexts/Toast';
+
+import { useFavorites } from 'hooks/Favorites';
 
 import { getBadgeById } from 'services/get/badges';
 
@@ -22,8 +24,8 @@ export function Badge() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { code } = useParams();
-
-  const [badge, setBadge] = useState<BadgeProps>();
+  const { addFavorite, removeFavorite, isFavorite, badge, setBadge } =
+    useFavorites();
 
   const { isLoading } = useQuery(
     ['badge', code],
@@ -39,14 +41,6 @@ export function Badge() {
       staleTime: 0,
     },
   );
-
-  function twoDecimals(number: number) {
-    if (number % 1 === 0) {
-      return number;
-    }
-
-    return number.toFixed(2);
-  }
 
   return (
     <>
@@ -131,6 +125,27 @@ export function Badge() {
               <BiLinkExternal />
               Ir para o mercado
             </a>
+
+            <button
+              className="bg-primary mt-6 text-white w-80 h-16 flex items-center justify-center gap-4 rounded-md md:w-96 hover:bg-nv transition-all"
+              onClick={() => {
+                isFavorite === true
+                  ? removeFavorite(badge)
+                  : addFavorite(badge);
+              }}
+            >
+              {isFavorite === true ? (
+                <>
+                  <MdOutlineFavoriteBorder />
+                  Remover dos favoritos
+                </>
+              ) : (
+                <>
+                  <MdFavorite />
+                  Adicionar aos favoritos
+                </>
+              )}
+            </button>
           </div>
         )}
       </div>
