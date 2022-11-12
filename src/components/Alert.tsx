@@ -9,10 +9,10 @@ interface AlertProps {
 
 export function Alert(props: AlertProps) {
   const [show, setShow] = useState(true);
-  const SEVEN_DAYS = 7;
+  const ONE_DAY = 1;
 
   function closeAlert() {
-    setCookie('alert', 'true', { expires: SEVEN_DAYS });
+    setCookie('alert', 'true', { expires: ONE_DAY });
     setShow(false);
   }
 
