@@ -88,7 +88,7 @@ export function Badge() {
                   <img
                     src={badge?.creator_profile?.icon}
                     alt={badge?.creator_profile?.name}
-                    className="h-16 w-16 rounded-full ml-2 z-10 absolute top-14 right-2 border border-nv"
+                    className="h-16 w-16 rounded-full ml-2 z-10 absolute top-20 right-2 border border-nv"
                   />
                 )}
                 <img
