@@ -2,23 +2,14 @@ import { BiCopy } from 'react-icons/bi';
 import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
 
 import cx from 'classnames';
+import { Badge } from 'types/BadgesProps';
 
 import { useToast } from 'contexts/Toast';
 
 import { useFavorites } from 'hooks/Favorites';
 
-interface TopCardProps {
-  high: string;
-  secret: boolean;
-  name: string;
-  code: string;
-  count: number;
-  description: string;
-  media_price_badge?: number;
-}
-
 interface BadgeCard {
-  badge: TopCardProps;
+  badge: Badge;
   index: number;
   onClick?: () => void;
 }

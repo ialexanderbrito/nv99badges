@@ -2,24 +2,14 @@ import { BiCopy } from 'react-icons/bi';
 import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
 
 import cx from 'classnames';
+import { Badge } from 'types/BadgesProps';
 
 import { useToast } from 'contexts/Toast';
 
 import { useFavorites } from 'hooks/Favorites';
 
-interface TopCardProps {
-  id: string;
-  high: string;
-  secret: boolean;
-  name: string;
-  code: string;
-  count: number;
-  description: string;
-  media_price_badge?: number;
-}
-
 interface BadgeCard {
-  badge: TopCardProps;
+  badge: Badge;
   onClick?: () => void;
 }
 
@@ -34,7 +24,7 @@ export function Card(props: BadgeCard) {
   }
 
   return (
-    <div key={props.index} className="flex flex-col">
+    <div key={props.badge.id} className="flex flex-col">
       <div
         className={cx(
           'bg-primary w-72 h-[480px] flex flex-col items-center justify-center rounded-md mb-3 overflow-hidden p-3',
