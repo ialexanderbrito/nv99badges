@@ -81,17 +81,53 @@ routes.get('/badge/:id', async (request, response) => {
   try {
     const { data } = await apiBadges.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
 
+    const {data: badgeValue} = await apiBadges.get(`market/negotiations?code=${id}&type=TRADE&filter=lower_price`);
+
+    const valueBadgeMedia = badgeValue.results;
+
     const badges = data.badges;
 
     let arrayPrincipal: any = [];
+    let arraySecundary: any = [];
 
     for (const item of badges) {
       arrayPrincipal = [].concat(arrayPrincipal, item);
     }
 
+    for (const item of valueBadgeMedia) {
+      arraySecundary = [].concat(arraySecundary, item);
+    }
+
+    const mediaBadgeValue = arraySecundary.map((item: any) => item?.value);
+
+    const somaBadges = mediaBadgeValue.reduce((a: any, b: any) => a + b, 0).toFixed(2);
+
+    const mediaBadge = (somaBadges / mediaBadgeValue.length).toFixed(2);
+
+    const mediaBadgeNumber = Number(mediaBadge);
+
+
     const badge = arrayPrincipal.find((badge: any) => badge.code === id);
 
-    return response.json(badge);
+    if (!badge) {
+      return response.status(404).json({ message: 'Not found' });
+    }
+
+    if(badgeValue.results.length === 0) {
+      return response.status(200).json({
+        badge,
+        media_price_badge: 0,
+      });
+    }
+
+    const badgeValueMedia = {
+      ...badge,
+      media_price_badge: mediaBadgeNumber,
+    }
+
+    return response.status(200).json(badgeValueMedia);
+    
+
 
   } catch (error) {
     return response.status(500).json({ message: 'Error badge not found' });
