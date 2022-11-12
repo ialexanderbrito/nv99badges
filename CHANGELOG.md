@@ -1,3 +1,19 @@
+# [1.14.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.13.0...v1.14.0) (2022-11-12)
+
+
+### Bug Fixes
+
+* time cookie alert ([2c207d7](https://github.com/ialexanderbrito/nv99badges/commit/2c207d70d0b5bbe9b9e79cc28cc2f35bc0a25524))
+
+
+### Features
+
+* add button back page ([92d0e61](https://github.com/ialexanderbrito/nv99badges/commit/92d0e611186a9eadca1c692d3b661075a740a822))
+* add component card profile ([a86f81a](https://github.com/ialexanderbrito/nv99badges/commit/a86f81a0e003b1e9fdbc55c1e7bf6e4b94c5f558))
+* add props page not found ([90c443d](https://github.com/ialexanderbrito/nv99badges/commit/90c443ddf35b147981177ab4df84011389745064))
+* add state profile ([9425c25](https://github.com/ialexanderbrito/nv99badges/commit/9425c25994a07eb891a7e3c4981d050dbc56c817))
+* add types profile ([453be46](https://github.com/ialexanderbrito/nv99badges/commit/453be46f5b3148d28d61e00b02fdf670491f7834))
+
 # [1.13.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.12.0...v1.13.0) (2022-11-11)
 
 
