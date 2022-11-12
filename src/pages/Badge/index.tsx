@@ -75,7 +75,7 @@ export function Badge() {
               className=" items-center justify-center flex mt-12 "
               perspective={2000}
             >
-              <div className="flex h-[720px] w-80 bg-primary border border-nv  flex-col items-center justify-evenly rounded-md z-0 md:w-96">
+              <div className="flex h-[720px] w-80 bg-primary border border-nv flex-col items-center justify-evenly rounded-md z-0 md:w-96">
                 <div className="flex flex-col items-center justify-center">
                   <h1 className="text-white text-2xl font-bold">
                     {badge?.code}
@@ -88,13 +88,13 @@ export function Badge() {
                   <img
                     src={badge?.creator_profile?.icon}
                     alt={badge?.creator_profile?.name}
-                    className="h-16 w-16 rounded-full ml-2 z-10 absolute top-20 right-2 border border-nv"
+                    className="h-12 w-12 rounded-full ml-2 z-10 absolute top-24 right-2 border border-nv md:h-16 md:w-16 md:top-20"
                   />
                 )}
                 <img
                   src={badge?.high}
                   alt={badge?.code}
-                  className="h-80 w-80 rounded-md bg-nv"
+                  className="h-72 w-72 rounded-md bg-nv md:w-80 md:h-80"
                 />
                 <div className="w-80 p-2 text-white rounded-md">
                   <p className="flex gap-2 items-center">
