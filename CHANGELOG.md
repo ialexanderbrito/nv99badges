@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.15.0...v1.15.1) (2022-11-12)
+
+
+### Bug Fixes
+
+* image podcast card ([850faa2](https://github.com/ialexanderbrito/nv99badges/commit/850faa20e2c0c7a901089d7b2f40149aab8cce83))
+
 # [1.15.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.14.0...v1.15.0) (2022-11-12)
 
 
