@@ -41,6 +41,11 @@ export interface Badge {
   serial_number?: number;
 }
 
+export interface Profile {
+  label: string;
+  value: any;
+}
+
 export interface Badges {
   status: Status;
   badges: Badge[];
