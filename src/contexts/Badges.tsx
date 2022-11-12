@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Badge } from 'types/BadgesProps';
+import { Badge, Profile } from 'types/BadgesProps';
 
 import { getTotalBadgesUser } from 'services/get/badges';
 
@@ -41,6 +41,8 @@ interface BadgeProps {
   setTotalBadges: (totalBadges: number) => void;
   isLoadingPage: boolean;
   setIsLoadingPage: (isLoadingPage: boolean) => void;
+  profile: Profile[];
+  setProfile: (profile: any) => void;
 }
 
 const BadgeContext = createContext<BadgeProps>({} as any);
@@ -64,6 +66,7 @@ export const BadgeProvider = ({ children }: any) => {
 
   const [username, setUsername] = useState('');
   const [user, setUser] = useState<Badge[]>([]);
+  const [profile, setProfile] = useState<Profile[]>([]);
   const [totalBadges, setTotalBadges] = useState(0);
 
   function handleSelectedMaisRaros() {
@@ -102,6 +105,7 @@ export const BadgeProvider = ({ children }: any) => {
   async function searchUsername() {
     try {
       setIsLoadingPage(true);
+
       const { data: total } = await getTotalBadgesUser(username);
 
       setTotalBadges(total.total);
@@ -152,6 +156,8 @@ export const BadgeProvider = ({ children }: any) => {
         setTotalBadges,
         isLoadingPage,
         setIsLoadingPage,
+        profile,
+        setProfile,
       }}
     >
       {children}
