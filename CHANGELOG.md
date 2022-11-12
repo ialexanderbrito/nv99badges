@@ -1,3 +1,23 @@
+# [1.16.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.15.3...v1.16.0) (2022-11-12)
+
+
+### Bug Fixes
+
+* color serial number ([ff8ee2e](https://github.com/ialexanderbrito/nv99badges/commit/ff8ee2e35bf99cd1fdfd9ad56f83f4ad93139897))
+* number ([47b7d59](https://github.com/ialexanderbrito/nv99badges/commit/47b7d5929f92c093bee29519ab591fb8b7cd0c47))
+
+
+### Features
+
+* add button add favorites ([7fbdccc](https://github.com/ialexanderbrito/nv99badges/commit/7fbdcccd010648ac4bd82f2dfbe2c58eb98ef849))
+* add button add favorites ([981c4b9](https://github.com/ialexanderbrito/nv99badges/commit/981c4b9e0293c4e1ecadcc6d39e7e72c3525174b))
+* add button add favorites page badge ([f4889ee](https://github.com/ialexanderbrito/nv99badges/commit/f4889ee443bd9e48cad1248ebfb242fdf1a31c06))
+* add hook favorite ([859b9fe](https://github.com/ialexanderbrito/nv99badges/commit/859b9fef4663b6b27f379f5c0f4a7cc641dd84b3))
+* add link favorite header ([82ad9d8](https://github.com/ialexanderbrito/nv99badges/commit/82ad9d88b66046d73763ecb5b6ac4e6ee20a6638))
+* add pages favoritos ([654e456](https://github.com/ialexanderbrito/nv99badges/commit/654e4563f2d95ea59c92107b24a0544440c67e1a))
+* add route favoritos ([a6b805e](https://github.com/ialexanderbrito/nv99badges/commit/a6b805e220538dd12edcb078263650d78c22f455))
+* add utils two decimal ([046e592](https://github.com/ialexanderbrito/nv99badges/commit/046e59232f45aa4331960ac19dd839ff13ad73f8))
+
 ## [1.15.3](https://github.com/ialexanderbrito/nv99badges/compare/v1.15.2...v1.15.3) (2022-11-12)
 
 
