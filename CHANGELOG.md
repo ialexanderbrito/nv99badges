@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.16.0...v1.17.0) (2022-11-13)
+
+
+### Features
+
+* add button remove favorite ([c1f506a](https://github.com/ialexanderbrito/nv99badges/commit/c1f506ad4f17fd141fa8c4620f40248a5ba9f25d))
+
 # [1.16.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.15.3...v1.16.0) (2022-11-12)
 
 
