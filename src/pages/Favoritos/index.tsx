@@ -93,7 +93,7 @@ export function Favoritos() {
                             {favorite?.description}
                           </span>
                           <p className="flex gap-2 items-center">
-                            Valor mais baixo :
+                            Comprar:
                             <Link
                               to={`/badge/${favorite.code}`}
                               className="flex gap-2 items-center"
