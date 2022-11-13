@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.0...v1.17.1) (2022-11-13)
+
+
+### Bug Fixes
+
+* text buy badge ([66c8678](https://github.com/ialexanderbrito/nv99badges/commit/66c8678bc8d3e4f2ecfdb2d9c2309f36a83e0368))
+
 # [1.17.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.16.0...v1.17.0) (2022-11-13)
 
 
