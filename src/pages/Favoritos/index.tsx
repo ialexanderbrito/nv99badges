@@ -37,7 +37,6 @@ export function Favoritos() {
 
     Promise.all(promises).then((badges) => {
       const newFavorites = badges.map((badge, index) => ({
-        ...badge,
         ...favorites[index],
       }));
 
