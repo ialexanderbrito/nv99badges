@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.1...v1.17.2) (2022-11-14)
+
+
+### Bug Fixes
+
+* update favorites list via api ([05ffa3e](https://github.com/ialexanderbrito/nv99badges/commit/05ffa3efbb4f89b24622210ca24630f9289221e3))
+
 ## [1.17.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.0...v1.17.1) (2022-11-13)
 
 
