@@ -1,3 +1,10 @@
+## [1.17.3](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.2...v1.17.3) (2022-11-14)
+
+
+### Bug Fixes
+
+* save localstorage ([a35337a](https://github.com/ialexanderbrito/nv99badges/commit/a35337aa667693b193725751d88518b52cae00a9))
+
 ## [1.17.2](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.1...v1.17.2) (2022-11-14)
 
 
