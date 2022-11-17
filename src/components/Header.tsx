@@ -54,7 +54,7 @@ export function Header() {
             onChange={(e) => {
               setSearchBadge(e.target.value);
             }}
-            className="bg-primary text-white h-12 w-80 md:w-96 rounded-md px-4 outline-none  focus:border hover:border border-nv sm:w-80"
+            className="bg-primary text-white h-12 w-80 md:w-72 rounded-md px-4 outline-none focus:border hover:border border-nv sm:w-80"
           />
         </div>
 
