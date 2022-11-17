@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.18.0...v1.18.1) (2022-11-17)
+
+
+### Bug Fixes
+
+* input header size ([7516233](https://github.com/ialexanderbrito/nv99badges/commit/75162335fa46a83ba4b79b11c29a9b0b55ecd314))
+
 # [1.18.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.4...v1.18.0) (2022-11-17)
 
 
