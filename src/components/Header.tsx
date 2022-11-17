@@ -26,6 +26,7 @@ export function Header() {
     { name: 'Mais Raros', link: '/' },
     { name: 'Mais Resgatados', link: '/mais-resgatados' },
     { name: 'Mais Recentes', link: '/mais-recentes' },
+    { name: 'Canais', link: '/canais' },
     { name: 'Favoritos', link: '/favoritos' },
   ];
 
@@ -59,7 +60,7 @@ export function Header() {
 
         <div
           onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-4 cursor-pointer md:hidden"
+          className="text-3xl absolute right-8 top-4 cursor-pointer lg:hidden"
         >
           {open ? (
             <IoClose className="text-nv" size={32} />
@@ -69,12 +70,12 @@ export function Header() {
         </div>
 
         <ul
-          className={`backdrop-blur-2xl bg-primary/90 md:bg-transparent md:backdrop-blur-0 md:flex md:items-center md:pb-0 pb-12 absolute md:static  md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+          className={`backdrop-blur-2xl bg-primary/90 lg:bg-transparent lg:backdrop-blur-0 lg:flex lg:items-center lg:pb-0 pb-12 absolute lg:static lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 transition-all duration-500 ease-in ${
             open ? 'top-14 ' : 'top-[-490px]'
           }`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7 ">
+            <li key={link.name} className="lg:ml-8 lg:my-0 my-7 ">
               <a
                 href={link.link}
                 className={cx('text-white hover:text-nv duration-500', {
