@@ -45,8 +45,8 @@ export async function getUser(
   return { data, status };
 }
 
-export async function getTotalBadgesUser(username: string) {
-  const { data, status } = await api.get(`users/count/${username}`);
+export async function getChannels() {
+  const { data, status } = await api.get(`creators?order=subs&limit=50`);
 
   return { data, status };
 }
