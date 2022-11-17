@@ -1,24 +1,19 @@
-import { api } from './../../api';
 import { Router } from "express";
+import { apiCreators } from "../../api";
 
 const routes = Router();
 
-routes.get('/users/:id', async (request, response) => {
-  const { id } = request.params;
-  const { page = 1, limit = 10, order = "asc" } = request.query;
+routes.get('/creators', async (request, response) => {
+  const { page = 1, limit = 10, order = 'subs' } = request.query;
 
   try {
-    const { data } = await api.get(`badges/user_badges_search?username=${id}`);
+    const { data } = await apiCreators.get(`content/creators`);
 
-    const {data: profile} = await api.get(`badges/profile_card?username=${id}`);
-
-    const profileStats = profile.statistics;
-
-    const badges = data.badges;
+    const creators = data.creators;
 
     let arrayPrincipal: any = [];
 
-    for (const item of badges) {
+    for (const item of creators) {
       arrayPrincipal = [].concat(arrayPrincipal, item);
     }
 
@@ -27,24 +22,18 @@ routes.get('/users/:id', async (request, response) => {
     const endIndex = Number(page) * Number(limit);
 
     const orderBy = arrayPrincipal.sort((a: any, b: any) => {
-      if (order === 'asc') {
-        return a.count - b.count;
+
+      if (order === 'subs') {
+        return b.subscribers - a.subscribers;
       }
 
-      if (order === 'recent') {
-        const dateA = new Date(a.expires_at);
-        const dateB = new Date(b.expires_at);
-
-        return dateB.getTime() - dateA.getTime();
+      if(order === 'name') {
+        return a.name.localeCompare(b.name);
       }
 
-      if (order === 'serial') {
-        return a.serial_number - b.serial_number;
-      }
-
-      return b.count - a.count;
     });
 
+    const total = orderBy.length;
 
     if (startIndex > arrayPrincipal.length) {
       return response.status(404).json({ message: 'Page not found' });
@@ -58,29 +47,42 @@ routes.get('/users/:id', async (request, response) => {
 
     if (endIndex < arrayPrincipal.length) {
       results.next = {
+
         page: Number(page) + 1,
+
         limit: Number(limit),
+
       };
+
     }
 
     if (startIndex > 0) {
+
       results.previous = {
+
         page: Number(page) - 1,
+
         limit: Number(limit),
+
       };
+
     }
 
     results.results = orderBy.slice(startIndex, endIndex);
 
-    results.results = arrayPrincipal.slice(startIndex, endIndex);
+    results.total = total;
 
-    results.profile = profileStats;
 
     return response.status(200).json(results);
 
   } catch (error) {
-    return response.status(500).json({ message: 'Internal server error' });
+
+    return response.status(400).json({ message: 'Error' });
+
   }
+
 });
+
+
 
 export default routes;

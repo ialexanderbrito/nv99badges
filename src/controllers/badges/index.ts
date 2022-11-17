@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { apiBadges } from "../../api";
+import { api } from "../../api";
 
 const routes = Router();
 
@@ -7,7 +7,7 @@ routes.get('/badges', async (request, response) => {
   const { page = 1, limit = 10, order = 'asc' } = request.query;
 
   try {
-    const { data } = await apiBadges.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
+    const { data } = await api.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
 
     const badges = data.badges;
 
@@ -79,9 +79,9 @@ routes.get('/badge/:id', async (request, response) => {
   const { id } = request.params;
 
   try {
-    const { data } = await apiBadges.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
+    const { data } = await api.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
 
-    const {data: badgeValue} = await apiBadges.get(`market/negotiations?code=${id}&type=TRADE&filter=lower_price`);
+    const {data: badgeValue} = await api.get(`market/negotiations?code=${id}&type=TRADE&filter=lower_price`);
 
     const valueBadgeMedia = badgeValue.results;
 
@@ -136,7 +136,7 @@ routes.get('/badges/creator/:id', async (request, response) => {
   const { page = 1, limit = 10, order = 'asc' } = request.query;
 
   try {
-    const { data } = await apiBadges.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
+    const { data } = await api.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
 
     const badges = data.badges;
 
@@ -207,7 +207,7 @@ routes.get('/badges/search', async (request, response) => {
   const { code } = request.query;
 
   try {
-    const { data } = await apiBadges.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
+    const { data } = await api.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
 
     const badges = data.badges;
 
