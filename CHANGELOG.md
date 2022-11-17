@@ -1,3 +1,10 @@
+## [1.17.4](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.3...v1.17.4) (2022-11-17)
+
+
+### Bug Fixes
+
+* margin bottom alert ([3e0b4a4](https://github.com/ialexanderbrito/nv99badges/commit/3e0b4a4b8221ef53ffa92ad5fb0308fe2a4a4a74))
+
 ## [1.17.3](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.2...v1.17.3) (2022-11-14)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "web",
-  "version": "1.17.3",
+  "version": "1.17.4",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
