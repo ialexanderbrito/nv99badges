@@ -52,3 +52,23 @@ export interface Badges {
   badges: Badge[];
   total_badges: number;
 }
+
+export interface Next {
+  page: number;
+  limit: number;
+}
+
+export interface Creator {
+  subscribers: number;
+  name: string;
+  label: string;
+  creator_profile_id: string;
+  subscribed: boolean;
+  icon: string;
+}
+
+export interface Creators {
+  next: Next;
+  results: Creator[];
+  total: number;
+}
