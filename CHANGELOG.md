@@ -1,3 +1,22 @@
+# [1.18.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.4...v1.18.0) (2022-11-17)
+
+
+### Bug Fixes
+
+* remove total badge user ([687c9a6](https://github.com/ialexanderbrito/nv99badges/commit/687c9a6f6a9a0c90801c5de5efbba74c0cd99163))
+* remove total badge user and add creators ([e2509dd](https://github.com/ialexanderbrito/nv99badges/commit/e2509dd1dcaec99ba224ec285f4beea5f0a90c7a))
+* size header and add new link ([e816caf](https://github.com/ialexanderbrito/nv99badges/commit/e816caf229eb3a3deaad6370cf3f56a6d8044f4d))
+
+
+### Features
+
+* add component card creator ([5da9ebd](https://github.com/ialexanderbrito/nv99badges/commit/5da9ebd6a43600a924a54f46e6f25a75aee75c0f))
+* add format million subscriber channel ([be33ec5](https://github.com/ialexanderbrito/nv99badges/commit/be33ec53f1c270d5d06cb9e92192d3cf382bb2b0))
+* add new props ([024dfb2](https://github.com/ialexanderbrito/nv99badges/commit/024dfb253f1bcd1d6c1afa6563424728717923d6))
+* add new route canais ([a514df8](https://github.com/ialexanderbrito/nv99badges/commit/a514df843b0e3d760fc0b80d6f6b9455980c94f4))
+* add page canais ([c466e58](https://github.com/ialexanderbrito/nv99badges/commit/c466e584f682621a121fd4161cadac3556b1d231))
+* add search badges header ([99f7495](https://github.com/ialexanderbrito/nv99badges/commit/99f7495122c4a960a826685b9bb522cce43990f1))
+
 ## [1.17.4](https://github.com/ialexanderbrito/nv99badges/compare/v1.17.3...v1.17.4) (2022-11-17)
 
 
