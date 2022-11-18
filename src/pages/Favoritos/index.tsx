@@ -140,7 +140,7 @@ export function Favoritos() {
         <title>NV99 Badge | Favoritos</title>
       </Helmet>
 
-      <div className="bg-dark w-full items-center flex flex-col">
+      <div className="bg-dark w-full items-center flex flex-col h-screen">
         <Header />
 
         <div className="flex px-6 w-full items-center text-white mt-16 cursor-pointer md:px-10">

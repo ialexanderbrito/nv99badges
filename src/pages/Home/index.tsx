@@ -6,7 +6,6 @@ import { useQuery } from '@tanstack/react-query';
 import { Badge } from 'types/BadgesProps';
 
 import { Alert } from 'components/Alert';
-import { ButtonTopPage } from 'components/ButtonTop';
 import { Card } from 'components/Card';
 import { CardSkeleton } from 'components/CardSkeleton';
 import { Filter } from 'components/FIlter';
@@ -248,8 +247,6 @@ export function Homepage() {
             Carregar mais
           </button>
         )}
-
-        <ButtonTopPage />
       </div>
     </>
   );

@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
 
-import { ButtonTopPage } from 'components/ButtonTop';
 import { Card } from 'components/Card';
 import { CardCreator } from 'components/CardCreator';
 import { CardSkeleton } from 'components/CardSkeleton';
@@ -129,8 +128,6 @@ export function Canais() {
           </>
         )}
       </div>
-
-      <ButtonTopPage />
     </>
   );
 }

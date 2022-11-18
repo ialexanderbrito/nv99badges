@@ -8,7 +8,6 @@ import { Badge } from 'types/BadgesProps';
 
 import { NotFound } from 'pages/NotFound';
 
-import { ButtonTopPage } from 'components/ButtonTop';
 import { CardProfile } from 'components/CardProfile';
 import { Header } from 'components/Header';
 
@@ -133,8 +132,6 @@ export function User() {
           )}
         </>
       )}
-
-      <ButtonTopPage />
     </>
   );
 }
