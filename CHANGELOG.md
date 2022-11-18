@@ -1,3 +1,10 @@
+## [1.21.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.21.0...v1.21.1) (2022-11-18)
+
+
+### Bug Fixes
+
+* footer page favoritos ([53a1554](https://github.com/ialexanderbrito/nv99badges/commit/53a155420e143c8c93df4413efa95e6e4505d732))
+
 # [1.21.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.20.0...v1.21.0) (2022-11-18)
 
 
