@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.20.0...v1.21.0) (2022-11-18)
+
+
+### Features
+
+* add footer and button top page global ([113a8af](https://github.com/ialexanderbrito/nv99badges/commit/113a8af58ec7018c2a3a3078d2aca6933b20c375))
+
 # [1.20.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.19.0...v1.20.0) (2022-11-18)
 
 
