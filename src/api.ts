@@ -1,16 +1,19 @@
-
 import axios from 'axios';
+
+require('dotenv').config({
+  path: '.env',
+});
 
 export const api = axios.create({
   baseURL: 'https://stickers-nv99-2eqj3fl3la-ue.a.run.app/v2',
   headers: {
-    'x-firebase-appcheck': 'eyJraWQiOiJsWUJXVmciLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxOjI3NzY4MDg5MDEzMDp3ZWI6MTc4NmQ2MmFkZTQxZTRmYzk3OTNjYiIsImF1ZCI6WyJwcm9qZWN0c1wvMjc3NjgwODkwMTMwIiwicHJvamVjdHNcL2Zsb3dwb2RjYXN0Il0sImlzcyI6Imh0dHBzOlwvXC9maXJlYmFzZWFwcGNoZWNrLmdvb2dsZWFwaXMuY29tXC8yNzc2ODA4OTAxMzAiLCJleHAiOjE2Njc0MjkwODYsImlhdCI6MTY2NzM0MjY4Nn0.r1nRRyaU5QZ138p3bcD5mSmCyTPNEjGzvO8Opt1zKj2ShPU4beBVZNRqExJtRaUz2uDtM5Zgl3yBi5RKT_vTOQcD1OMVM8K3GJGAsYYs9OaJDee8OJfl9SP5HQciZlYO1STPAvOFw_0l_uF787Te73FXZDJKKVcSNKTnK7fXBBeUnskabb3YtuYewUpyLMQPe4hVkp38vvshhf9SlXXI-bOCxGR57arr7sLipXZZu0_pJhwud45oYti4ZjZjChIzeboZnBO2V60uYf8V5S0VMvj2In6yTxjF8SLQHJRF9jYQj0EvHXv3Qlu4IkTuB9p13dCeeF9J6WOgQeH7XS4BCBQyBbUw-InO21U1PKFfsp12m2MZ91_tlS5fTjKREme8lm1RnVkrzGIqwT2XqE_bTp5T6dnmLqRbyv4sr2IeV77efq2QnnoBWM1beVjMToUL34jb-OHNyUZtoaUJZnrDWdZOJ6Iyc_tslSOYfPDFOfBFhN1VTxCfYJJSzfuxNUaU'
-  }
+    'x-firebase-appcheck': process.env.FIREBASE_KEY,
+  },
 });
 
 export const apiCreators = axios.create({
   baseURL: 'https://creators-flow3r-2eqj3fl3la-ue.a.run.app/v1',
   headers: {
-    'x-firebase-appcheck': 'eyJraWQiOiJsWUJXVmciLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxOjI3NzY4MDg5MDEzMDp3ZWI6MTc4NmQ2MmFkZTQxZTRmYzk3OTNjYiIsImF1ZCI6WyJwcm9qZWN0c1wvMjc3NjgwODkwMTMwIiwicHJvamVjdHNcL2Zsb3dwb2RjYXN0Il0sImlzcyI6Imh0dHBzOlwvXC9maXJlYmFzZWFwcGNoZWNrLmdvb2dsZWFwaXMuY29tXC8yNzc2ODA4OTAxMzAiLCJleHAiOjE2Njc0MjkwODYsImlhdCI6MTY2NzM0MjY4Nn0.r1nRRyaU5QZ138p3bcD5mSmCyTPNEjGzvO8Opt1zKj2ShPU4beBVZNRqExJtRaUz2uDtM5Zgl3yBi5RKT_vTOQcD1OMVM8K3GJGAsYYs9OaJDee8OJfl9SP5HQciZlYO1STPAvOFw_0l_uF787Te73FXZDJKKVcSNKTnK7fXBBeUnskabb3YtuYewUpyLMQPe4hVkp38vvshhf9SlXXI-bOCxGR57arr7sLipXZZu0_pJhwud45oYti4ZjZjChIzeboZnBO2V60uYf8V5S0VMvj2In6yTxjF8SLQHJRF9jYQj0EvHXv3Qlu4IkTuB9p13dCeeF9J6WOgQeH7XS4BCBQyBbUw-InO21U1PKFfsp12m2MZ91_tlS5fTjKREme8lm1RnVkrzGIqwT2XqE_bTp5T6dnmLqRbyv4sr2IeV77efq2QnnoBWM1beVjMToUL34jb-OHNyUZtoaUJZnrDWdZOJ6Iyc_tslSOYfPDFOfBFhN1VTxCfYJJSzfuxNUaU'
-  }
+    'x-firebase-appcheck': process.env.FIREBASE_KEY,
+  },
 });

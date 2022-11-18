@@ -1,16 +1,18 @@
 import { api } from './../../api';
-import { Router } from "express";
+import { Router } from 'express';
 
 const routes = Router();
 
 routes.get('/users/:id', async (request, response) => {
   const { id } = request.params;
-  const { page = 1, limit = 10, order = "asc" } = request.query;
+  const { page = 1, limit = 10, order = 'asc' } = request.query;
 
   try {
     const { data } = await api.get(`badges/user_badges_search?username=${id}`);
 
-    const {data: profile} = await api.get(`badges/profile_card?username=${id}`);
+    const { data: profile } = await api.get(
+      `badges/profile_card?username=${id}`,
+    );
 
     const profileStats = profile.statistics;
 
@@ -45,7 +47,6 @@ routes.get('/users/:id', async (request, response) => {
       return b.count - a.count;
     });
 
-
     if (startIndex > arrayPrincipal.length) {
       return response.status(404).json({ message: 'Page not found' });
     }
@@ -77,7 +78,6 @@ routes.get('/users/:id', async (request, response) => {
     results.profile = profileStats;
 
     return response.status(200).json(results);
-
   } catch (error) {
     return response.status(500).json({ message: 'Internal server error' });
   }

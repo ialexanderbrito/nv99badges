@@ -1,5 +1,5 @@
-import { Router } from "express";
-import { api } from "../../api";
+import { Router } from 'express';
+import { api } from '../../api';
 
 const routes = Router();
 
@@ -7,7 +7,9 @@ routes.get('/badges', async (request, response) => {
   const { page = 1, limit = 10, order = 'asc' } = request.query;
 
   try {
-    const { data } = await api.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
+    const { data } = await api.get(
+      `market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`,
+    );
 
     const badges = data.badges;
 
@@ -69,7 +71,6 @@ routes.get('/badges', async (request, response) => {
     results.total = total;
 
     return response.status(200).json(results);
-
   } catch (error) {
     return response.status(500).json({ message: 'Internal server error' });
   }
@@ -79,9 +80,13 @@ routes.get('/badge/:id', async (request, response) => {
   const { id } = request.params;
 
   try {
-    const { data } = await api.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
+    const { data } = await api.get(
+      `market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`,
+    );
 
-    const {data: badgeValue} = await api.get(`market/negotiations?code=${id}&type=TRADE&filter=lower_price`);
+    const { data: badgeValue } = await api.get(
+      `market/negotiations?code=${id}&type=TRADE&filter=lower_price`,
+    );
 
     const valueBadgeMedia = badgeValue.results;
 
@@ -100,7 +105,9 @@ routes.get('/badge/:id', async (request, response) => {
 
     const mediaBadgeValue = arraySecundary.map((item: any) => item?.value);
 
-    const somaBadges = mediaBadgeValue.reduce((a: any, b: any) => a + b, 0).toFixed(2);
+    const somaBadges = mediaBadgeValue
+      .reduce((a: any, b: any) => a + b, 0)
+      .toFixed(2);
 
     const mediaBadge = (somaBadges / mediaBadgeValue.length).toFixed(2);
 
@@ -112,7 +119,7 @@ routes.get('/badge/:id', async (request, response) => {
       return response.status(404).json({ message: 'Not found' });
     }
 
-    if(badgeValue.results.length === 0) {
+    if (badgeValue.results.length === 0) {
       return response.status(200).json({
         badge,
         media_price_badge: 0,
@@ -122,10 +129,9 @@ routes.get('/badge/:id', async (request, response) => {
     const badgeValueMedia = {
       ...badge,
       media_price_badge: mediaBadgeNumber,
-    }
+    };
 
     return response.status(200).json(badgeValueMedia);
-    
   } catch (error) {
     return response.status(500).json({ message: 'Error badge not found' });
   }
@@ -136,7 +142,9 @@ routes.get('/badges/creator/:id', async (request, response) => {
   const { page = 1, limit = 10, order = 'asc' } = request.query;
 
   try {
-    const { data } = await api.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
+    const { data } = await api.get(
+      `market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`,
+    );
 
     const badges = data.badges;
 
@@ -146,7 +154,9 @@ routes.get('/badges/creator/:id', async (request, response) => {
       arrayPrincipal = [].concat(arrayPrincipal, item);
     }
 
-    const creatorBadges = arrayPrincipal.filter((badge: any) => badge.creator_profile_id === id);
+    const creatorBadges = arrayPrincipal.filter(
+      (badge: any) => badge.creator_profile_id === id,
+    );
 
     const startIndex = (Number(page) - 1) * Number(limit);
 
@@ -191,13 +201,11 @@ routes.get('/badges/creator/:id', async (request, response) => {
       };
     }
 
-
     results.results = orderBy.slice(startIndex, endIndex);
 
     results.results = creatorBadges.slice(startIndex, endIndex);
 
     return response.status(200).json(results);
-
   } catch (error) {
     return response.status(500).json({ message: 'Error on get badge' });
   }
@@ -207,7 +215,9 @@ routes.get('/badges/search', async (request, response) => {
   const { code } = request.query;
 
   try {
-    const { data } = await api.get(`market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`);
+    const { data } = await api.get(
+      `market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`,
+    );
 
     const badges = data.badges;
 
@@ -217,10 +227,16 @@ routes.get('/badges/search', async (request, response) => {
       arrayPrincipal = [].concat(arrayPrincipal, item);
     }
 
-    const results = arrayPrincipal.filter((badge: any) => (badge.name.toLowerCase().includes(code?.toString().toLowerCase())) || (badge.code.toLowerCase().includes(code?.toString().toLowerCase())) || (badge.description.toLowerCase().includes(code?.toString().toLowerCase())));
+    const results = arrayPrincipal.filter(
+      (badge: any) =>
+        badge.name.toLowerCase().includes(code?.toString().toLowerCase()) ||
+        badge.code.toLowerCase().includes(code?.toString().toLowerCase()) ||
+        badge.description
+          .toLowerCase()
+          .includes(code?.toString().toLowerCase()),
+    );
 
     return response.json(results);
-
   } catch (error) {
     return response.status(500).json({ message: 'Internal server error' });
   }
