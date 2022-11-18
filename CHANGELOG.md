@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.18.1...v1.19.0) (2022-11-18)
+
+
+### Features
+
+* add value saved and present value ([1194348](https://github.com/ialexanderbrito/nv99badges/commit/11943485f681912fc993fb9a26c01450e5061269))
+
 ## [1.18.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.18.0...v1.18.1) (2022-11-17)
 
 
