@@ -40,6 +40,7 @@ export interface Badge {
   redeemed: boolean;
   serial_number?: number;
   media_price_badge?: number;
+  market_value_change_type?: 'same' | 'up' | 'down';
 }
 
 export interface Profile {
