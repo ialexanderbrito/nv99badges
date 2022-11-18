@@ -1,3 +1,16 @@
+# [1.20.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.19.0...v1.20.0) (2022-11-18)
+
+
+### Bug Fixes
+
+* button top page ([a3d531c](https://github.com/ialexanderbrito/nv99badges/commit/a3d531ce48f9a3936acad82c9e0125e75eb79258))
+
+
+### Features
+
+* add assets logo fleurx ([68ecaef](https://github.com/ialexanderbrito/nv99badges/commit/68ecaef60863b2aab29eba0762e6bafc95114ff4))
+* add component footer ([901bc2f](https://github.com/ialexanderbrito/nv99badges/commit/901bc2f27f6ec4aed1bf24a95114ecac91a969f9))
+
 # [1.19.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.18.1...v1.19.0) (2022-11-18)
 
 
