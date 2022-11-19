@@ -4,7 +4,7 @@ const anoAtual = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className="bg-primary/90 backdrop-blur-2xl flex w-full items-center justify-center h-8 mt-4">
+    <footer className="bg-primary/90 backdrop-blur-2xl flex gap-3 justify-center items-center py-7 w-full h-2 mt-4">
       <p className="text-slate-400 text-sm">
         Feito com <span className="text-red-500">❤</span> por{' '}
         <a

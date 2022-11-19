@@ -54,72 +54,70 @@ export function Canais() {
         <title>NV99 Badge | Canais</title>
       </Helmet>
 
-      <div className="bg-dark w-full items-center flex flex-col">
-        {verificaBusca ? (
-          <>
-            <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-              Resultados para "{searchBadge}"
-            </h1>
-            {Array.from({ length: 2 }).map((_, index) => (
-              <>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                  <CardSkeleton key={index} />
-                  <CardSkeleton key={index} />
-                  <CardSkeleton key={index} />
-                </div>
-              </>
-            ))}
-          </>
-        ) : (
-          <>
-            {verificaBadgesBuscadas && (
-              <>
-                <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-                  Resultados para "{searchBadge}"
-                </h1>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                  {badgesFiltered.map((badge) => (
-                    <Card
-                      badge={badge}
-                      key={badge.id}
-                      onClick={() => {
-                        navigate(`/badge/${badge.code}`);
-                      }}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </>
-        )}
-
-        {!verificaBusca && !verificaBadgesBuscadas && (
-          <>
-            <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-              Canais da plataforma
-            </h1>
-
-            {isLoading || !canais ? (
-              <>
-                {Array.from({ length: 2 }).map((_, index) => (
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                    <CardSkeleton key={index} />
-                    <CardSkeleton key={index} />
-                    <CardSkeleton key={index} />
-                  </div>
-                ))}
-              </>
-            ) : (
+      {verificaBusca ? (
+        <>
+          <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+            Resultados para "{searchBadge}"
+          </h1>
+          {Array.from({ length: 2 }).map((_, index) => (
+            <>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                {canais.map((canal) => (
-                  <CardCreator creator={canal} />
+                <CardSkeleton key={index} />
+                <CardSkeleton key={index} />
+                <CardSkeleton key={index} />
+              </div>
+            </>
+          ))}
+        </>
+      ) : (
+        <>
+          {verificaBadgesBuscadas && (
+            <>
+              <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+                Resultados para "{searchBadge}"
+              </h1>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+                {badgesFiltered.map((badge) => (
+                  <Card
+                    badge={badge}
+                    key={badge.id}
+                    onClick={() => {
+                      navigate(`/badge/${badge.code}`);
+                    }}
+                  />
                 ))}
               </div>
-            )}
-          </>
-        )}
-      </div>
+            </>
+          )}
+        </>
+      )}
+
+      {!verificaBusca && !verificaBadgesBuscadas && (
+        <>
+          <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+            Canais da plataforma
+          </h1>
+
+          {isLoading || !canais ? (
+            <>
+              {Array.from({ length: 2 }).map((_, index) => (
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+                  <CardSkeleton key={index} />
+                  <CardSkeleton key={index} />
+                  <CardSkeleton key={index} />
+                </div>
+              ))}
+            </>
+          ) : (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+              {canais.map((canal) => (
+                <CardCreator creator={canal} />
+              ))}
+            </div>
+          )}
+        </>
+      )}
     </>
   );
 }

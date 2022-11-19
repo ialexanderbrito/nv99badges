@@ -2,8 +2,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { MainRoutes } from 'routes';
 
-import { ButtonTopPage } from 'components/ButtonTop';
-import { Footer } from 'components/Footer';
 import { Layout } from 'components/Layout';
 
 import { disabledPathname } from 'utils/disabledPathname';
@@ -20,8 +18,6 @@ export function App() {
         <BadgeProvider>
           <Layout disabled={disabledPathname(pathname)}>
             <MainRoutes />
-            <Footer />
-            <ButtonTopPage />
           </Layout>
         </BadgeProvider>
       </BrowserRouter>

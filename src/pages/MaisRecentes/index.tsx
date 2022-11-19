@@ -102,122 +102,120 @@ export function MaisRecentes() {
         <title>NV99 Badges | Mais Recentes</title>
       </Helmet>
 
-      <div className="bg-dark w-full items-center flex flex-col">
-        <Alert
-          title="Os emblemas podem demorar para carregar por conta do servidor, pois
+      <Alert
+        title="Os emblemas podem demorar para carregar por conta do servidor, pois
             ele fica em modo hibernação para economizar recursos."
-        />
-        <Filter />
+      />
+      <Filter />
 
-        {verificaBusca ? (
-          <>
-            <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-              Resultados para "{searchBadge}"
-            </h1>
-            {Array.from({ length: 2 }).map((_, index) => (
-              <>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                  <CardSkeleton key={index} />
-                  <CardSkeleton key={index} />
-                  <CardSkeleton key={index} />
-                </div>
-              </>
-            ))}
-          </>
-        ) : (
-          <>
-            {verificaBadgesBuscadas && (
-              <>
-                <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-                  Resultados para "{searchBadge}"
-                </h1>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                  {badgesFiltered.map((badge) => (
-                    <Card
-                      badge={badge}
-                      key={badge.id}
-                      onClick={() => {
-                        navigate(`/badge/${badge.code}`);
-                      }}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </>
-        )}
-
-        {mostraBadgesMaisRecentes && (
-          <>
-            <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-              Emblemas mais recentes
-            </h1>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-              {badges.map((badge) => (
-                <Card
-                  badge={badge}
-                  key={badge.id}
-                  onClick={() => {
-                    navigate(`/badge/${badge.code}`);
-                  }}
-                />
-              ))}
-            </div>
-          </>
-        )}
-
-        {mostraBadgesFiltrados && (
-          <>
-            <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-              Emblemas mais recentes do{' '}
-              {podcastNames.find((pdc) => pdc.id === podcast)?.name}
-            </h1>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-              {badgesPodcast.map((badge) => (
-                <Card
-                  badge={badge}
-                  key={badge.id}
-                  onClick={() => {
-                    navigate(`/badge/${badge.code}`);
-                  }}
-                />
-              ))}
-            </div>
-          </>
-        )}
-
-        {badgesFiltered?.length === 0 && searchBadge !== '' && (
+      {verificaBusca ? (
+        <>
           <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-            Nenhum resultado encontrado para "{searchBadge}"
+            Resultados para "{searchBadge}"
           </h1>
-        )}
+          {Array.from({ length: 2 }).map((_, index) => (
+            <>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+                <CardSkeleton key={index} />
+                <CardSkeleton key={index} />
+                <CardSkeleton key={index} />
+              </div>
+            </>
+          ))}
+        </>
+      ) : (
+        <>
+          {verificaBadgesBuscadas && (
+            <>
+              <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+                Resultados para "{searchBadge}"
+              </h1>
 
-        {isLoading && searchBadge === '' && (
-          <>
-            {Array.from({ length: 2 }).map((_, index) => (
-              <>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                  <CardSkeleton key={index} />
-                  <CardSkeleton key={index} />
-                  <CardSkeleton key={index} />
-                </div>
-              </>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+                {badgesFiltered.map((badge) => (
+                  <Card
+                    badge={badge}
+                    key={badge.id}
+                    onClick={() => {
+                      navigate(`/badge/${badge.code}`);
+                    }}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </>
+      )}
+
+      {mostraBadgesMaisRecentes && (
+        <>
+          <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+            Emblemas mais recentes
+          </h1>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {badges.map((badge) => (
+              <Card
+                badge={badge}
+                key={badge.id}
+                onClick={() => {
+                  navigate(`/badge/${badge.code}`);
+                }}
+              />
             ))}
-          </>
-        )}
+          </div>
+        </>
+      )}
 
-        {searchBadge === '' && (
-          <button
-            className="bg-primary text-white w-96 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-96 hover:bg-nv"
-            onClick={() => {
-              loadMoreBadges();
-            }}
-          >
-            Carregar mais
-          </button>
-        )}
-      </div>
+      {mostraBadgesFiltrados && (
+        <>
+          <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+            Emblemas mais recentes do{' '}
+            {podcastNames.find((pdc) => pdc.id === podcast)?.name}
+          </h1>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {badgesPodcast.map((badge) => (
+              <Card
+                badge={badge}
+                key={badge.id}
+                onClick={() => {
+                  navigate(`/badge/${badge.code}`);
+                }}
+              />
+            ))}
+          </div>
+        </>
+      )}
+
+      {badgesFiltered?.length === 0 && searchBadge !== '' && (
+        <h1 className="text-white text-2xl font-bold mt-4 mb-4">
+          Nenhum resultado encontrado para "{searchBadge}"
+        </h1>
+      )}
+
+      {isLoading && searchBadge === '' && (
+        <>
+          {Array.from({ length: 2 }).map((_, index) => (
+            <>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+                <CardSkeleton key={index} />
+                <CardSkeleton key={index} />
+                <CardSkeleton key={index} />
+              </div>
+            </>
+          ))}
+        </>
+      )}
+
+      {searchBadge === '' && (
+        <button
+          className="bg-primary text-white w-96 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-96 hover:bg-nv"
+          onClick={() => {
+            loadMoreBadges();
+          }}
+        >
+          Carregar mais
+        </button>
+      )}
     </>
   );
 }

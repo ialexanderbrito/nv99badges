@@ -46,12 +46,12 @@ export function Badge() {
       <Helmet>
         <title>NV99 Badge | {badge?.code || ''}</title>
       </Helmet>
-      <div className="bg-dark w-full items-center flex flex-col">
-        {isLoading || !badge ? (
-          <div className="mt-16 flex flex-col">
-            <CardSkeleton />
-          </div>
-        ) : (
+      {isLoading || !badge ? (
+        <div className="mt-16 flex flex-col h-[calc(100vh-13.5rem)]">
+          <CardSkeleton />
+        </div>
+      ) : (
+        <div className="w-full h-[calc(100vh-9rem)]">
           <div className="flex flex-col items-center">
             <Tilt
               glareEnable={true}
@@ -59,12 +59,12 @@ export function Badge() {
               glareColor="#ffffff"
               glarePosition="all"
               glareBorderRadius="20px"
-              className=" items-center justify-center flex mt-12 "
+              className=" items-center justify-center flex mt-12"
               perspective={2000}
             >
-              <div className="flex h-[720px] w-80 bg-primary border border-nv flex-col items-center justify-evenly rounded-md z-0 md:w-96">
+              <div className="flex h-[650px] w-80 bg-primary border border-nv flex-col items-center justify-evenly rounded-md z-0 md:w-96 sm:w-96">
                 <div className="flex flex-col items-center justify-center">
-                  <h1 className="text-white text-2xl font-bold">
+                  <h1 className="text-white text-md font-bold">
                     {badge?.code}
                   </h1>
                   <span className="text-white font-thin text-sm">
@@ -75,13 +75,13 @@ export function Badge() {
                   <img
                     src={badge?.creator_profile?.icon}
                     alt={badge?.creator_profile?.name}
-                    className="h-12 w-12 rounded-full ml-2 z-10 absolute top-24 right-2 border border-nv md:h-16 md:w-16 md:top-20"
+                    className="h-12 w-12 rounded-full ml-2 z-10 absolute top-20 right-2 border border-nv  sm:right-6 sm:w-16 sm:h-16 sm:top-16"
                   />
                 )}
                 <img
                   src={badge?.high}
                   alt={badge?.code}
-                  className="h-72 w-72 rounded-md bg-nv md:w-80 md:h-80"
+                  className="h-72 w-72 rounded-md bg-nv"
                 />
                 <div className="w-80 p-2 text-white rounded-md">
                   <p className="flex gap-2 items-center">
@@ -110,7 +110,7 @@ export function Badge() {
             </Tilt>
 
             <a
-              className="bg-primary mt-6 text-white w-80 h-16 flex items-center justify-center gap-4 rounded-md md:w-96 hover:bg-nv transition-all"
+              className="bg-primary mt-6 text-white w-80 h-16 flex items-center justify-center gap-4 rounded-md md:w-96 hover:bg-nv transition-all sm:w-96"
               href={`https://nv99.com.br/badge/${badge?.code}`}
               target="_blank"
               rel="noreferrer"
@@ -120,7 +120,7 @@ export function Badge() {
             </a>
 
             <button
-              className="bg-primary mt-6 text-white w-80 h-16 flex items-center justify-center gap-4 rounded-md md:w-96 hover:bg-nv transition-all"
+              className="bg-primary mt-6 text-white w-80 h-16 flex items-center justify-center gap-4 rounded-md md:w-96 hover:bg-nv transition-all sm:w-96"
               onClick={() => {
                 isFavorite === true
                   ? removeFavorite(badge)
@@ -140,8 +140,8 @@ export function Badge() {
               )}
             </button>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }

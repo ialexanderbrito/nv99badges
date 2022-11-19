@@ -28,7 +28,7 @@ export function ButtonTopPage() {
       {isActive && (
         <button
           type="button"
-          className="bg-nv hover:bg-primary text-white font-bold rounded-md fixed bottom-4 right-4 w-10 h-10 flex items-center justify-center"
+          className="bg-nv hover:bg-primary text-white font-bold rounded-md fixed bottom-4 right-4 w-10 h-10 flex items-center justify-center z-50"
           onClick={() => {
             handleScrollToTop();
           }}

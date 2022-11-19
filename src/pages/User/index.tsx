@@ -70,7 +70,7 @@ export function User() {
               <Pulsar size={32} color="#f8c227" />
             </div>
           ) : (
-            <div className="bg-dark w-full items-center flex flex-col">
+            <>
               <CardProfile profile={profile} username={username || ''} />
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -125,7 +125,7 @@ export function User() {
                   {isLoadingUser ? <Pulsar color="#FFF" /> : 'Carregar mais'}
                 </button>
               )}
-            </div>
+            </>
           )}
         </>
       )}
