@@ -1,8 +1,10 @@
 import fleurx from 'assets/fleurx.png';
 
+const anoAtual = new Date().getFullYear();
+
 export function Footer() {
   return (
-    <footer className="bg-primary/90 backdrop-blur-2xl flex w-full items-center justify-center h-8">
+    <footer className="bg-primary/90 backdrop-blur-2xl flex w-full items-center justify-center h-8 mt-4">
       <p className="text-slate-400 text-sm">
         Feito com <span className="text-red-500">❤</span> por{' '}
         <a
@@ -15,7 +17,7 @@ export function Footer() {
         </a>{' '}
         |{' '}
         <img src={fleurx} alt="Logo Fleurx" className="w-4 h-4 inline-block" />{' '}
-        Fleurx © 2022
+        Fleurx © {anoAtual}
       </p>
     </footer>
   );
