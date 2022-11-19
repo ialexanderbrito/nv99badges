@@ -1,3 +1,17 @@
+# [1.22.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.21.1...v1.22.0) (2022-11-19)
+
+
+### Bug Fixes
+
+* date footer ([773feda](https://github.com/ialexanderbrito/nv99badges/commit/773fedabe00b2a8c8fe584b79d97a15151c060b4))
+* header component ([54a6cac](https://github.com/ialexanderbrito/nv99badges/commit/54a6cace811931dfa487c94f8a94ed2feb0cb78a))
+
+
+### Features
+
+* add layout component ([1790761](https://github.com/ialexanderbrito/nv99badges/commit/17907618ab303899fded2301e8544ce54ef21f29))
+* add util disabled pathname ([35cbe93](https://github.com/ialexanderbrito/nv99badges/commit/35cbe93ee1cab5096846f9aea42a7881c993b7c0))
+
 ## [1.21.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.21.0...v1.21.1) (2022-11-18)
 
 
