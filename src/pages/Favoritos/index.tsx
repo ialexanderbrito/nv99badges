@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import {
-  BiArrowBack,
-  BiCaretUp,
-  BiCaretDown,
-  BiTrashAlt,
-} from 'react-icons/bi';
+import { BiCaretUp, BiCaretDown, BiTrashAlt } from 'react-icons/bi';
 import { CgBorderStyleSolid } from 'react-icons/cg';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -17,7 +12,6 @@ import { Badge } from 'types/BadgesProps';
 
 import { Card } from 'components/Card';
 import { CardSkeleton } from 'components/CardSkeleton';
-import { Header } from 'components/Header';
 
 import { twoDecimals } from 'utils/twoDecimal';
 
@@ -141,12 +135,6 @@ export function Favoritos() {
       </Helmet>
 
       <div className="bg-dark w-full items-center flex flex-col">
-        <Header />
-
-        <div className="flex px-6 w-full items-center text-white mt-16 cursor-pointer md:px-10">
-          <BiArrowBack size={32} onClick={() => navigate(-1)} />
-        </div>
-
         {verificaBusca ? (
           <>
             <h1 className="text-white text-2xl font-bold mt-4 mb-4">
@@ -203,7 +191,7 @@ export function Favoritos() {
                     </h1>
                   </div>
                 ) : (
-                  <>
+                  <div className="h-screen flex flex-col w-full items-center">
                     <h1 className="text-white text-2xl font-bold mt-4 mb-4">
                       Seus emblemas favoritos
                     </h1>
@@ -275,14 +263,13 @@ export function Favoritos() {
                           </div>
                         ))}
                     </div>
-                  </>
+                  </div>
                 )}
               </>
             )}
           </>
         )}
       </div>
-      <br />
     </>
   );
 }

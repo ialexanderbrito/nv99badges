@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { BiArrowBack } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
@@ -8,7 +7,6 @@ import { useQuery } from '@tanstack/react-query';
 import { Card } from 'components/Card';
 import { CardCreator } from 'components/CardCreator';
 import { CardSkeleton } from 'components/CardSkeleton';
-import { Header } from 'components/Header';
 
 import { useBadges } from 'contexts/Badges';
 import { useToast } from 'contexts/Toast';
@@ -57,12 +55,6 @@ export function Canais() {
       </Helmet>
 
       <div className="bg-dark w-full items-center flex flex-col">
-        <Header />
-
-        <div className="flex px-6 w-full items-center text-white mt-16 cursor-pointer md:px-10">
-          <BiArrowBack size={32} onClick={() => navigate(-1)} />
-        </div>
-
         {verificaBusca ? (
           <>
             <h1 className="text-white text-2xl font-bold mt-4 mb-4">

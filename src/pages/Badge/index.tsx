@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { BiArrowBack, BiLinkExternal } from 'react-icons/bi';
+import { BiLinkExternal } from 'react-icons/bi';
 import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
 import Tilt from 'react-parallax-tilt';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -9,7 +9,6 @@ import { Spark } from 'assets/Spark';
 import { format } from 'date-fns';
 
 import { CardSkeleton } from 'components/CardSkeleton';
-import { Header } from 'components/Header';
 
 import { twoDecimals } from 'utils/twoDecimal';
 import { verifyPodcast } from 'utils/verifyPodcast';
@@ -48,12 +47,6 @@ export function Badge() {
         <title>NV99 Badge | {badge?.code || ''}</title>
       </Helmet>
       <div className="bg-dark w-full items-center flex flex-col">
-        <Header />
-
-        <div className="flex px-6 w-full items-center text-white mt-16 cursor-pointer md:px-10">
-          <BiArrowBack size={32} onClick={() => navigate(-1)} />
-        </div>
-
         {isLoading || !badge ? (
           <div className="mt-16 flex flex-col">
             <CardSkeleton />

@@ -9,7 +9,6 @@ import { Badge } from 'types/BadgesProps';
 import { NotFound } from 'pages/NotFound';
 
 import { CardProfile } from 'components/CardProfile';
-import { Header } from 'components/Header';
 
 import { useBadges } from 'contexts/Badges';
 import { useToast } from 'contexts/Toast';
@@ -68,12 +67,10 @@ export function User() {
         <>
           {isLoadingPage || user.length === 0 ? (
             <div className="flex justify-center items-center h-screen">
-              <Header />
               <Pulsar size={32} color="#f8c227" />
             </div>
           ) : (
             <div className="bg-dark w-full items-center flex flex-col">
-              <Header />
               <CardProfile profile={profile} username={username || ''} />
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">

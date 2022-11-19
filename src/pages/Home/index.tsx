@@ -9,7 +9,6 @@ import { Alert } from 'components/Alert';
 import { Card } from 'components/Card';
 import { CardSkeleton } from 'components/CardSkeleton';
 import { Filter } from 'components/FIlter';
-import { Header } from 'components/Header';
 import { TopCard } from 'components/TopCard';
 
 import { podcastNames } from 'utils/verifyPodcast';
@@ -108,7 +107,6 @@ export function Homepage() {
       </Helmet>
 
       <div className="bg-dark w-full items-center flex flex-col">
-        <Header />
         <Alert
           title="Os emblemas podem demorar para carregar por conta do servidor, pois
             ele fica em modo hibernação para economizar recursos."

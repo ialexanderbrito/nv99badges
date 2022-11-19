@@ -1,7 +1,5 @@
 import notFoundImage from 'assets/tela_404.webp';
 
-import { Header } from 'components/Header';
-
 interface NotFoundProps {
   title?: string;
 }
@@ -11,7 +9,6 @@ export function NotFound({
 }: NotFoundProps) {
   return (
     <>
-      <Header />
       <div className="flex bg-dark w-full h-screen  items-center justify-center flex-col">
         <img src={notFoundImage} alt="Página não encontrada" className="w-96" />
 
