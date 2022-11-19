@@ -1,3 +1,11 @@
+## [1.22.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.22.0...v1.22.1) (2022-11-19)
+
+
+### Bug Fixes
+
+* bug styles and footer ([d4ddbc0](https://github.com/ialexanderbrito/nv99badges/commit/d4ddbc0cc1a83f2ad5e5b79a6f85ba368621099b))
+* podcast list ([11c65fc](https://github.com/ialexanderbrito/nv99badges/commit/11c65fc6ad30e855966b8e0e53460cc703fbaaec))
+
 # [1.22.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.21.1...v1.22.0) (2022-11-19)
 
 
