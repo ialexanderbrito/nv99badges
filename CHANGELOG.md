@@ -1,3 +1,10 @@
+## [1.22.2](https://github.com/ialexanderbrito/nv99badges/compare/v1.22.1...v1.22.2) (2022-11-22)
+
+
+### Bug Fixes
+
+* margin bottom ([8712029](https://github.com/ialexanderbrito/nv99badges/commit/87120298b5e495dd4e7814e73471ded904ca1fa7))
+
 ## [1.22.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.22.0...v1.22.1) (2022-11-19)
 
 
