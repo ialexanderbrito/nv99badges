@@ -27,7 +27,7 @@ export function Alert(props: AlertProps) {
   return (
     <>
       {show && (
-        <div className="flex bg-nv rounded-sm text-white text-center p-2 w-80 mt-6 mb-[-4rem] sm:w-80 md:w-[900px]">
+        <div className="flex bg-nv rounded-sm text-white text-center p-2 w-80 mt-6 sm:w-80 md:w-[900px]">
           <p className="text-sm font-bold">{props.title}</p>
           <AiOutlineClose
             className="text-white text-sm cursor-pointer w-8 sm:w-4"
