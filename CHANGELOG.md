@@ -1,3 +1,10 @@
+## [1.22.3](https://github.com/ialexanderbrito/nv99badges/compare/v1.22.2...v1.22.3) (2022-11-22)
+
+
+### Bug Fixes
+
+* alert margin botton ([3116808](https://github.com/ialexanderbrito/nv99badges/commit/31168082a61734d51196505c001fcf40055662b4))
+
 ## [1.22.2](https://github.com/ialexanderbrito/nv99badges/compare/v1.22.1...v1.22.2) (2022-11-22)
 
 
