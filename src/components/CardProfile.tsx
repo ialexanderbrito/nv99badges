@@ -8,7 +8,7 @@ interface CardProfileProps {
 
 export function CardProfile({ profile, username }: CardProfileProps) {
   return (
-    <div className="select-none font-bold text-white mt-12 mb-4 flex justify-between px-5 items-center w-full bg-primary overflow-hidden h-60 md:h-28 md:rounded-lg md:mt-20">
+    <div className="select-none font-bold text-white mt-12 mb-4 flex justify-between px-5 items-center w-full bg-primary overflow-hidden h-60 md:h-28 md:rounded-lg md:mt-6">
       <div className="flex flex-col md:flex-row gap-5 mt-5 md:mt-0 rounded-lg">
         <div className="flex gap-3 items-center">Emblemas de @{username}</div>
 

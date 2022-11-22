@@ -20,7 +20,7 @@ export function Filter() {
 
   return (
     <>
-      <div className="w-full mt-16 justify-evenly gap-2 items-center flex flex-col h-40 md:flex-row md:w-[900px] md:mt-20 md:h-20">
+      <div className="w-full mt-16 justify-evenly gap-2 items-center flex flex-col h-40 md:flex-row md:w-[900px] md:mt-6 md:h-20">
         <button
           className="bg-primary gap-1 text-white w-96 h-16 flex items-center justify-center rounded-md md:w-60 hover:bg-nv "
           onClick={() => {
