@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 
-import { Badge as BadgeProps } from 'types/BadgesProps';
+import { Badge as BadgeProps, GraphProps } from 'types/BadgesProps';
 
 import { useToast } from 'contexts/Toast';
 
 export function useFavorites() {
   const { toast } = useToast();
   const [badge, setBadge] = useState<BadgeProps>();
+  const [graphResult, setGraphResult] = useState<GraphProps>();
   const [isFavorite, setIsFavorite] = useState(false);
 
   function addFavorite(badge?: BadgeProps) {
@@ -59,5 +60,7 @@ export function useFavorites() {
     isFavorite,
     badge,
     setBadge,
+    graphResult,
+    setGraphResult,
   };
 }
