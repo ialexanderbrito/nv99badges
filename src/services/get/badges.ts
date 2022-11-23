@@ -50,3 +50,9 @@ export async function getChannels() {
 
   return { data, status };
 }
+
+export async function getGraph(code: string) {
+  const { data, status } = await api.get(`graph?code=${code}`);
+
+  return { data, status };
+}
