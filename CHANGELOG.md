@@ -1,3 +1,18 @@
+# [1.23.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.22.3...v1.23.0) (2022-11-23)
+
+
+### Bug Fixes
+
+* margin top filter ([f0375fb](https://github.com/ialexanderbrito/nv99badges/commit/f0375fbf4f6db3a6fbf92b47b5d073fdea2de6a7))
+
+
+### Features
+
+* add react chartjs ([a526f19](https://github.com/ialexanderbrito/nv99badges/commit/a526f196ddab6081b1f00f647ba08e396ed3b327))
+* add service graph code ([555f33a](https://github.com/ialexanderbrito/nv99badges/commit/555f33a3a2c7685808b93a59aecbc223e6bf6816))
+* add state graph ([bc4b809](https://github.com/ialexanderbrito/nv99badges/commit/bc4b8097945a405672c2624237df4469ac4dcf46))
+* add types graph props ([f218a81](https://github.com/ialexanderbrito/nv99badges/commit/f218a817cc4a76dd4dac7eb2eda11774e4f4b4cf))
+
 ## [1.22.3](https://github.com/ialexanderbrito/nv99badges/compare/v1.22.2...v1.22.3) (2022-11-22)
 
 
