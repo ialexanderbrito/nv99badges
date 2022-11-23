@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.23.0...v1.24.0) (2022-11-23)
+
+
+### Features
+
+* add new page badge ([2b80bf1](https://github.com/ialexanderbrito/nv99badges/commit/2b80bf1fab8bcf8905afc338df613b2adff209ef))
+
 # [1.23.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.22.3...v1.23.0) (2022-11-23)
 
 
