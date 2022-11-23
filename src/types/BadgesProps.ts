@@ -73,3 +73,8 @@ export interface Creators {
   results: Creator[];
   total: number;
 }
+
+export interface GraphProps {
+  labels: string[];
+  dataset: number[];
+}
