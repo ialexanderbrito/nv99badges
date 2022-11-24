@@ -1,3 +1,10 @@
+## [1.25.3](https://github.com/ialexanderbrito/nv99badges/compare/v1.25.2...v1.25.3) (2022-11-24)
+
+
+### Bug Fixes
+
+* emblemas normais and progress fixed two ([43c9c36](https://github.com/ialexanderbrito/nv99badges/commit/43c9c3656aabf34173bb9ea76b16dda5745e23f2))
+
 ## [1.25.2](https://github.com/ialexanderbrito/nv99badges/compare/v1.25.1...v1.25.2) (2022-11-24)
 
 
