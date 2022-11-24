@@ -1,3 +1,10 @@
+## [1.25.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.25.0...v1.25.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* decimal ([dd0a31d](https://github.com/ialexanderbrito/nv99badges/commit/dd0a31db2801c88945dde8253fed4a74e6cf5555))
+
 # [1.25.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.24.0...v1.25.0) (2022-11-24)
 
 
