@@ -4,8 +4,6 @@ import ReactTooltip from 'react-tooltip';
 import cx from 'classnames';
 import { Profile, ProfileXp } from 'types/BadgesProps';
 
-import { twoDecimals } from 'utils/twoDecimal';
-
 interface CardProfileProps {
   profile: Profile[];
   username: string;
@@ -71,7 +69,7 @@ export function CardProfile({
                 Progresso
               </p>
               <p className="font-semibold leading-6 text-white">
-                {twoDecimals(profileXp?.progress)}%
+                {profileXp?.progress}%
               </p>
             </div>
 
