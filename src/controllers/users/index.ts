@@ -24,44 +24,59 @@ routes.get('/users/:id', async (request, response) => {
       arrayPrincipal = [].concat(arrayPrincipal, item);
     }
 
-    const totalBadgesNormal = arrayPrincipal.filter(
-      (badge: any) => badge.secret === false,
-    );
+    const totalBadgesNormal = profileStats.find(
+      (badge: any) => badge.label === 'Emblemas únicos',
+    ).value;
 
-    const totalBadgesSecret = arrayPrincipal.filter(
-      (badge: any) => badge.secret === true,
-    );
+    const totalBadgesSecret = profileStats.find(
+      (badge: any) => badge.label === 'Emblemas únicos',
+    ).value;
 
-    const pointsNormalBadge = totalBadgesNormal.length * 1;
-    const pointsSecretBadge = totalBadgesSecret.length * 5;
+    const pointsNormalBadge = totalBadgesNormal * 1;
+    const pointsSecretBadge = totalBadgesSecret * 5;
 
     const totalPoints = pointsNormalBadge + pointsSecretBadge;
 
-    const xp = totalPoints * 2;
-    const level = Math.floor(0.1 * Math.sqrt(xp)) * 10;
-    const nextXp = Math.pow((level + 10) / 10, 2) * 100;
+    const baseLevel = 1;
+    const baseExp = 0;
 
-    const progress = (xp / nextXp) * 100;
+    const exp = totalPoints;
+    const expForNextLevel = 110;
+
+    const xp = exp - baseExp;
+
+    const level = Math.floor(exp / expForNextLevel) + baseLevel;
+
+    const expForLevel = exp - (level - baseLevel) * expForNextLevel;
+
+    const expToLevelUp = expForNextLevel - expForLevel;
+
+    const percentageForLevel =
+      (expForLevel / (expForNextLevel - baseExp)) * 110;
 
     const elos = [
-      { name: 'Bronze', value: 0, src: `${process.env.LINK_IMAGE}/bronze.svg` },
       {
-        name: 'Silver',
-        value: 10,
-        src: `${process.env.LINK_IMAGE}/silver.svg`,
+        name: 'Bronze',
+        value: 0,
+        src: `${process.env.LINK_IMAGE}/images/bronze.svg`,
       },
       {
-        name: 'Gold',
+        name: 'Prata',
+        value: 15,
+        src: `${process.env.LINK_IMAGE}/images/silver.svg`,
+      },
+      {
+        name: 'Ouro',
         value: 20,
         src: `${process.env.LINK_IMAGE}/images/gold.svg`,
       },
       {
-        name: 'Platinum',
+        name: 'Platina',
         value: 30,
         src: `${process.env.LINK_IMAGE}/images/platinum.svg`,
       },
       {
-        name: 'Diamond',
+        name: 'Diamante',
         value: 40,
         src: `${process.env.LINK_IMAGE}/images/diamond.svg`,
       },
@@ -76,8 +91,8 @@ routes.get('/users/:id', async (request, response) => {
         src: `${process.env.LINK_IMAGE}/images/grandmaster.svg`,
       },
       {
-        name: 'Challenger',
-        value: 70,
+        name: 'Radiante',
+        value: 85,
         src: `${process.env.LINK_IMAGE}/images/challenger.svg`,
       },
     ];
@@ -89,13 +104,13 @@ routes.get('/users/:id', async (request, response) => {
     const profileExperience = {
       points_normal_badge: pointsNormalBadge,
       points_secret_badge: pointsSecretBadge,
-      total_points: totalPoints,
-      xp,
-      level,
-      next_xp: nextXp,
-      progress,
+      total_points: exp,
       elo: eloUser,
       src: eloImage,
+      level,
+      next_xp: expToLevelUp,
+      progress: percentageForLevel,
+      xp,
     };
 
     const startIndex = (Number(page) - 1) * Number(limit);
@@ -152,8 +167,6 @@ routes.get('/users/:id', async (request, response) => {
     results.profile = profileStats;
 
     results.profileXP = profileExperience;
-
-    // results.profile.xp = xp;
 
     return response.status(200).json(results);
   } catch (error) {
