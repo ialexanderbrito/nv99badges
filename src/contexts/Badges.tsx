@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Badge, Profile } from 'types/BadgesProps';
+import { Badge, Profile, ProfileXp } from 'types/BadgesProps';
 
 import { useToast } from './Toast';
 
@@ -41,6 +41,8 @@ interface BadgeProps {
   setIsLoadingPage: (isLoadingPage: boolean) => void;
   profile: Profile[];
   setProfile: (profile: any) => void;
+  profileXp: ProfileXp;
+  setProfileXp: (profileXp: any) => void;
 }
 
 const BadgeContext = createContext<BadgeProps>({} as any);
@@ -65,6 +67,7 @@ export const BadgeProvider = ({ children }: any) => {
   const [username, setUsername] = useState('');
   const [user, setUser] = useState<Badge[]>([]);
   const [profile, setProfile] = useState<Profile[]>([]);
+  const [profileXp, setProfileXp] = useState<ProfileXp>({} as any);
   const [totalBadges, setTotalBadges] = useState(0);
 
   function handleSelectedMaisRaros() {
@@ -151,6 +154,8 @@ export const BadgeProvider = ({ children }: any) => {
         setIsLoadingPage,
         profile,
         setProfile,
+        profileXp,
+        setProfileXp,
       }}
     >
       {children}
