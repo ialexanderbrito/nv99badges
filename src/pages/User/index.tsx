@@ -28,6 +28,8 @@ export function User() {
     setProfile,
     isLoadingPage,
     setIsLoadingPage,
+    profileXp,
+    setProfileXp,
   } = useBadges();
 
   const { isLoading: isLoadingUser, isError } = useQuery(
@@ -40,6 +42,8 @@ export function User() {
         setUser((old: Badge[]) => [...old, ...data.data.results]);
 
         setProfile(data.data.profile);
+
+        setProfileXp(data.data.profileXP);
 
         setIsLoadingPage(false);
       },
@@ -71,7 +75,11 @@ export function User() {
             </div>
           ) : (
             <>
-              <CardProfile profile={profile} username={username || ''} />
+              <CardProfile
+                profile={profile}
+                username={username || ''}
+                profileXp={profileXp}
+              />
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {user &&
