@@ -17,8 +17,12 @@ export function Layout({ children, disabled }: LayoutProps) {
       <Header />
       <div className="flex mt-14 w-full items-center flex-col min-h-[calc(100vh-3.5rem)]">
         {!disabled ? (
-          <div className="flex px-6 w-full items-center text-white mt-4 cursor-pointer md:px-10">
-            <BiArrowBack size={32} onClick={() => navigate(-1)} />
+          <div className="flex px-6 w-full items-center text-white mt-4  md:px-10">
+            <BiArrowBack
+              size={32}
+              onClick={() => navigate(-1)}
+              className="cursor-pointer"
+            />
           </div>
         ) : null}
 
