@@ -37,9 +37,11 @@ export async function getUser(
   limit: number,
   page: number,
   sort: string,
+  normal: boolean = true,
+  secret: boolean = true,
 ) {
   const { data, status } = await api.get(
-    `users/${username}?limit=${limit}&page=${page}&order=${sort}`,
+    `users/${username}?limit=${limit}&page=${page}&order=${sort}&normal=${normal}&secret=${secret}`,
   );
 
   return { data, status };
