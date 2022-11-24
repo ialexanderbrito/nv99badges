@@ -109,7 +109,7 @@ routes.get('/users/:id', async (request, response) => {
       src: eloImage,
       level,
       next_xp: expToLevelUp,
-      progress: percentageForLevel,
+      progress: percentageForLevel.toFixed(2),
       xp,
     };
 
