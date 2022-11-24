@@ -36,6 +36,14 @@ export function CardProfile({
                 </p>
               </div>
             ))}
+            <div className="flex flex-col gap-1 pr-1">
+              <p className="text-sm font-bold leading-5 text-slate-400 uppercase">
+                Emblemas normais
+              </p>
+              <p className="font-semibold leading-6 text-white">
+                {profileXp.points_normal_badge}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -69,7 +77,7 @@ export function CardProfile({
                 Progresso
               </p>
               <p className="font-semibold leading-6 text-white">
-                {profileXp?.progress}%
+                {profileXp.progress.toFixed(2)}%
               </p>
             </div>
 
@@ -110,9 +118,7 @@ export function CardProfile({
       </div>
 
       <ReactTooltip place="top" type="dark" effect="float">
-        <span>Emblema normal: 1 ponto</span>
-        <br />
-        <span>Emblema secreto: 5 pontos</span>
+        <span>Soma de XP: (Qtd. Secretos * 5) + (Qtd. Normais * 1) = XP</span>
       </ReactTooltip>
     </>
   );
