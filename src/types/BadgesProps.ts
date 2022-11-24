@@ -48,6 +48,18 @@ export interface Profile {
   value: any;
 }
 
+export interface ProfileXp {
+  points_normal_badge: number;
+  points_secret_badge: number;
+  total_points: number;
+  xp: number;
+  level: number;
+  next_xp: number;
+  progress: number;
+  elo: string;
+  src: string;
+}
+
 export interface Badges {
   status: Status;
   badges: Badge[];
