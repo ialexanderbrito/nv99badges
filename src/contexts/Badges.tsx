@@ -43,6 +43,12 @@ interface BadgeProps {
   setProfile: (profile: any) => void;
   profileXp: ProfileXp;
   setProfileXp: (profileXp: any) => void;
+  filterBadgeUser: string;
+  setFilterBadgeUser: (filterBadgeUser: string) => void;
+  isSecret: boolean;
+  setIsSecret: (isSecret: boolean) => void;
+  isNormal: boolean;
+  setIsNormal: (isNormal: boolean) => void;
 }
 
 const BadgeContext = createContext<BadgeProps>({} as any);
@@ -69,6 +75,10 @@ export const BadgeProvider = ({ children }: any) => {
   const [profile, setProfile] = useState<Profile[]>([]);
   const [profileXp, setProfileXp] = useState<ProfileXp>({} as any);
   const [totalBadges, setTotalBadges] = useState(0);
+
+  const [filterBadgeUser, setFilterBadgeUser] = useState('lower_serial');
+  const [isSecret, setIsSecret] = useState(true);
+  const [isNormal, setIsNormal] = useState(true);
 
   function handleSelectedMaisRaros() {
     window.location.replace('/mais-raros');
@@ -156,6 +166,12 @@ export const BadgeProvider = ({ children }: any) => {
         setProfile,
         profileXp,
         setProfileXp,
+        filterBadgeUser,
+        setFilterBadgeUser,
+        isSecret,
+        setIsSecret,
+        isNormal,
+        setIsNormal,
       }}
     >
       {children}
