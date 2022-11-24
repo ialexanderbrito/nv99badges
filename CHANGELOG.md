@@ -1,3 +1,13 @@
+# [1.25.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.24.0...v1.25.0) (2022-11-24)
+
+
+### Features
+
+* add dependency react tooltip ([20cfa86](https://github.com/ialexanderbrito/nv99badges/commit/20cfa86caac7822b316d7c8fdb7ddbe90e8c5504))
+* add new card profile and profile xp ([d160561](https://github.com/ialexanderbrito/nv99badges/commit/d16056198a7ff778476a3ce20328fb11bc516337))
+* add new types profile xp ([746c871](https://github.com/ialexanderbrito/nv99badges/commit/746c871c0282c2a2b62c056c154e285a2dd21910))
+* add state profile xp ([aa9e864](https://github.com/ialexanderbrito/nv99badges/commit/aa9e8645348e708a68318b52207d764bf07bb787))
+
 # [1.24.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.23.0...v1.24.0) (2022-11-23)
 
 
