@@ -29,7 +29,7 @@ routes.get('/users/:id', async (request, response) => {
     ).value;
 
     const totalBadgesSecret = profileStats.find(
-      (badge: any) => badge.label === 'Emblemas únicos',
+      (badge: any) => badge.label === 'Emblemas secretos',
     ).value;
 
     const pointsNormalBadge = (totalBadgesNormal - totalBadgesSecret) * 1;
@@ -41,7 +41,7 @@ routes.get('/users/:id', async (request, response) => {
     const baseExp = 0;
 
     const exp = totalPoints;
-    const expForNextLevel = 110;
+    const expForNextLevel = 100;
 
     const xp = exp - baseExp;
 
@@ -52,7 +52,7 @@ routes.get('/users/:id', async (request, response) => {
     const expToLevelUp = expForNextLevel - expForLevel;
 
     const percentageForLevel =
-      (expForLevel / (expForNextLevel - baseExp)) * 110;
+      (expForLevel / (expForNextLevel - baseExp)) * 100;
 
     const elos = [
       {
@@ -62,37 +62,37 @@ routes.get('/users/:id', async (request, response) => {
       },
       {
         name: 'Prata',
-        value: 15,
+        value: 5,
         src: `${process.env.LINK_IMAGE}/images/silver.svg`,
       },
       {
         name: 'Ouro',
-        value: 20,
+        value: 10,
         src: `${process.env.LINK_IMAGE}/images/gold.svg`,
       },
       {
         name: 'Platina',
-        value: 30,
+        value: 15,
         src: `${process.env.LINK_IMAGE}/images/platinum.svg`,
       },
       {
         name: 'Diamante',
-        value: 40,
+        value: 20,
         src: `${process.env.LINK_IMAGE}/images/diamond.svg`,
       },
       {
         name: 'Master',
-        value: 50,
+        value: 25,
         src: `${process.env.LINK_IMAGE}/images/master.svg`,
       },
       {
         name: 'Grandmaster',
-        value: 60,
+        value: 30,
         src: `${process.env.LINK_IMAGE}/images/grandmaster.svg`,
       },
       {
         name: 'Radiante',
-        value: 85,
+        value: 35,
         src: `${process.env.LINK_IMAGE}/images/challenger.svg`,
       },
     ];
