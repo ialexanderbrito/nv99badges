@@ -1,3 +1,10 @@
+## [1.25.4](https://github.com/ialexanderbrito/nv99badges/compare/v1.25.3...v1.25.4) (2022-11-24)
+
+
+### Bug Fixes
+
+* to fixed progress ([8d36460](https://github.com/ialexanderbrito/nv99badges/commit/8d364608279e062898bf685c7c23b4b0739e9b02))
+
 ## [1.25.3](https://github.com/ialexanderbrito/nv99badges/compare/v1.25.2...v1.25.3) (2022-11-24)
 
 
