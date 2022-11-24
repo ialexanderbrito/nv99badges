@@ -1,3 +1,20 @@
+# [1.26.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.25.4...v1.26.0) (2022-11-24)
+
+
+### Bug Fixes
+
+* cursor pointer icon arrow back ([0a5c0f7](https://github.com/ialexanderbrito/nv99badges/commit/0a5c0f76e042f4645398ef62868188c4101ac546))
+* name elo to conquista ([ca84046](https://github.com/ialexanderbrito/nv99badges/commit/ca8404641b692d520f31214c7ec2a57cc939778d))
+* service route users ([905edcc](https://github.com/ialexanderbrito/nv99badges/commit/905edccd33bd2ef2a67bc9158cca67f68eef2708))
+
+
+### Features
+
+* add component dropdown menu ([05df22f](https://github.com/ialexanderbrito/nv99badges/commit/05df22f80d934f67295cdc159a95332ea9446eb9))
+* add dependency headlessui ([fc0b1fa](https://github.com/ialexanderbrito/nv99badges/commit/fc0b1fa10eda4548b4c2880ed0de2ca7a62dc8d9))
+* add new filter page user ([2d65324](https://github.com/ialexanderbrito/nv99badges/commit/2d65324d18a86afa91ae55527c1ac00f40113546))
+* add news states ([e323321](https://github.com/ialexanderbrito/nv99badges/commit/e323321ebf99ad480fbc58d1f4cea4496d78eb7f))
+
 ## [1.25.4](https://github.com/ialexanderbrito/nv99badges/compare/v1.25.3...v1.25.4) (2022-11-24)
 
 
