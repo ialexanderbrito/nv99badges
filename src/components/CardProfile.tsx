@@ -77,7 +77,7 @@ export function CardProfile({
                 Progresso
               </p>
               <p className="font-semibold leading-6 text-white">
-                {profileXp.progress.toFixed(2)}%
+                {profileXp?.progress}%
               </p>
             </div>
 
