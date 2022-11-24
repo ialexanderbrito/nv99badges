@@ -32,7 +32,7 @@ routes.get('/users/:id', async (request, response) => {
       (badge: any) => badge.label === 'Emblemas únicos',
     ).value;
 
-    const pointsNormalBadge = totalBadgesNormal * 1;
+    const pointsNormalBadge = (totalBadgesNormal - totalBadgesSecret) * 1;
     const pointsSecretBadge = totalBadgesSecret * 5;
 
     const totalPoints = pointsNormalBadge + pointsSecretBadge;
