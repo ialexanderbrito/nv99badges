@@ -50,7 +50,7 @@ export function CardProfile({
                 Level
               </p>
               <p className="font-semibold leading-6 text-nv">
-                {profileXp.level}
+                {profileXp?.level}
               </p>
             </div>
 
@@ -62,7 +62,7 @@ export function CardProfile({
                 </p>
               </p>
               <p className="font-semibold leading-6 text-white">
-                {profileXp.xp} XP
+                {profileXp?.xp} XP
               </p>
             </div>
 
@@ -71,7 +71,7 @@ export function CardProfile({
                 Progresso
               </p>
               <p className="font-semibold leading-6 text-white">
-                {twoDecimals(profileXp.progress)}%
+                {twoDecimals(profileXp?.progress)}%
               </p>
             </div>
 
@@ -80,8 +80,12 @@ export function CardProfile({
                 Elo
               </p>
               <p className="font-semibold leading-6 text-white flex gap-2">
-                <img src={profileXp?.src} alt={profileXp.elo} className="w-5" />
-                {profileXp.elo}
+                <img
+                  src={profileXp?.src}
+                  alt={profileXp?.elo}
+                  className="w-5"
+                />
+                {profileXp?.elo}
               </p>
             </div>
 
@@ -93,14 +97,14 @@ export function CardProfile({
                 <div className="h-2 w-60 bg-gray-300 rounded">
                   <div
                     className={
-                      profileXp.progress >= 100
+                      profileXp?.progress >= 100
                         ? 'h-2 bg-nv rounded'
                         : 'h-2 bg-nv rounded'
                     }
-                    style={{ width: `${profileXp.progress}%` }}
+                    style={{ width: `${profileXp?.progress}%` }}
                   />
                 </div>
-                {profileXp.next_xp} XP
+                {profileXp?.next_xp} XP
               </p>
             </div>
           </div>
