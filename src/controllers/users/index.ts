@@ -24,6 +24,76 @@ routes.get('/users/:id', async (request, response) => {
       arrayPrincipal = [].concat(arrayPrincipal, item);
     }
 
+    const totalBadgesNormal = arrayPrincipal.filter(
+      (badge: any) => badge.secret === false,
+    );
+
+    const totalBadgesSecret = arrayPrincipal.filter(
+      (badge: any) => badge.secret === true,
+    );
+
+    const pointsNormalBadge = totalBadgesNormal.length * 1;
+    const pointsSecretBadge = totalBadgesSecret.length * 5;
+
+    const totalPoints = pointsNormalBadge + pointsSecretBadge;
+
+    const xp = totalPoints * 2;
+    const level = Math.floor(0.1 * Math.sqrt(xp)) * 10;
+    const nextXp = Math.pow((level + 10) / 10, 2) * 100;
+
+    const progress = (xp / nextXp) * 100;
+
+    const elos = [
+      { name: 'Bronze', value: 0, src: `${process.env.LINK_IMAGE}/bronze.svg` },
+      {
+        name: 'Silver',
+        value: 10,
+        src: `${process.env.LINK_IMAGE}/silver.svg`,
+      },
+      { name: 'Gold', value: 20, src: `${process.env.LINK_IMAGE}/gold.svg` },
+      {
+        name: 'Platinum',
+        value: 30,
+        src: `${process.env.LINK_IMAGE}/platinum.svg`,
+      },
+      {
+        name: 'Diamond',
+        value: 40,
+        src: `${process.env.LINK_IMAGE}/diamond.svg`,
+      },
+      {
+        name: 'Master',
+        value: 50,
+        src: `${process.env.LINK_IMAGE}/master.svg`,
+      },
+      {
+        name: 'Grandmaster',
+        value: 60,
+        src: `${process.env.LINK_IMAGE}/grandmaster.svg`,
+      },
+      {
+        name: 'Challenger',
+        value: 70,
+        src: `${process.env.LINK_IMAGE}/challenger.svg`,
+      },
+    ];
+
+    const elo = elos.filter((item) => item.value <= level);
+    const eloUser = elo[elo.length - 1].name;
+    const eloImage = elo[elo.length - 1].src;
+
+    const profileExperience = {
+      points_normal_badge: pointsNormalBadge,
+      points_secret_badge: pointsSecretBadge,
+      total_points: totalPoints,
+      xp,
+      level,
+      next_xp: nextXp,
+      progress,
+      elo: eloUser,
+      src: eloImage,
+    };
+
     const startIndex = (Number(page) - 1) * Number(limit);
 
     const endIndex = Number(page) * Number(limit);
@@ -76,6 +146,10 @@ routes.get('/users/:id', async (request, response) => {
     results.results = arrayPrincipal.slice(startIndex, endIndex);
 
     results.profile = profileStats;
+
+    results.profileXP = profileExperience;
+
+    // results.profile.xp = xp;
 
     return response.status(200).json(results);
   } catch (error) {
