@@ -83,7 +83,7 @@ export function CardProfile({
 
             <div className="flex flex-col gap-1 pr-1">
               <p className="text-sm font-bold leading-5 text-slate-400 uppercase">
-                Elo
+                Conquista
               </p>
               <p className="font-semibold leading-6 text-white flex gap-2">
                 <img
