@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ import { Badge } from 'types/BadgesProps';
 import { NotFound } from 'pages/NotFound';
 
 import { CardProfile } from 'components/CardProfile';
+import { DropdownMenu } from 'components/Menu';
 
 import { useBadges } from 'contexts/Badges';
 import { useToast } from 'contexts/Toast';
@@ -22,6 +24,7 @@ export function User() {
     user,
     setUser,
     page,
+    setPage,
     loadMoreBadges,
     setTotalBadges,
     profile,
@@ -30,11 +33,28 @@ export function User() {
     setIsLoadingPage,
     profileXp,
     setProfileXp,
+    filterBadgeUser,
+    setFilterBadgeUser,
+    isSecret,
+    setIsSecret,
+    isNormal,
+    setIsNormal,
   } = useBadges();
 
+  useEffect(() => {
+    setUser([]);
+    setPage(1);
+
+    if (isSecret === false && isNormal === false) {
+      setIsSecret(true);
+      setIsNormal(true);
+    }
+  }, [filterBadgeUser, isSecret, isNormal]);
+
   const { isLoading: isLoadingUser, isError } = useQuery(
-    ['user', page],
-    () => getUser(String(username), 12, page, 'serial'),
+    ['user', page, filterBadgeUser, isSecret, isNormal],
+    () =>
+      getUser(String(username), 12, page, filterBadgeUser, isNormal, isSecret),
     {
       onSuccess: (data) => {
         setTotalBadges(data.data.total);
@@ -57,6 +77,8 @@ export function User() {
     },
   );
 
+  console.log(user);
+
   return (
     <>
       <Helmet>
@@ -69,7 +91,7 @@ export function User() {
         />
       ) : (
         <>
-          {isLoadingPage || user.length === 0 ? (
+          {isLoadingPage || user?.length === 0 ? (
             <div className="flex justify-center items-center h-screen">
               <Pulsar size={32} color="#f8c227" />
             </div>
@@ -80,6 +102,32 @@ export function User() {
                 username={username || ''}
                 profileXp={profileXp}
               />
+
+              <div className=" text-white w-full items-center justify-start gap-4 flex mb-4">
+                <DropdownMenu
+                  filter={filterBadgeUser}
+                  setFilter={setFilterBadgeUser}
+                />
+
+                <label className="flex gap-2">
+                  <input
+                    type="checkbox"
+                    className="accent-nv"
+                    checked={isNormal}
+                    onChange={() => setIsNormal(!isNormal)}
+                  />
+                  Normais
+                </label>
+                <label className="flex gap-2">
+                  <input
+                    type="checkbox"
+                    className="accent-nv"
+                    checked={isSecret}
+                    onChange={() => setIsSecret(!isSecret)}
+                  />
+                  Secretos
+                </label>
+              </div>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {user &&
