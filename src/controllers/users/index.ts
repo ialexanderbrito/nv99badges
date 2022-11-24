@@ -50,31 +50,35 @@ routes.get('/users/:id', async (request, response) => {
         value: 10,
         src: `${process.env.LINK_IMAGE}/silver.svg`,
       },
-      { name: 'Gold', value: 20, src: `${process.env.LINK_IMAGE}/gold.svg` },
+      {
+        name: 'Gold',
+        value: 20,
+        src: `${process.env.LINK_IMAGE}/images/gold.svg`,
+      },
       {
         name: 'Platinum',
         value: 30,
-        src: `${process.env.LINK_IMAGE}/platinum.svg`,
+        src: `${process.env.LINK_IMAGE}/images/platinum.svg`,
       },
       {
         name: 'Diamond',
         value: 40,
-        src: `${process.env.LINK_IMAGE}/diamond.svg`,
+        src: `${process.env.LINK_IMAGE}/images/diamond.svg`,
       },
       {
         name: 'Master',
         value: 50,
-        src: `${process.env.LINK_IMAGE}/master.svg`,
+        src: `${process.env.LINK_IMAGE}/images/master.svg`,
       },
       {
         name: 'Grandmaster',
         value: 60,
-        src: `${process.env.LINK_IMAGE}/grandmaster.svg`,
+        src: `${process.env.LINK_IMAGE}/images/grandmaster.svg`,
       },
       {
         name: 'Challenger',
         value: 70,
-        src: `${process.env.LINK_IMAGE}/challenger.svg`,
+        src: `${process.env.LINK_IMAGE}/images/challenger.svg`,
       },
     ];
 
