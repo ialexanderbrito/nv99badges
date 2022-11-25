@@ -131,7 +131,7 @@ export function Favoritos() {
                       <div
                         key={favorite.id}
                         className={cx(
-                          'flex relative gap-2 h-25 md:h-30 w-full bg-primary rounded-none md:rounded ',
+                          'flex relative gap-2 h-25 md:h-30 w-full bg-primary rounded-none md:rounded items-center',
                           {
                             'border border-nv': favorite?.secret,
                           },
@@ -140,15 +140,15 @@ export function Favoritos() {
                         <div className="flex absolute top-1 left-1 z-10 flex-col gap-1"></div>
                         <img
                           src={favorite.high}
-                          alt="Avatar"
-                          className="w-32 h-32 rounded"
+                          alt={favorite.name}
+                          className="w-36 h-36 rounded"
                         />
 
                         <div
                           className="absolute bg-primary/90 top-0 right-1 p-1 rounded cursor-pointer"
                           onClick={() => handleRemoveFavorite(favorite)}
                         >
-                          <p className="font-bold text-md italic text-nv">
+                          <p className="font-bold text-md italic text-nv hover:text-nv/60">
                             <BiTrashAlt />
                           </p>
                         </div>
@@ -168,7 +168,7 @@ export function Favoritos() {
                                 className="flex gap-2 items-center"
                               >
                                 <Spark />
-                                <span className="font-bold text-nv">
+                                <span className="font-bold text-nv hover:text-nv/60">
                                   {twoDecimals(favorite?.market_value || 0)}
                                 </span>
                                 {verifyBadgeMarketValueChange(favorite)}
