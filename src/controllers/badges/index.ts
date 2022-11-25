@@ -121,7 +121,7 @@ routes.get('/badge/:id', async (request, response) => {
 
     if (badgeValue.results.length === 0) {
       return response.status(200).json({
-        badge,
+        ...badge,
         media_price_badge: 0,
       });
     }
