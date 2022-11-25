@@ -17,7 +17,7 @@ export function CardProfile({
 }: CardProfileProps) {
   return (
     <>
-      <div className="font-bold text-white mt-12 mb-0 flex justify-between px-5 items-center w-full bg-primary overflow-hidden h-60 md:h-28 md:rounded-lg md:rounded-b-none md:mt-6">
+      <div className="font-bold text-white mt-4 mb-0 flex justify-between px-5 items-center w-full bg-primary overflow-hidden md:h-28 md:rounded-lg md:rounded-b-none md:mt-6">
         <div className="flex flex-col md:flex-row gap-5 mt-5 md:mt-0 rounded-lg">
           <div className="flex gap-3 items-center">Emblemas de @{username}</div>
           <div className="hidden md:flex my-3 w-0.5 bg-white" />
@@ -48,7 +48,7 @@ export function CardProfile({
         </div>
       </div>
 
-      <div className="font-bold text-white mt-0 mb-4 md:rounded-t-none flex justify-between px-5 items-center w-full bg-primary overflow-hidden h-60 md:h-28 md:rounded-lg md:mt-0">
+      <div className="font-bold text-white mt-0 mb-4 md:rounded-t-none flex justify-between px-5 items-center w-full bg-primary overflow-hidden md:h-28 md:rounded-lg md:mt-0">
         <div className="flex flex-col md:flex-row gap-5 mt-5 md:mt-0 rounded-lg w-full">
           <div className="grid md:flex grid-cols-2 gap-6 py-3">
             <div className="flex flex-col gap-1 pr-1">
@@ -94,25 +94,24 @@ export function CardProfile({
                 {profileXp?.elo}
               </p>
             </div>
-
-            <div className="flex flex-col gap-1 pr-1">
-              <p className="text-sm font-bold leading-5 text-slate-400 uppercase">
-                Faltam para o próximo level
-              </p>
-              <p className="font-semibold text-sm leading-6 text-white flex items-center gap-2">
-                <div className="h-2 w-60 bg-gray-300 rounded">
-                  <div
-                    className={
-                      profileXp?.progress >= 100
-                        ? 'h-2 bg-nv rounded'
-                        : 'h-2 bg-nv rounded'
-                    }
-                    style={{ width: `${profileXp?.progress}%` }}
-                  />
-                </div>
-                {profileXp?.next_xp} XP
-              </p>
-            </div>
+          </div>
+          <div className="flex flex-col gap-1 pr-1 justify-center">
+            <p className="text-sm font-bold leading-5 text-slate-400 uppercase">
+              Faltam para o próximo level
+            </p>
+            <p className="font-semibold text-sm leading-6 text-white flex items-center gap-2">
+              <div className="h-2 w-60 bg-gray-300 rounded">
+                <div
+                  className={
+                    profileXp?.progress >= 100
+                      ? 'h-2 bg-nv rounded'
+                      : 'h-2 bg-nv rounded'
+                  }
+                  style={{ width: `${profileXp?.progress}%` }}
+                />
+              </div>
+              {profileXp?.next_xp} XP
+            </p>
           </div>
         </div>
       </div>
