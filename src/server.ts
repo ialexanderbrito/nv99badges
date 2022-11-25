@@ -5,6 +5,7 @@ import badgesRoutes from './controllers/badges';
 import usersRoutes from './controllers/users';
 import creatorsRoutes from './controllers/creators';
 import graphRoutes from './controllers/graph';
+import searchRoutes from './controllers/search';
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(badgesRoutes);
 app.use(usersRoutes);
 app.use(creatorsRoutes);
 app.use(graphRoutes);
+app.use(searchRoutes);
 app.use('/images', express.static('src/assets'));
 
 app.listen(process.env.PORT || 3333, () => {

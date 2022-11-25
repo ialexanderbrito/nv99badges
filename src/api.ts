@@ -17,3 +17,10 @@ export const apiCreators = axios.create({
     'x-firebase-appcheck': process.env.FIREBASE_KEY,
   },
 });
+
+export const apiNv = axios.create({
+  baseURL: 'https://nv99.com.br/api',
+  headers: {
+    'x-firebase-appcheck': process.env.NV_KEY,
+  },
+});
