@@ -17,11 +17,7 @@ import { podcastNames } from 'utils/verifyPodcast';
 import { useBadges } from 'contexts/Badges';
 import { useToast } from 'contexts/Toast';
 
-import {
-  getBadges,
-  getBadgesCreator,
-  getBadgesSearch,
-} from 'services/get/badges';
+import { getBadges, getBadgesCreator } from 'services/get/badges';
 
 export function Homepage() {
   const navigate = useNavigate();
@@ -29,13 +25,10 @@ export function Homepage() {
 
   const {
     badges,
-    badgesFiltered,
     badgesPodcast,
     page,
     podcast,
-    searchBadge,
     setBadges,
-    setBadgesFiltered,
     setBadgesPodcast,
     setPage,
     loadMoreBadges,
@@ -79,27 +72,8 @@ export function Homepage() {
     },
   );
 
-  const { isLoading: isLoadingSearch } = useQuery(
-    ['search', searchBadge],
-    () => getBadgesSearch(searchBadge),
-    {
-      onSuccess: (data) => {
-        setBadgesFiltered(data.data);
-      },
-      onError: () => {
-        toast.error('Badges not found');
-      },
-      staleTime: 100000,
-      enabled: searchBadge !== '',
-    },
-  );
-
-  const verificaBusca = isLoadingSearch && searchBadge !== '';
-  const verificaBadgesBuscadas =
-    badgesFiltered?.length > 0 && searchBadge.length > 0;
-  const mostraBadgesMaisRaros = badges && searchBadge === '' && podcast === '';
-  const mostraBadgesFiltrados =
-    podcast !== '' && badgesPodcast && searchBadge === '';
+  const mostraBadgesMaisRaros = badges && podcast === '';
+  const mostraBadgesFiltrados = podcast !== '' && badgesPodcast;
 
   return (
     <>
@@ -112,45 +86,6 @@ export function Homepage() {
             ele fica em modo hibernação para economizar recursos."
       />
       <Filter />
-
-      {verificaBusca ? (
-        <>
-          <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-            Resultados para "{searchBadge}"
-          </h1>
-          {Array.from({ length: 2 }).map((_, index) => (
-            <>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                <CardSkeleton key={index} />
-                <CardSkeleton key={index} />
-                <CardSkeleton key={index} />
-              </div>
-            </>
-          ))}
-        </>
-      ) : (
-        <>
-          {verificaBadgesBuscadas && (
-            <>
-              <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-                Resultados para "{searchBadge}"
-              </h1>
-
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                {badgesFiltered.map((badge) => (
-                  <Card
-                    badge={badge}
-                    key={badge.id}
-                    onClick={() => {
-                      navigate(`/badge/${badge.code}`);
-                    }}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </>
-      )}
 
       {mostraBadgesMaisRaros && (
         <>
@@ -215,13 +150,7 @@ export function Homepage() {
         </>
       )}
 
-      {badgesFiltered?.length === 0 && searchBadge !== '' && (
-        <h1 className="text-white text-2xl font-bold mt-4 mb-4">
-          Nenhum resultado encontrado para "{searchBadge}"
-        </h1>
-      )}
-
-      {isLoading && searchBadge === '' && (
+      {isLoading && (
         <>
           {Array.from({ length: 2 }).map((_, index) => (
             <>
@@ -235,15 +164,13 @@ export function Homepage() {
         </>
       )}
 
-      {searchBadge === '' && (
-        <Button
-          onClick={() => {
-            loadMoreBadges();
-          }}
-        >
-          Carregar mais
-        </Button>
-      )}
+      <Button
+        onClick={() => {
+          loadMoreBadges();
+        }}
+      >
+        Carregar mais
+      </Button>
     </>
   );
 }
