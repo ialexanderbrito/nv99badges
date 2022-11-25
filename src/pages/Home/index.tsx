@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Badge } from 'types/BadgesProps';
 
 import { Alert } from 'components/Alert';
+import { Button } from 'components/Button';
 import { Card } from 'components/Card';
 import { CardSkeleton } from 'components/CardSkeleton';
 import { Filter } from 'components/FIlter';
@@ -235,14 +236,13 @@ export function Homepage() {
       )}
 
       {searchBadge === '' && (
-        <button
-          className="bg-primary text-white w-96 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-96 hover:bg-nv"
+        <Button
           onClick={() => {
             loadMoreBadges();
           }}
         >
           Carregar mais
-        </button>
+        </Button>
       )}
     </>
   );
