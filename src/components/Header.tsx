@@ -8,9 +8,11 @@ import cx from 'classnames';
 
 import { useBadges } from 'contexts/Badges';
 
+import { AutoSuggest } from './AutoSuggest';
+
 export function Header() {
   const navigate = useNavigate();
-  const { pathname, searchBadge, setSearchBadge } = useBadges();
+  const { pathname } = useBadges();
   const [open, setOpen] = useState(false);
 
   function scrollToTop() {
@@ -47,15 +49,7 @@ export function Header() {
         </div>
 
         <div className="absolute left-16 top-3 cursor-pointer md:left-24">
-          <input
-            type="text"
-            placeholder="Pesquisar por emblema"
-            value={searchBadge}
-            onChange={(e) => {
-              setSearchBadge(e.target.value);
-            }}
-            className="bg-primary text-white h-10 w-80 md:w-72 rounded-md px-4 outline-none focus:border border-nv sm:w-80"
-          />
+          <AutoSuggest />
         </div>
 
         <div
