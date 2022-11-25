@@ -1,3 +1,19 @@
+# [1.28.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.27.0...v1.28.0) (2022-11-25)
+
+
+### Bug Fixes
+
+* button and remove console.log ([07d0e8a](https://github.com/ialexanderbrito/nv99badges/commit/07d0e8aaed68a1ad92368bb32c3139ea0c03e291))
+* component filter ([870a239](https://github.com/ialexanderbrito/nv99badges/commit/870a2396f9a2f857a4adfad9e85eb954033bb1d1))
+* component header ([36b704b](https://github.com/ialexanderbrito/nv99badges/commit/36b704ba78395161b4460c5588479e10bfb6bdbd))
+* menu a href to div ([5b58478](https://github.com/ialexanderbrito/nv99badges/commit/5b584782f8f39e320a85c6eddda17ef0e95f452c))
+
+
+### Features
+
+* add component button ([d14c7e5](https://github.com/ialexanderbrito/nv99badges/commit/d14c7e5ee1b3d2c5b4d8b5c7df3b824d373dd6fd))
+* add import button ([73594e3](https://github.com/ialexanderbrito/nv99badges/commit/73594e31dd0f6d764c424c5a8530298e2063a2df))
+
 # [1.27.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.26.1...v1.27.0) (2022-11-25)
 
 
