@@ -46,7 +46,7 @@ export function Header() {
           </Link>
         </div>
 
-        <div className="absolute left-16 top-1 cursor-pointer md:left-24">
+        <div className="absolute left-16 top-3 cursor-pointer md:left-24">
           <input
             type="text"
             placeholder="Pesquisar por emblema"
@@ -54,7 +54,7 @@ export function Header() {
             onChange={(e) => {
               setSearchBadge(e.target.value);
             }}
-            className="bg-primary text-white h-12 w-80 md:w-72 rounded-md px-4 outline-none focus:border hover:border border-nv sm:w-80"
+            className="bg-primary text-white h-10 w-80 md:w-72 rounded-md px-4 outline-none focus:border border-nv sm:w-80"
           />
         </div>
 
