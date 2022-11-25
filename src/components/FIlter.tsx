@@ -37,7 +37,7 @@ export function Filter() {
             placeholder="Pesquisar por usuário"
             value={username}
             onChange={(e) => {
-              setUsername(e.target.value);
+              setUsername(e.target.value.toLowerCase());
             }}
             onKeyPress={(e) => {
               if (e.key === 'Enter') {
