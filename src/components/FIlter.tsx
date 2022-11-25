@@ -9,9 +9,9 @@ export function Filter() {
 
   return (
     <>
-      <div className="w-full mt-4 justify-start gap-2 items-center flex flex-col h-40 md:flex-row md:w-[900px] md:mt-6 md:h-20">
+      <div className="w-full mt-4 justify-start gap-2 items-center flex flex-col md:flex-row md:w-[900px] md:mt-6 md:h-20">
         <button
-          className="bg-primary gap-1 text-white w-96 h-12 flex items-center justify-center rounded-md md:w-60 hover:bg-nv "
+          className="bg-primary gap-1 text-white w-72 h-12 flex items-center justify-center rounded-md md:w-60 hover:bg-nv "
           onClick={() => {
             setFilter(!filter);
           }}
