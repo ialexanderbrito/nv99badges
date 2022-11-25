@@ -1,3 +1,10 @@
+# [1.27.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.26.1...v1.27.0) (2022-11-25)
+
+
+### Features
+
+* add new podcast ([432546a](https://github.com/ialexanderbrito/nv99badges/commit/432546ac145942cfea0c848cdb14eb7fab1deb0f))
+
 ## [1.26.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.26.0...v1.26.1) (2022-11-25)
 
 
