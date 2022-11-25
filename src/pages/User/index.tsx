@@ -9,6 +9,7 @@ import { Badge } from 'types/BadgesProps';
 
 import { NotFound } from 'pages/NotFound';
 
+import { Button } from 'components/Button';
 import { CardProfile } from 'components/CardProfile';
 import { DropdownMenu } from 'components/Menu';
 
@@ -44,12 +45,14 @@ export function User() {
   useEffect(() => {
     setUser([]);
     setPage(1);
+  }, [filterBadgeUser]);
 
+  useEffect(() => {
     if (isSecret === false && isNormal === false) {
       setIsSecret(true);
       setIsNormal(true);
     }
-  }, [filterBadgeUser, isSecret, isNormal]);
+  }, [isSecret, isNormal]);
 
   const { isLoading: isLoadingUser, isError } = useQuery(
     ['user', page, filterBadgeUser, isSecret, isNormal],
@@ -76,8 +79,6 @@ export function User() {
       enabled: Boolean(username),
     },
   );
-
-  console.log(user);
 
   return (
     <>
@@ -172,14 +173,13 @@ export function User() {
                   ))}
               </div>
               {user.length !== 0 && (
-                <button
-                  className="bg-primary text-white w-96 h-16 flex items-center justify-center rounded-md mb-6 mt-6 md:w-96 hover:bg-nv"
+                <Button
                   onClick={() => {
                     loadMoreBadges();
                   }}
                 >
                   {isLoadingUser ? <Pulsar color="#FFF" /> : 'Carregar mais'}
-                </button>
+                </Button>
               )}
             </>
           )}
