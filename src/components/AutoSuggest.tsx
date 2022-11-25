@@ -46,7 +46,7 @@ export function AutoSuggest() {
   return (
     <div>
       <input
-        className="bg-primary text-white h-10 w-80 md:w-72 rounded-md px-4 outline-none focus:border border-nv sm:w-80"
+        className="bg-primary text-white h-10 w-60 md:w-[36rem] rounded-md px-4 outline-none focus:border border-nv sm:w-96"
         placeholder="Faça uma busca"
         onFocus={() => setIsFocus(true)}
         onBlur={() => {
@@ -85,7 +85,11 @@ export function AutoSuggest() {
                   <>
                     <div
                       className="w-full hover:bg-primary/100 rounded p-1"
-                      onClick={() => setIsFocus(false)}
+                      onClick={() => {
+                        setIsFocus(false);
+                        setInputValue('');
+                        window.location.reload();
+                      }}
                     >
                       <Link to={`user/${suggestion.username}`}>
                         <div className="flex flex-col gap-2 justify-center items-center h-full text-white cursor-pointer select-none w-[4.25rem]">
@@ -128,7 +132,11 @@ export function AutoSuggest() {
                   <>
                     <div
                       className="w-full hover:bg-primary/100 rounded p-1"
-                      onClick={() => setIsFocus(false)}
+                      onClick={() => {
+                        setIsFocus(false);
+                        setInputValue('');
+                        window.location.reload();
+                      }}
                     >
                       <Link to={`badge/${suggestion.code}`}>
                         <div className="flex flex-col gap-2 justify-center items-center h-full text-white cursor-pointer select-none w-[4.25rem]">
@@ -163,7 +171,11 @@ export function AutoSuggest() {
                   <>
                     <div
                       className="w-full hover:bg-primary/100 rounded p-1"
-                      onClick={() => setIsFocus(false)}
+                      onClick={() => {
+                        setIsFocus(false);
+                        setInputValue('');
+                        window.location.reload();
+                      }}
                     >
                       <a
                         href={`https://nv99.com.br/${suggestion.name}`}
