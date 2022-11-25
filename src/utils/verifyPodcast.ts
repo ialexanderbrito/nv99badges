@@ -63,6 +63,10 @@ export const podcastNames = [
     name: 'Tonelive',
     id: 'teHRVwzvqpzzLYfTDPK1',
   },
+  {
+    name: '3 Irmãos',
+    id: 'g6TB80IQZR17fkk29gMd',
+  },
 ];
 
 export function verifyPodcast(podcast: string) {
