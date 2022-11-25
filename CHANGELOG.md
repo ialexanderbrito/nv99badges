@@ -1,3 +1,10 @@
+## [1.26.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.26.0...v1.26.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* username lower case ([b693027](https://github.com/ialexanderbrito/nv99badges/commit/b6930277d000dfaa2c323fdcd9b78977512c7867))
+
 # [1.26.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.25.4...v1.26.0) (2022-11-24)
 
 
