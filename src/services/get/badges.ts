@@ -58,3 +58,9 @@ export async function getGraph(code: string) {
 
   return { data, status };
 }
+
+export async function getSearch(text: string) {
+  const { data, status } = await api.get(`search?text=${text}`);
+
+  return { data, status };
+}
