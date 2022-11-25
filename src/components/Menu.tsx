@@ -35,9 +35,8 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                <a
+                <div
                   onClick={() => setFilter('lower_serial')}
-                  href="#"
                   className={classNames(
                     filter === 'lower_serial' ? 'text-nv' : 'text-white',
                     active ? ' text-nv' : 'text-white',
@@ -45,14 +44,13 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   )}
                 >
                   Menor número de série
-                </a>
+                </div>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
+                <div
                   onClick={() => setFilter('higher_serial')}
-                  href="#"
                   className={classNames(
                     filter === 'higher_serial' ? 'text-nv' : 'text-white',
                     active ? ' text-nv' : 'text-white',
@@ -60,14 +58,13 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   )}
                 >
                   Maior número de série
-                </a>
+                </div>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
+                <div
                   onClick={() => setFilter('newest')}
-                  href="#"
                   className={classNames(
                     filter === 'newest' ? 'text-nv' : 'text-white',
                     active ? 'text-nv' : 'text-white',
@@ -75,14 +72,13 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   )}
                 >
                   Mais recentes
-                </a>
+                </div>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
+                <div
                   onClick={() => setFilter('older')}
-                  href="#"
                   className={classNames(
                     filter === 'older' ? 'text-nv' : 'text-white',
                     active ? 'text-nv' : 'text-white',
@@ -90,13 +86,12 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   )}
                 >
                   Mais antigos
-                </a>
+                </div>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <div
                   onClick={() => setFilter('redeemed_lower')}
                   className={classNames(
                     filter === 'redeemed_lower' ? 'text-nv' : 'text-white',
@@ -105,13 +100,12 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   )}
                 >
                   Menor número de resgates
-                </a>
+                </div>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <div
                   onClick={() => setFilter('redeemed_higher')}
                   className={classNames(
                     filter === 'redeemed_higher' ? 'text-nv' : 'text-white',
@@ -120,7 +114,7 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   )}
                 >
                   Maior número de resgates
-                </a>
+                </div>
               )}
             </Menu.Item>
           </div>
