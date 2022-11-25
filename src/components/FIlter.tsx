@@ -22,7 +22,7 @@ export function Filter() {
     <>
       <div className="w-full mt-4 justify-evenly gap-2 items-center flex flex-col h-40 md:flex-row md:w-[900px] md:mt-6 md:h-20">
         <button
-          className="bg-primary gap-1 text-white w-96 h-16 flex items-center justify-center rounded-md md:w-60 hover:bg-nv "
+          className="bg-primary gap-1 text-white w-96 h-12 flex items-center justify-center rounded-md md:w-60 hover:bg-nv "
           onClick={() => {
             setFilter(!filter);
           }}
@@ -44,12 +44,12 @@ export function Filter() {
                 searchUsername();
               }
             }}
-            className="bg-primary text-white h-16 w-80 rounded-md px-4 outline-none focus:border hover:border border-nv sm:w-80 md:w-full"
+            className="bg-primary text-white h-12 w-80 rounded-md px-4 outline-none focus:border border-nv sm:w-80 md:w-full"
           />
 
           <button
             type="button"
-            className="bg-nv text-white w-16 h-14 flex items-center justify-center rounded-md md:w-16"
+            className="bg-nv text-white w-12 h-12 flex items-center justify-center rounded-md md:w-16"
             onClick={() => {
               searchUsername();
             }}
@@ -66,7 +66,7 @@ export function Filter() {
       {filter && (
         <div className="text-white grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
           {podcastNames.map((pdc) => (
-            <label className="flex font-bold p-3 cursor-pointer">
+            <label className="flex font-bold p-3 cursor-pointer text-sm">
               <input
                 type="radio"
                 name="podcast"
@@ -82,7 +82,7 @@ export function Filter() {
 
           <button
             type="button"
-            className="flex bg-primary h-12 items-center justify-center rounded-md hover:bg-nv"
+            className="flex bg-primary h-10 items-center justify-center rounded-md hover:bg-nv"
             onClick={() => {
               setFilter(!filter);
               window.location.reload();
