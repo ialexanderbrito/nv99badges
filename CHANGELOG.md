@@ -1,3 +1,22 @@
+# [1.29.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.28.0...v1.29.0) (2022-11-25)
+
+
+### Bug Fixes
+
+* remove search badge pages ([12b083c](https://github.com/ialexanderbrito/nv99badges/commit/12b083cc0440a7712c9bf563c07322f07866b0fa))
+* remove search user ([a370a72](https://github.com/ialexanderbrito/nv99badges/commit/a370a72b08ab877c67202fde4ca95cf0ecb28542))
+* remove variables not used context badges ([b254d90](https://github.com/ialexanderbrito/nv99badges/commit/b254d902d11ba8a97d11106de1c2b56851b815ae))
+
+
+### Features
+
+* add assets avatar ([7a1a9de](https://github.com/ialexanderbrito/nv99badges/commit/7a1a9de27e63157016893c41e62c1e4fb91d337d))
+* add import autosuggest ([e5ec6f8](https://github.com/ialexanderbrito/nv99badges/commit/e5ec6f8d1a3b3308c483cac5d74570a4284035ff))
+* add new component autosuggest ([e9df04b](https://github.com/ialexanderbrito/nv99badges/commit/e9df04b43d8596af0806b73159010480f94f825d))
+* add new route api ([a8e87d1](https://github.com/ialexanderbrito/nv99badges/commit/a8e87d10630a3c278258374b11199be05fccc97e))
+* add plugin tailwind scrollbar ([f14197a](https://github.com/ialexanderbrito/nv99badges/commit/f14197a81f93177b349edc004c47c485fd4f9987))
+* add types component autosuggest ([fe1e58c](https://github.com/ialexanderbrito/nv99badges/commit/fe1e58c5945939f2b6e6d731215d1080ae5a165a))
+
 # [1.28.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.27.0...v1.28.0) (2022-11-25)
 
 
