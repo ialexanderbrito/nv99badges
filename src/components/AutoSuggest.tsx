@@ -61,7 +61,7 @@ export function AutoSuggest() {
       />
       {isFocus && (
         <div
-          className="shadow-lg absolute w-72 flex bg-primary flex-col"
+          className="shadow-lg absolute w-full flex bg-primary flex-col"
           onMouseEnter={() => {
             setIsHovered(true);
           }}
@@ -174,7 +174,6 @@ export function AutoSuggest() {
                       onClick={() => {
                         setIsFocus(false);
                         setInputValue('');
-                        window.location.reload();
                       }}
                     >
                       <a
