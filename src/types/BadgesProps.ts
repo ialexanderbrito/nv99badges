@@ -38,7 +38,7 @@ export interface Badge {
   creator_profile: CreatorProfile;
   serialized: boolean;
   redeemed: boolean;
-  serial_number?: number;
+  serial_number: number;
   media_price_badge?: number;
   market_value_change_type?: 'same' | 'up' | 'down';
 }
