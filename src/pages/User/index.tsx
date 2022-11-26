@@ -45,14 +45,12 @@ export function User() {
   useEffect(() => {
     setUser([]);
     setPage(1);
-  }, [filterBadgeUser]);
 
-  useEffect(() => {
     if (isSecret === false && isNormal === false) {
       setIsSecret(true);
       setIsNormal(true);
     }
-  }, [isSecret, isNormal]);
+  }, [filterBadgeUser, isSecret, isNormal]);
 
   const { isLoading: isLoadingUser, isError } = useQuery(
     ['user', page, filterBadgeUser, isSecret, isNormal],
@@ -152,7 +150,7 @@ export function User() {
                       <div className="absolute bg-primary/90 top-0 right-1 p-1 rounded pointer-events-none">
                         <p
                           className={cx('font-bold text-sm italic text-white', {
-                            'text-nv': user?.serial_number || 0 <= 99,
+                            'text-nv': user?.serial_number <= 99,
                           })}
                         >
                           #{user?.serial_number}
