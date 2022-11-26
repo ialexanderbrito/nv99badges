@@ -1,3 +1,12 @@
+## [1.29.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.29.0...v1.29.1) (2022-11-26)
+
+
+### Bug Fixes
+
+* navigate canais and size autosuggest ([5961a06](https://github.com/ialexanderbrito/nv99badges/commit/5961a06768d79314bb08529478be87cdb0b64e3c))
+* serial number and select secret ou normal ([49f1d26](https://github.com/ialexanderbrito/nv99badges/commit/49f1d26c60f7fbe0d38e4039d8d9cb128acc53db))
+* types serial number ([8e66e4a](https://github.com/ialexanderbrito/nv99badges/commit/8e66e4a1e443d948e4e708f0e821dd0268c5d2a5))
+
 # [1.29.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.28.0...v1.29.0) (2022-11-25)
 
 
