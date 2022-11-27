@@ -13,6 +13,8 @@ import { Button } from 'components/Button';
 import { CardProfile } from 'components/CardProfile';
 import { DropdownMenu } from 'components/Menu';
 
+import { podcastNames } from 'utils/verifyPodcast';
+
 import { useBadges } from 'contexts/Badges';
 import { useToast } from 'contexts/Toast';
 
@@ -40,6 +42,8 @@ export function User() {
     setIsSecret,
     isNormal,
     setIsNormal,
+    selectedPodcast,
+    setSelectedPodcast,
   } = useBadges();
 
   useEffect(() => {
@@ -50,12 +54,20 @@ export function User() {
       setIsSecret(true);
       setIsNormal(true);
     }
-  }, [filterBadgeUser, isSecret, isNormal]);
+  }, [filterBadgeUser, isSecret, isNormal, selectedPodcast]);
 
   const { isLoading: isLoadingUser, isError } = useQuery(
-    ['user', page, filterBadgeUser, isSecret, isNormal],
+    ['user', page, filterBadgeUser, isSecret, isNormal, selectedPodcast],
     () =>
-      getUser(String(username), 12, page, filterBadgeUser, isNormal, isSecret),
+      getUser(
+        String(username),
+        12,
+        page,
+        filterBadgeUser,
+        isNormal,
+        isSecret,
+        selectedPodcast,
+      ),
     {
       onSuccess: (data) => {
         setTotalBadges(data.data.total);
@@ -126,6 +138,20 @@ export function User() {
                   />
                   Secretos
                 </label>
+
+                <p className="font-bold underline">Filtrar por podcast:</p>
+                <select
+                  className="bg-dark text-white rounded p-2 text-sm font-medium"
+                  value={selectedPodcast}
+                  onChange={(e) => setSelectedPodcast(e.target.value)}
+                >
+                  <option value="">Todos</option>
+                  {podcastNames.map((podcast) => (
+                    <option key={podcast.id} value={podcast.id}>
+                      {podcast.name}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
