@@ -138,8 +138,9 @@ export function User() {
                   />
                   Secretos
                 </label>
-
-                <p className="font-bold underline">Filtrar por podcast:</p>
+              </div>
+              <div className="text-white w-full items-center justify-start gap-4 flex mb-4">
+                <p className="font-bold underline ml-4">Filtrar por podcast:</p>
                 <select
                   className="bg-dark text-white rounded p-2 text-sm font-medium"
                   value={selectedPodcast}
