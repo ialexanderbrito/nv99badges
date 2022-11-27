@@ -1,3 +1,10 @@
+## [1.30.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.30.0...v1.30.1) (2022-11-27)
+
+
+### Bug Fixes
+
+* filter ([b084b42](https://github.com/ialexanderbrito/nv99badges/commit/b084b428869f1ba6a66035eb943d006654beac85))
+
 # [1.30.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.29.1...v1.30.0) (2022-11-27)
 
 
