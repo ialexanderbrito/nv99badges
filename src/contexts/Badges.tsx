@@ -40,6 +40,8 @@ interface BadgeProps {
   setIsSecret: (isSecret: boolean) => void;
   isNormal: boolean;
   setIsNormal: (isNormal: boolean) => void;
+  selectedPodcast: string;
+  setSelectedPodcast: (selectedPodcast: string) => void;
 }
 
 const BadgeContext = createContext<BadgeProps>({} as any);
@@ -65,6 +67,7 @@ export const BadgeProvider = ({ children }: any) => {
   const [filterBadgeUser, setFilterBadgeUser] = useState('lower_serial');
   const [isSecret, setIsSecret] = useState(true);
   const [isNormal, setIsNormal] = useState(true);
+  const [selectedPodcast, setSelectedPodcast] = useState('');
 
   function handleSelectedMaisRaros() {
     window.location.replace('/mais-raros');
@@ -138,6 +141,8 @@ export const BadgeProvider = ({ children }: any) => {
         setIsSecret,
         isNormal,
         setIsNormal,
+        selectedPodcast,
+        setSelectedPodcast,
       }}
     >
       {children}
