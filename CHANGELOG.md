@@ -1,3 +1,17 @@
+# [1.30.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.29.1...v1.30.0) (2022-11-27)
+
+
+### Bug Fixes
+
+* menu cursor pointer ([7bc7722](https://github.com/ialexanderbrito/nv99badges/commit/7bc77222dd58054b2b52b38a6a2924c06af0c864))
+* route add creators query ([06c0295](https://github.com/ialexanderbrito/nv99badges/commit/06c0295a7f88e9a00df3cd5692631200ec4b9b20))
+
+
+### Features
+
+* add filter selected podcast ([b18c88d](https://github.com/ialexanderbrito/nv99badges/commit/b18c88d8f05448da1fc5ae66b66a63affeb87784))
+* add state select podcast ([57b15e4](https://github.com/ialexanderbrito/nv99badges/commit/57b15e41c335de78b59d65fa8ceb68804227611c))
+
 ## [1.29.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.29.0...v1.29.1) (2022-11-26)
 
 
