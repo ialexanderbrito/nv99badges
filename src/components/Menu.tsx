@@ -40,7 +40,7 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   className={classNames(
                     filter === 'lower_serial' ? 'text-nv' : 'text-white',
                     active ? ' text-nv' : 'text-white',
-                    'block px-4 py-2 text-sm',
+                    'block px-4 py-2 text-sm cursor-pointer',
                   )}
                 >
                   Menor número de série
@@ -54,7 +54,7 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   className={classNames(
                     filter === 'higher_serial' ? 'text-nv' : 'text-white',
                     active ? ' text-nv' : 'text-white',
-                    'block px-4 py-2 text-sm',
+                    'block px-4 py-2 text-sm cursor-pointer',
                   )}
                 >
                   Maior número de série
@@ -68,7 +68,7 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   className={classNames(
                     filter === 'newest' ? 'text-nv' : 'text-white',
                     active ? 'text-nv' : 'text-white',
-                    'block px-4 py-2 text-sm',
+                    'block px-4 py-2 text-sm cursor-pointer',
                   )}
                 >
                   Mais recentes
@@ -82,7 +82,7 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   className={classNames(
                     filter === 'older' ? 'text-nv' : 'text-white',
                     active ? 'text-nv' : 'text-white',
-                    'block px-4 py-2 text-sm',
+                    'block px-4 py-2 text-sm cursor-pointer',
                   )}
                 >
                   Mais antigos
@@ -96,7 +96,7 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   className={classNames(
                     filter === 'redeemed_lower' ? 'text-nv' : 'text-white',
                     active ? 'text-nv' : 'text-white',
-                    'block px-4 py-2 text-sm',
+                    'block px-4 py-2 text-sm cursor-pointer',
                   )}
                 >
                   Menor número de resgates
@@ -110,7 +110,7 @@ export function DropdownMenu({ filter, setFilter }: DropdownMenuProps) {
                   className={classNames(
                     filter === 'redeemed_higher' ? 'text-nv' : 'text-white',
                     active ? 'text-nv' : 'text-white',
-                    'block px-4 py-2 text-sm',
+                    'block px-4 py-2 text-sm cursor-pointer',
                   )}
                 >
                   Maior número de resgates
