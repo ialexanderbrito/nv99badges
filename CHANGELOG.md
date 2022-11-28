@@ -1,3 +1,23 @@
+# [1.31.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.30.1...v1.31.0) (2022-11-28)
+
+
+### Bug Fixes
+
+* color border icon ([0cf288d](https://github.com/ialexanderbrito/nv99badges/commit/0cf288dca2e3f02d8cf387c03a7199eab73976fa))
+* images imports ([5f4517b](https://github.com/ialexanderbrito/nv99badges/commit/5f4517b35ccc38390a45dbdb1ee3aa4c1c114486))
+* size autosuggest ([f521ae5](https://github.com/ialexanderbrito/nv99badges/commit/f521ae505efb8d5322cbe9a3630dc41410ed8918))
+
+
+### Features
+
+* add card ranking and top ranking ([a550234](https://github.com/ialexanderbrito/nv99badges/commit/a550234ba2b489a51007ada8361e7fa36b26f0a9))
+* add link ranking ([2315dcb](https://github.com/ialexanderbrito/nv99badges/commit/2315dcb42aad43bf7fef8b76423eeffdd5c6177e))
+* add new route service ranking users ([e617140](https://github.com/ialexanderbrito/nv99badges/commit/e617140851f698ffc101cf8cd095c93707949053))
+* add new types ([28abc0c](https://github.com/ialexanderbrito/nv99badges/commit/28abc0c5ee7c5f23fb741291d1b8e90a19692e2e))
+* add page ranking ([f2129a8](https://github.com/ialexanderbrito/nv99badges/commit/f2129a882647898762836e84fb28d3f2dbcd305b))
+* add route ([e809ce9](https://github.com/ialexanderbrito/nv99badges/commit/e809ce92f8b6ea56ed746ddb2b47c9b3ee6da76b))
+* add util verify variation ranking ([ba14cc5](https://github.com/ialexanderbrito/nv99badges/commit/ba14cc51db8212084f8afc28052a3ee60ea9056b))
+
 ## [1.30.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.30.0...v1.30.1) (2022-11-27)
 
 
