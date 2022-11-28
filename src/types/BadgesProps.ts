@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export interface Status {
   error: boolean;
   message: string;
@@ -89,4 +90,20 @@ export interface Creators {
 export interface GraphProps {
   labels: string[];
   dataset: number[];
+}
+
+export enum VariationRanking {
+  Down = 'DOWN',
+  Stable = 'STABLE',
+  Up = 'UP',
+}
+
+export interface Ranking {
+  username: string;
+  variation_ranking: VariationRanking;
+  profile_picture: null | string;
+  position: number;
+  premium: null | string;
+  qtd: number;
+  bio: null | string;
 }
