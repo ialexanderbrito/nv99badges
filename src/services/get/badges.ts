@@ -65,3 +65,9 @@ export async function getSearch(text: string) {
 
   return { data, status };
 }
+
+export async function getRanking(limit: number, page: number) {
+  const { data, status } = await api.get(`ranking?limit=${limit}&page=${page}`);
+
+  return { data, status };
+}
