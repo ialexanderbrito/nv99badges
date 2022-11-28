@@ -30,6 +30,7 @@ export function Header() {
     { name: 'Mais Recentes', link: '/mais-recentes' },
     { name: 'Canais', link: '/canais' },
     { name: 'Favoritos', link: '/favoritos' },
+    { name: 'Ranking', link: '/ranking' },
   ];
 
   return (
