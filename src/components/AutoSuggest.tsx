@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Pulsar } from '@uiball/loaders';
-import avatar from 'assets/avatar.png';
+import { avatar } from 'assets';
 import { Badge, Studio, User } from 'types/AutoSuggestProps';
 
 import { useToast } from 'contexts/Toast';

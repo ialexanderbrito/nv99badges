@@ -1,4 +1,4 @@
-import fleurx from 'assets/fleurx.png';
+import { fleurx } from 'assets';
 
 const anoAtual = new Date().getFullYear();
 

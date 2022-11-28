@@ -5,7 +5,7 @@ import { CgBorderStyleSolid } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 
 import { Pulsar } from '@uiball/loaders';
-import { Spark } from 'assets/Spark';
+import { Spark } from 'assets';
 import cx from 'classnames';
 import { Badge } from 'types/BadgesProps';
 

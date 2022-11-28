@@ -6,7 +6,7 @@ import Tilt from 'react-parallax-tilt';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
-import { Spark } from 'assets/Spark';
+import { Spark } from 'assets';
 import { format } from 'date-fns';
 
 import { BadgeSkeleton } from 'components/BadgeSkeleton';
