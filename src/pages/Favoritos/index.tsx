@@ -84,7 +84,7 @@ export function Favoritos() {
 
   function verifyBadgeMarketValueChange(badge: Badge) {
     if (badge.market_value_change_type === 'same') {
-      return <CgBorderStyleSolid className="text-gray-500" />;
+      return <CgBorderStyleSolid className="text-white" />;
     } else if (badge.market_value_change_type === 'up') {
       return <BiCaretUp className=" text-red-600" />;
     } else {
