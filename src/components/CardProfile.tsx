@@ -1,4 +1,11 @@
 import { BiInfoCircle } from 'react-icons/bi';
+import { SiFacebook, SiTelegram, SiTwitter, SiWhatsapp } from 'react-icons/si';
+import {
+  FacebookShareButton,
+  TelegramShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from 'react-share';
 import ReactTooltip from 'react-tooltip';
 
 import cx from 'classnames';
@@ -15,6 +22,9 @@ export function CardProfile({
   username,
   profileXp,
 }: CardProfileProps) {
+  const message = `Se liga no meu perfil lá na NV99 tô cheio de emblemas. Dá uma olhadinha lá e se cadastra também pô!`;
+  const linkProfile = `https://nv99.com.br/user/${username}`;
+
   return (
     <>
       <div className="font-bold text-white mt-4 mb-0 flex justify-between px-5 items-center w-full bg-primary overflow-hidden md:h-28 md:rounded-lg md:rounded-b-none md:mt-6">
@@ -92,6 +102,32 @@ export function CardProfile({
                   className="w-5"
                 />
                 {profileXp?.elo}
+              </p>
+            </div>
+            <div className="flex flex-col gap-1 pr-1">
+              <p className="text-sm font-bold leading-5 text-slate-400 uppercase">
+                Compartilhar
+              </p>
+              <p className="font-semibold leading-6 text-white flex gap-2">
+                <FacebookShareButton url={linkProfile} quote={message}>
+                  <SiFacebook color="#4267B2" size={20} />
+                </FacebookShareButton>
+
+                <WhatsappShareButton
+                  url={linkProfile}
+                  title={message}
+                  separator=":: "
+                >
+                  <SiWhatsapp color="#25D366" size={20} />
+                </WhatsappShareButton>
+
+                <TelegramShareButton title={message} url={linkProfile}>
+                  <SiTelegram color="#0088cc" size={20} />
+                </TelegramShareButton>
+
+                <TwitterShareButton url={linkProfile} title={message}>
+                  <SiTwitter color="#1DA1F2" size={20} />
+                </TwitterShareButton>
               </p>
             </div>
           </div>
