@@ -11,7 +11,19 @@ export const ToastProvider = ({ children }: any) => (
   <ToastContext.Provider value={{ toast }}>
     {children}
     <div className="toast-wrapper">
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            background: '#262a31',
+            color: '#fff',
+          },
+        }}
+        containerStyle={{
+          top: '4rem',
+        }}
+      />
     </div>
   </ToastContext.Provider>
 );
