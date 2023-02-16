@@ -11,12 +11,12 @@ import { Badge } from 'types/BadgesProps';
 
 import { twoDecimals } from 'utils/twoDecimal';
 
-import { useFavorites } from 'hooks/Favorites';
+import { useToast } from 'contexts/Toast';
 
-import { getBadgeById } from 'services/get/badges';
+import { getBadgesFavorites } from 'services/get/badges';
 
 export function Favoritos() {
-  const { removeFavorite } = useFavorites();
+  const { toast } = useToast();
   const [favorites, setFavorites] = useState<Badge[]>([]);
   const [oldFavorites, setOldFavorites] = useState<Badge[]>([]);
   const [loading, setLoading] = useState(false);
@@ -28,58 +28,69 @@ export function Favoritos() {
   }, []);
 
   useEffect(() => {
-    setLoading(true);
-    const favorites = JSON.parse(
-      localStorage.getItem('@nv99badges:favorites') || '[]',
-    );
+    async function getFavorites() {
+      setLoading(true);
 
-    const favoritesCode = favorites.map((favorite: Badge) => favorite.code);
+      try {
+        const favorites = JSON.parse(
+          localStorage.getItem('@nv99badges:favorites') || '[]',
+        );
 
-    const promises = favoritesCode.map((code: string) => getBadgeById(code));
+        const favoritesCode = favorites.map((favorite: Badge) => favorite.code);
 
-    Promise.all(promises).then((badges) => {
-      const newFavorites = badges.map((badge, index) => ({
-        ...favorites[index],
-      }));
+        const { data } = await getBadgesFavorites(favoritesCode);
 
-      setFavorites(newFavorites);
+        setFavorites(data);
 
-      localStorage.setItem(
-        '@nv99badges:favorites',
-        JSON.stringify(newFavorites),
-      );
+        localStorage.setItem('@nv99badges:favorites', JSON.stringify(data));
 
-      const newBadgesValues = badges.map((badge, index) => {
-        const market_value = badge.data.market_value;
+        const newBadgesValues = data.map((badge: Badge, index: number) => {
+          const market_value = badge.market_value;
 
-        const market_value_old = favorites[index].market_value;
+          const market_value_old = favorites[index].market_value;
 
-        const market_value_change = market_value - market_value_old;
+          const market_value_change = market_value - market_value_old;
 
-        const market_value_change_percentage =
-          (market_value_change / market_value_old) * 100;
+          const market_value_change_percentage =
+            (market_value_change / market_value_old) * 100;
 
-        let market_value_change_type: 'same' | 'up' | 'down';
+          let market_value_change_type: 'same' | 'up' | 'down';
 
-        if (market_value_change_percentage > 0) {
-          market_value_change_type = 'up';
-        } else if (market_value_change_percentage < 0) {
-          market_value_change_type = 'down';
-        } else {
-          market_value_change_type = 'same';
-        }
+          if (market_value_change_percentage > 0) {
+            market_value_change_type = 'up';
+          } else if (market_value_change_percentage < 0) {
+            market_value_change_type = 'down';
+          } else {
+            market_value_change_type = 'same';
+          }
 
-        return {
-          ...badge.data,
-          market_value_change,
-          market_value_change_percentage,
-          market_value_change_type,
-        };
-      });
+          return {
+            ...badge,
+            market_value_change,
+            market_value_change_percentage,
+            market_value_change_type,
+          };
+        });
 
-      setFavorites(newBadgesValues);
-      setLoading(false);
-    });
+        setFavorites(newBadgesValues);
+
+        localStorage.setItem(
+          '@nv99badges:favorites',
+          JSON.stringify(newBadgesValues),
+        );
+
+        toast.success('Badges favoritos atualizados', { id: 'toast' });
+
+        setLoading(false);
+      } catch (error) {
+        toast.error('Erro ao buscar badges favoritos', { id: 'toast' });
+        setLoading(false);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    getFavorites();
   }, []);
 
   function verifyBadgeMarketValueChange(badge: Badge) {
@@ -92,11 +103,16 @@ export function Favoritos() {
     }
   }
 
-  function handleRemoveFavorite(badge: Badge) {
-    removeFavorite(badge);
-    setFavorites(
-      JSON.parse(localStorage.getItem('@nv99badges:favorites') || '[]'),
+  async function handleRemoveFavoriteBadge(badge: Badge) {
+    const newFavorites = favorites.filter(
+      (favorite) => favorite.code !== badge.code,
     );
+
+    setFavorites(newFavorites);
+
+    toast.success('Emblema removido dos favoritos', { id: 'toast' });
+
+    localStorage.setItem('@nv99badges:favorites', JSON.stringify(newFavorites));
   }
 
   return (
@@ -146,7 +162,7 @@ export function Favoritos() {
 
                         <div
                           className="absolute bg-primary/90 top-0 right-1 p-1 rounded cursor-pointer"
-                          onClick={() => handleRemoveFavorite(favorite)}
+                          onClick={() => handleRemoveFavoriteBadge(favorite)}
                         >
                           <p className="font-bold text-md italic text-nv hover:text-nv/60">
                             <BiTrashAlt />
