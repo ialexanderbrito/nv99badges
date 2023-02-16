@@ -242,4 +242,36 @@ routes.get('/badges/search', async (request, response) => {
   }
 });
 
+routes.get('/badges/favorites', async (request, response) => {
+  const codes = request.query.codes as string;
+
+  const newCodes = codes.split(',');
+
+  try {
+    const { data } = await api.get(
+      `market/badges?order=oldest&min_value=0&max_value=1000&has_normal=true&has_secret=true&in_market=true&not_in_market=true`,
+    );
+
+    const badges = data.badges;
+
+    let arrayPrincipal: any = [];
+
+    for (const item of badges) {
+      arrayPrincipal = [].concat(arrayPrincipal, item);
+    }
+
+    const results = arrayPrincipal.filter((badge: any) =>
+      newCodes.includes(badge.code),
+    );
+
+    const filteredResults = results.filter((badge: any) =>
+      newCodes.includes(badge.code),
+    );
+
+    return response.json(filteredResults);
+  } catch (error) {
+    return response.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 export default routes;
