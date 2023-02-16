@@ -1,3 +1,16 @@
+# [1.33.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.32.0...v1.33.0) (2023-02-16)
+
+
+### Bug Fixes
+
+* update pages favorites and new routes api ([d965f96](https://github.com/ialexanderbrito/nv99badges/commit/d965f96ce03dc5c46f959183c668e6e191d447fc))
+
+
+### Features
+
+* add new route badges favorites ([eb79c86](https://github.com/ialexanderbrito/nv99badges/commit/eb79c86ca78501ec39552b8c26055704883a52be))
+* add update color toast and top margin ([ec54a90](https://github.com/ialexanderbrito/nv99badges/commit/ec54a9010c4f52796739d41718bee3f3e9c411ae))
+
 # [1.32.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.31.0...v1.32.0) (2022-11-30)
 
 
