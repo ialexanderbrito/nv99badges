@@ -14,6 +14,12 @@ export async function getBadgeById(code: string) {
   return { data, status };
 }
 
+export async function getBadgesFavorites(codes: string[]) {
+  const { data, status } = await api.get(`badges/favorites?codes=${codes}`);
+
+  return { data, status };
+}
+
 export async function getBadgesSearch(search: string) {
   const { data, status } = await api.get(`badges/search?code=${search}`);
 
