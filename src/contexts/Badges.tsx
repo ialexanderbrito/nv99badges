@@ -1,48 +1,8 @@
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Badge, Profile, ProfileXp } from 'types/BadgesProps';
-
-interface BadgeProps {
-  badges: Badge[];
-  setBadges: (badges: any) => void;
-  badgesPodcast: Badge[];
-  setBadgesPodcast: (badgesPodcast: any) => void;
-  filter: boolean;
-  setFilter: (filter: boolean) => void;
-  isLoading: boolean;
-  setIsLoading: (isLoading: boolean) => void;
-  order: string;
-  setOrder: (order: string) => void;
-  page: number;
-  setPage: (page: number) => void;
-  podcast: string;
-  setPodcast: (podcast: string) => void;
-  pathname: string;
-  handleSelectedMaisRaros: () => void;
-  handleSelectedMaisResgatados: () => void;
-  handleSelectedMaisRecentes: () => void;
-  handleSelectedOrder: () => void;
-  loadMoreBadges: () => void;
-  user: Badge[];
-  setUser: (user: any) => void;
-  totalBadges: number;
-  setTotalBadges: (totalBadges: number) => void;
-  isLoadingPage: boolean;
-  setIsLoadingPage: (isLoadingPage: boolean) => void;
-  profile: Profile[];
-  setProfile: (profile: any) => void;
-  profileXp: ProfileXp;
-  setProfileXp: (profileXp: any) => void;
-  filterBadgeUser: string;
-  setFilterBadgeUser: (filterBadgeUser: string) => void;
-  isSecret: boolean;
-  setIsSecret: (isSecret: boolean) => void;
-  isNormal: boolean;
-  setIsNormal: (isNormal: boolean) => void;
-  selectedPodcast: string;
-  setSelectedPodcast: (selectedPodcast: string) => void;
-}
+import { BadgeProps } from 'types/BadgeContextProps';
+import { Badge } from 'types/BadgesProps';
 
 const BadgeContext = createContext<BadgeProps>({} as any);
 
@@ -50,20 +10,20 @@ export const BadgeProvider = ({ children }: any) => {
   const navigate = useNavigate();
   const pathname = window.location.pathname;
 
-  const [podcast, setPodcast] = useState('');
-  const [filter, setFilter] = useState(false);
-  const [order, setOrder] = useState('desc');
+  // Badges
   const [badgesPodcast, setBadgesPodcast] = useState<Badge[]>([]);
   const [badges, setBadges] = useState<Badge[]>([]);
-  const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isLoadingPage, setIsLoadingPage] = useState(false);
 
-  const [user, setUser] = useState<Badge[]>([]);
-  const [profile, setProfile] = useState<Profile[]>([]);
-  const [profileXp, setProfileXp] = useState<ProfileXp>({} as any);
+  // Pagination
+  const [page, setPage] = useState(1);
   const [totalBadges, setTotalBadges] = useState(0);
 
+  // Filter
+  const [filter, setFilter] = useState(false);
+  const [order, setOrder] = useState('desc');
+  const [podcast, setPodcast] = useState('');
+
+  // User
   const [filterBadgeUser, setFilterBadgeUser] = useState('lower_serial');
   const [isSecret, setIsSecret] = useState(true);
   const [isNormal, setIsNormal] = useState(true);
@@ -98,24 +58,18 @@ export const BadgeProvider = ({ children }: any) => {
     }
   }
 
-  function loadMoreBadges() {
-    setPage(page + 1);
-  }
-
   return (
     <BadgeContext.Provider
       value={{
         badges,
         badgesPodcast,
         filter,
-        isLoading,
         order,
         page,
         podcast,
         setBadges,
         setBadgesPodcast,
         setFilter,
-        setIsLoading,
         setOrder,
         setPage,
         setPodcast,
@@ -124,17 +78,8 @@ export const BadgeProvider = ({ children }: any) => {
         handleSelectedMaisResgatados,
         handleSelectedMaisRecentes,
         handleSelectedOrder,
-        loadMoreBadges,
-        user,
-        setUser,
         totalBadges,
         setTotalBadges,
-        isLoadingPage,
-        setIsLoadingPage,
-        profile,
-        setProfile,
-        profileXp,
-        setProfileXp,
         filterBadgeUser,
         setFilterBadgeUser,
         isSecret,
