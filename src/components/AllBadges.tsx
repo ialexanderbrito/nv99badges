@@ -38,7 +38,7 @@ export function AllBadges({
                 <Card
                   key={badge.id}
                   badge={badge}
-                  onClick={() => navigate(`/badge/${badge.id}`)}
+                  onClick={() => navigate(`/badge/${badge.code}`)}
                 />
               ))}
           </>
@@ -50,7 +50,7 @@ export function AllBadges({
               <Card
                 key={badge.id}
                 badge={badge}
-                onClick={() => navigate(`/badge/${badge.id}`)}
+                onClick={() => navigate(`/badge/${badge.code}`)}
               />
             ))}
           </>
