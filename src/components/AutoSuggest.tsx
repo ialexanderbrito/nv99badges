@@ -46,7 +46,7 @@ export function AutoSuggest() {
   return (
     <div>
       <input
-        className="bg-primary text-white h-10 w-60 md:w-96 rounded-md px-4 outline-none focus:border border-nv sm:w-96"
+        className="bg-primary text-white h-10 w-60 md:w-64 rounded-md px-4 outline-none focus:border border-nv sm:w-96"
         placeholder="Faça uma busca"
         onFocus={() => setIsFocus(true)}
         onBlur={() => {
