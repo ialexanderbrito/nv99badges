@@ -4,6 +4,7 @@ import cors from 'cors';
 import badgesRoutes from './controllers/badges';
 import usersRoutes from './controllers/users';
 import creatorsRoutes from './controllers/creators';
+import graphRoutes from './controllers/graph';
 import searchRoutes from './controllers/search';
 import rankingRoutes from './controllers/ranking';
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(badgesRoutes);
 app.use(usersRoutes);
 app.use(creatorsRoutes);
+app.use(graphRoutes);
 app.use(searchRoutes);
 app.use(rankingRoutes);
 app.use('/images', express.static('src/assets'));
