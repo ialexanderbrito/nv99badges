@@ -187,6 +187,8 @@ routes.get('/badges/creator/:id', async (request, response) => {
 
     const results: any = {};
 
+    const total = orderBy.length;
+
     if (endIndex < creatorBadges.length) {
       results.next = {
         page: Number(page) + 1,
@@ -204,6 +206,8 @@ routes.get('/badges/creator/:id', async (request, response) => {
     results.results = orderBy.slice(startIndex, endIndex);
 
     results.results = creatorBadges.slice(startIndex, endIndex);
+
+    results.total = total;
 
     return response.status(200).json(results);
   } catch (error) {
