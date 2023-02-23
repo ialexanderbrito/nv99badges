@@ -134,6 +134,8 @@ routes.get('/users/:id', async (request, response) => {
 
       const results: any = {};
 
+      const total = arrayPrincipal.length;
+
       if (endIndex < arrayPrincipal.length) {
         results.next = {
           page: Number(page) + 1,
@@ -153,6 +155,8 @@ routes.get('/users/:id', async (request, response) => {
       results.profile = profileStats;
 
       results.profileXP = profileExperience;
+
+      results.total = total;
 
       return response.status(200).json(results);
     }
@@ -275,6 +279,8 @@ routes.get('/users/:id', async (request, response) => {
 
       const results: any = {};
 
+      const total = arrayPrincipal.length;
+
       if (endIndex < arrayPrincipal.length) {
         results.next = {
           page: Number(page) + 1,
@@ -294,6 +300,8 @@ routes.get('/users/:id', async (request, response) => {
       results.profile = profileStats;
 
       results.profileXP = profileExperience;
+
+      results.total = total;
 
       return response.status(200).json(results);
     }
