@@ -1,3 +1,10 @@
+## [1.34.1](https://github.com/ialexanderbrito/nv99badges/compare/v1.34.0...v1.34.1) (2023-02-23)
+
+
+### Bug Fixes
+
+* navigate badge page ([c809899](https://github.com/ialexanderbrito/nv99badges/commit/c80989914bff7c7ea06063945de59b04dbd50310))
+
 # [1.34.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.33.0...v1.34.0) (2023-02-23)
 
 
