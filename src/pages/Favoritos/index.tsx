@@ -18,14 +18,7 @@ import { getBadgesFavorites } from 'services/get/badges';
 export function Favoritos() {
   const { toast } = useToast();
   const [favorites, setFavorites] = useState<Badge[]>([]);
-  const [oldFavorites, setOldFavorites] = useState<Badge[]>([]);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setOldFavorites(
-      JSON.parse(localStorage.getItem('@nv99badges:favorites') || '[]'),
-    );
-  }, []);
 
   useEffect(() => {
     async function getFavorites() {
@@ -49,7 +42,9 @@ export function Favoritos() {
 
           const market_value_old = favorites[index].market_value;
 
-          const market_value_change = market_value - market_value_old;
+          const desired_price = favorites[index].desired_price || 0;
+
+          const market_value_change = market_value - desired_price;
 
           const market_value_change_percentage =
             (market_value_change / market_value_old) * 100;
@@ -69,6 +64,7 @@ export function Favoritos() {
             market_value_change,
             market_value_change_percentage,
             market_value_change_type,
+            desired_price,
           };
         });
 
@@ -113,6 +109,28 @@ export function Favoritos() {
     toast.success('Emblema removido dos favoritos', { id: 'toast' });
 
     localStorage.setItem('@nv99badges:favorites', JSON.stringify(newFavorites));
+  }
+
+  async function handleUpdateFavoriteBadge(
+    event: React.ChangeEvent<HTMLInputElement>,
+    badge: Badge,
+  ) {
+    const newFavorites = favorites.map((favorite) => {
+      if (favorite.code === badge.code) {
+        return {
+          ...favorite,
+          desired_price: Number(event.target.value),
+        };
+      }
+
+      return favorite;
+    });
+
+    setFavorites(newFavorites);
+
+    localStorage.setItem('@nv99badges:favorites', JSON.stringify(newFavorites));
+
+    toast.success('Emblema atualizado', { id: 'toast' });
   }
 
   return (
@@ -191,18 +209,15 @@ export function Favoritos() {
                               </Link>
                             </p>
                             <p className="flex gap-2 items-center">
-                              Preço salvo:
-                              {oldFavorites?.map((oldFavorite) => (
-                                <>
-                                  {oldFavorite.id === favorite.id && (
-                                    <span className="font-bold text-nv">
-                                      {twoDecimals(
-                                        oldFavorite?.market_value || 0,
-                                      )}
-                                    </span>
-                                  )}
-                                </>
-                              ))}
+                              Preço desejado:
+                              <input
+                                type="number"
+                                className="bg-primary/90 text-white rounded p-1 w-24  sm:w-10 md:w-24"
+                                value={favorite?.desired_price}
+                                onChange={(e) =>
+                                  handleUpdateFavoriteBadge(e, favorite)
+                                }
+                              />
                             </p>
                           </div>
                         </div>
