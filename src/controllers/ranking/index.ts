@@ -31,6 +31,8 @@ routes.get('/ranking', async (request, response) => {
 
     const results: any = {};
 
+    const total = arrayPrincipal.length;
+
     if (endIndex < arrayPrincipal.length) {
       results.next = {
         page: Number(page) + 1,
@@ -46,6 +48,8 @@ routes.get('/ranking', async (request, response) => {
     }
 
     results.results = arrayPrincipal.slice(startIndex, endIndex);
+
+    results.total = total;
 
     return response.status(200).json(results);
   } catch (error) {
