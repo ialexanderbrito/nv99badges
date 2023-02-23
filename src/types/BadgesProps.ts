@@ -42,6 +42,7 @@ export interface Badge {
   serial_number: number;
   media_price_badge?: number;
   market_value_change_type?: 'same' | 'up' | 'down';
+  desired_price?: number;
 }
 
 export interface Profile {
