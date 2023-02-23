@@ -1,3 +1,26 @@
+# [1.34.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.33.0...v1.34.0) (2023-02-23)
+
+
+### Bug Fixes
+
+* hook favorites imports ([82b1fc8](https://github.com/ialexanderbrito/nv99badges/commit/82b1fc8731351ebd3ae2d284c825e13f9f45363d))
+* position header favoritos ([423b174](https://github.com/ialexanderbrito/nv99badges/commit/423b1745bcdcd213396a3f48f7b1485758d09655))
+
+
+### Features
+
+* add all podcast ([819fa31](https://github.com/ialexanderbrito/nv99badges/commit/819fa31e175945d846a7299e599c2448882e896d))
+* add component all badges ([13b7b24](https://github.com/ialexanderbrito/nv99badges/commit/13b7b24c863e71fa9dd8c1942a330d5498be727a))
+* add component badge details ([0e18e5b](https://github.com/ialexanderbrito/nv99badges/commit/0e18e5b4e1207229f7e6e67fa45123f235c7d16a))
+* add component badge graph ([ac9408f](https://github.com/ialexanderbrito/nv99badges/commit/ac9408f76d2d32498925333c3a14965229d2be6a))
+* add component pagination ([b57edc2](https://github.com/ialexanderbrito/nv99badges/commit/b57edc225b3252ec0f02d54c90566bd25cd6a243))
+* add component podcast badge ([d764389](https://github.com/ialexanderbrito/nv99badges/commit/d764389a4a9a0708a290fce6646547f4ea37c14e))
+* add component skeleton list ([7b04bad](https://github.com/ialexanderbrito/nv99badges/commit/7b04badbbbc7d8ab83d94a27348957e7a97371f4))
+* add component top badges ([a17c226](https://github.com/ialexanderbrito/nv99badges/commit/a17c226fc9453033891152f482bff276b98736d6))
+* add input preço sugerido ([08ac4f6](https://github.com/ialexanderbrito/nv99badges/commit/08ac4f62f4ec2a594198527ef465d581d98563aa))
+* add new filter podcast ([c0d5ffa](https://github.com/ialexanderbrito/nv99badges/commit/c0d5ffa7af6a888e7d983f87796cd4f7276a1816))
+* add new types ([85f73eb](https://github.com/ialexanderbrito/nv99badges/commit/85f73ebad027ad30123fca8e89bc47e2c1486acf))
+
 # [1.33.0](https://github.com/ialexanderbrito/nv99badges/compare/v1.32.0...v1.33.0) (2023-02-16)
 
 
