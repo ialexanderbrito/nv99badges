@@ -1,25 +1,25 @@
-import { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useNavigate } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
+import { Creator } from 'types/BadgesProps';
 
 import { CardCreator } from 'components/CardCreator';
-import { CardSkeleton } from 'components/CardSkeleton';
+import { SkeletonList } from 'components/SkeletonList';
+
+import { useToast } from 'contexts/Toast';
 
 import { getChannels } from 'services/get/badges';
 
 export function Canais() {
-  const navigate = useNavigate();
+  const { toast } = useToast();
 
-  const [canais, setCanais] = useState([]);
+  const {
+    data: channelsData,
 
-  const { isLoading } = useQuery(['creators'], () => getChannels(), {
-    onSuccess: (data) => {
-      setCanais(data.data.results);
-    },
+    isLoading: isLoadingChannels,
+  } = useQuery(['creators'], () => getChannels(), {
     onError: () => {
-      navigate(`/canais`);
+      toast.error('Canais não encontrados');
     },
   });
 
@@ -34,19 +34,11 @@ export function Canais() {
           Canais da plataforma
         </h1>
 
-        {isLoading || !canais ? (
-          <>
-            {Array.from({ length: 2 }).map((_, index) => (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                <CardSkeleton key={index} />
-                <CardSkeleton key={index} />
-                <CardSkeleton key={index} />
-              </div>
-            ))}
-          </>
+        {isLoadingChannels ? (
+          <SkeletonList />
         ) : (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {canais.map((canal) => (
+            {channelsData?.data.results.map((canal: Creator) => (
               <CardCreator creator={canal} />
             ))}
           </div>
