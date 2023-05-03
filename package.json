@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build:local": "tsc",
+    "build": "rm -rf dist && tsc",
     "dev": "tsnd --exit-child src/server.ts",
-    "start": "tsnd src/server.ts",
+    "start:local": "tsnd src/server.ts",
+    "start": "node dist/server.js",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "format": "prettier --write **/*.{js,ts,tsx}",
